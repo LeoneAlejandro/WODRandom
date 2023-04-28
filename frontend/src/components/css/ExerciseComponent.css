@@ -1,0 +1,42 @@
+form.editExercise {
+    /* background-color: blue; */
+    display: flex;
+    justify-content: center;
+    display: inline-block;
+}
+
+/* .form-group.editExercise {
+    background-color: blue;
+
+} */
+
+input.form-control.exercise {
+    display: inline-block;
+    width: 30%;
+    left: 0px;
+    margin-left: 0%;
+}
+
+
+input.form-control.type {
+    display: inline-block;
+    width: 15%;
+    left: 1px;
+    margin-left: 1%;
+}
+
+select.selectType {
+    background-color: #2c2c2c;
+    color: white;
+    border: 2px solid rgb(153, 27, 27);
+    border-radius: 0;
+    width: 80px;
+    height: 40px;
+}
+
+select.selectType:focus {
+    border: 2px solid rgb(153, 27, 27);
+}
+
+
+

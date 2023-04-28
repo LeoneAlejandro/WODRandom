@@ -1,0 +1,151 @@
+label, input {
+    margin: 10px;
+    padding: 10px;
+}
+
+button {
+    font-size: 30px;
+    color: white;
+    border: 2px solid rgb(153, 27, 27);
+    font-family: monospace;
+    border-radius: 5px;
+    background: #2c2c2c;
+    /* box-shadow:  18px 18px 37px #121212,
+                 -18px -18px 37px #464646; */
+    padding: 5px 35px 5px 30px;
+    margin: 20px;
+}
+
+
+button:hover {
+    color: whitesmoke;
+    background-color: rgb(153, 27, 27);
+    transition: all 0.3s;
+}
+
+.link, .link:hover {
+    font-weight: bold;
+    color: rgb(192, 38, 38);
+    text-decoration: none;
+    font-size: 115%;
+}
+
+.container {
+    color: white;
+    background-color: rgb(55, 55, 55);
+}
+
+.table.table-dark {
+    background-color: rgb(55, 55, 55);
+    color: white;
+}
+
+.table-hover tbody tr:hover td, .table-hover tbody tr:hover th {
+    background-color: rgb(55,55,55);
+    color: white;
+  }
+
+td {
+    color: white;
+}
+
+th {
+    color: white;
+    font-size: 120%;
+}
+
+
+.WodRandomizerApp {
+    background-color: rgb(55, 55, 55);
+    color: white;
+}
+
+/* 
+footer {
+    bottom: 0;
+    position: absolute;
+    width: 90%;
+    height: 40pxs;
+} */
+
+/* a.navbar-brand.ms-2.fs-2.fw-bold {
+    color: white;
+}
+
+a.nav-link {
+    color: white;
+}
+
+a.navbar-brand.ms-2.fs-2.fw-bold:hover {
+    color: rgb(153, 27, 27);
+}
+
+a.nav-link:hover {
+    color: rgb(153, 27, 27);
+} */
+
+.username, .password {
+    padding: 3px;
+    box-shadow: 3px 3px 5px grey;
+    font-size: 14px;
+    font-weight: 600;
+    width: 300px;
+}
+
+.inputbox {
+    margin: auto;
+    padding: 20p;
+    position: relative;
+    width: 196px;
+  }
+  
+  .inputbox input {
+    position: relative;
+    width: 100%;
+    padding: 20px 10px 10px;
+    background: transparent;
+    outline: none;
+    box-shadow: none;
+    border: none;
+    color: white;
+    font-size: 1em;
+    letter-spacing: 0.05em;
+    transition: 0.5s;
+    z-index: 10;
+  }
+  
+  .inputbox span {
+    position: absolute;
+    left: 0;
+    padding: 20px 10px 10px;
+    font-size: 1em;
+    color: white;
+    letter-spacing: 00.05em;
+    transition: 0.5s;
+    pointer-events: none;
+  }
+  
+  .inputbox input:valid ~span,
+  .inputbox input:focus ~span {
+    color: white;
+    transform: translateX(-100px) translateY(0px);
+    font-size: 0,75em;
+  }
+  
+  .inputbox i {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 2px;
+    background: rgb(153, 27, 27);
+    border-radius: 4px;
+    transition: 0.5s;
+    pointer-events: none;
+    z-index: 9;
+  }
+  
+  .inputbox input:valid ~i,
+  .inputbox input:focus ~i {
+    height: 44px;
+  }

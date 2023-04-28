@@ -1,0 +1,27 @@
+th.ExercisesTitle {
+    width: 900px;
+}
+
+th.TypeTitle {
+    width: 1500px;
+}
+
+th.UpdateTitle {
+    width: 100px;
+}
+
+th.DeleteTitle {
+    width: 100px;
+}
+
+/* table {
+    background-color: blue;
+    width: 50px;
+    position: inherit;
+} */
+
+.lista-ejercicios {
+    width: 1200px;
+    padding-left: 100px;
+    
+}
