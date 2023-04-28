@@ -6,23 +6,34 @@ import java.util.List;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.aleleone.WOD.Randomizer.datasource.repository.ExerciseRepository;
 import com.aleleone.WOD.Randomizer.domain.model.Exercise;
+import com.aleleone.WOD.Randomizer.domain.model.Wod;
 
 @Service
 public class WodGeneratorService {
+	
+	@Autowired
+	ExerciseRepository exerciseRepository;
 
-	public List<Exercise> generateWod(List<Exercise> list, int exAmountFuerza, int exAmountCardio, int exAmountOly ) {
+	public List<Exercise> generateWod(String username, Wod wod ) {
+		int exAmountFuerza = wod.getExAmountFuerza();
+		int exAmountCardio = wod.getExAmountCardio();
+		int exAmountOly = wod.getExAmountOly();
 		
-		List<Exercise> ejerciciosDeFuerza =	list.stream().filter(
+		List<Exercise> exercisesByUsername = exerciseRepository.findByUsername(username);
+		
+		List<Exercise> ejerciciosDeFuerza =	exercisesByUsername.stream().filter(
 																p -> p.getExerciseType().equals("Fuerza"))
 															.collect(Collectors.toList());;
 															
-		List<Exercise> ejerciciosDeCardio =	list.stream().filter(p -> p.getExerciseType().equals("Cardio"))
+		List<Exercise> ejerciciosDeCardio =	exercisesByUsername.stream().filter(p -> p.getExerciseType().equals("Cardio"))
 															.collect(Collectors.toList());;
 			
-		List<Exercise> ejerciciosDeOly = list.stream().filter(p -> p.getExerciseType().equals("Oly"))
+		List<Exercise> ejerciciosDeOly = exercisesByUsername.stream().filter(p -> p.getExerciseType().equals("Oly"))
 															.collect(Collectors.toList());;
 		
 		

@@ -24,13 +24,7 @@ public class WodController {
 	
 	@PostMapping("/users/{username}/generatewod")
 	public List<Exercise> createWod(@PathVariable String username, @RequestBody Wod wod) {		
-		int exAmountFuerza = wod.getExAmountFuerza();
-		int exAmountCardio = wod.getExAmountCardio();
-		int exAmountOly = wod.getExAmountOly();
-		
-		List<Exercise> exercisesByUsername = exerciseRepository.findByUsername(username);
-		
-		List<Exercise> wodGenerated = wodGenerator.generateWod(exercisesByUsername, exAmountFuerza, exAmountCardio, exAmountOly );
+		List<Exercise> wodGenerated = wodGenerator.generateWod(username, wod);
 		
 		return wodGenerated;
 	}
