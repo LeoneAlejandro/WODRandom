@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.aleleone.WOD.Randomizer.datasource.repository.ExerciseRepository;
 import com.aleleone.WOD.Randomizer.domain.model.Exercise;
-import com.aleleone.WOD.Randomizer.domain.model.WodRequestDetails;
+import com.aleleone.WOD.Randomizer.domain.model.Wod;
 import com.aleleone.WOD.Randomizer.domain.service.WodGeneratorService;
 
 @RestController
@@ -23,7 +23,7 @@ public class WodController {
 	WodGeneratorService wodGenerator;
 	
 	@PostMapping("/users/{username}/generatewod")
-	public List<Exercise> createWod(@PathVariable String username, @RequestBody WodRequestDetails wod) {		
+	public List<Exercise> createWod(@PathVariable String username, @RequestBody Wod wod) {		
 		int exAmountFuerza = wod.getExAmountFuerza();
 		int exAmountCardio = wod.getExAmountCardio();
 		int exAmountOly = wod.getExAmountOly();

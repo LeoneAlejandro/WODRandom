@@ -10,6 +10,7 @@ export default function WodFilterGeneratorComponent() {
     const username = authContext.username
 
     const [listOfExercises, setListOfExercises] = useState('')
+    const [badRequest, setBadRequest] = useState(()=>false)
 
     function onSubmit(values) {
 
@@ -19,15 +20,18 @@ export default function WodFilterGeneratorComponent() {
             exAmountOly: values.exAmountOly
             }
 
-        console.log(wod)
 
 
         generateWod(username, wod)
             .then(response => {
-                console.log(response.data)
+                if(!response.data) {
+                    setBadRequest(true)
+                }
                 setListOfExercises(response.data)
             })
             .catch(error => console.log(error))
+        
+        setBadRequest(false)
 
     }
 
@@ -52,6 +56,8 @@ export default function WodFilterGeneratorComponent() {
                 <div className="row justify-content-md-center" >
                     <div className="col-sm-10" >
                     <label > Cuantos ejercicios hacemos ? </label>
+
+
                             <Formik initialValues={{ exAmountFuerza: 1 , exAmountCardio: 1, exAmountOly: 1}} 
                                 enableReinitialize={true} 
                                 onSubmit= { onSubmit }
@@ -94,8 +100,12 @@ export default function WodFilterGeneratorComponent() {
                     <div className="col-sm-12">
                         </div>
                             <div>
+                                { badRequest && 
+                                    <div className="alert alert-danger">
+                                        Elegiste muchos ejercicios para alguna categoría
+                                    </div>
+                                }
                                 { listOfExercises && 
-                                
                                 
                                 <div className="tabla-ejercicios">
                                 <table className='table table-hover'>
@@ -109,7 +119,6 @@ export default function WodFilterGeneratorComponent() {
                                         { listOfExercises.map(
                                                 exercise => (
                                                     <tr key={listOfExercises.exerciseId}>
-                                                        {/* <td>{exercise.exerciseId}</td> */}
                                                         <td>{exercise.exerciseName}</td>
                                                         <td>{exercise.exerciseType}</td>
                                                     </tr>

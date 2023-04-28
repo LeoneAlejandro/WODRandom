@@ -6,7 +6,7 @@ import jakarta.persistence.Id;
 
 @Entity
 public class Exercise {
-	
+		
 	@Id
 	@GeneratedValue
 	private Integer exerciseId;

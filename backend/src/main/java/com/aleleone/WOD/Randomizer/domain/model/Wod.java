@@ -1,6 +1,6 @@
 package com.aleleone.WOD.Randomizer.domain.model;
 
-public class WodRequestDetails {
+public class Wod {
 	
 	private int exAmountFuerza;
 	private int exAmountCardio;
@@ -8,7 +8,7 @@ public class WodRequestDetails {
 	
 	
 	
-	public WodRequestDetails() { }
+	public Wod() { }
 
 	public int getExAmountFuerza() {
 		return exAmountFuerza;

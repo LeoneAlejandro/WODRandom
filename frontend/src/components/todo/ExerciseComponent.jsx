@@ -85,7 +85,7 @@ export default function ExerciseComponent() {
                     >
                     {
                         (props) => (
-                            <Form className="editExercise" autocomplete="off">
+                            <Form className="editExercise" autoComplete="off">
                                 <ErrorMessage 
                                     name='exerciseName'
                                     component='div'
@@ -100,8 +100,8 @@ export default function ExerciseComponent() {
                                     <label>Ejercicio</label>
                                     <Field type="text" className="form-control exercise" name="exerciseName"/>
                                     <label>Tipo</label>
-                                    <Field as="select" type="select" className="selectType" name="exerciseType" >
-                                            <option value="" disabled selected></option>
+                                    <Field as="select" type="select" className="selectType" name="exerciseType">
+                                            <option value="" disabled selected>Tipo</option>
                                             <option value="Fuerza">Fuerza</option>
                                             <option value="Cardio">Cardio</option>
                                             <option value="Oly">Oly</option>

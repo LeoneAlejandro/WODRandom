@@ -65,3 +65,9 @@ th.ExerciseTitle {
         /* transform: translate(83%, 10%); */
     padding: 7px;
 }
+
+.alert.alert-danger {
+    /* background-color: blue; */
+    margin-left: 10%;
+    margin-top: 2%;
+}

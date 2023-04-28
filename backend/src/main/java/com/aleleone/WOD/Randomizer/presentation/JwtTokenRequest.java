@@ -1,4 +1,4 @@
-package  com.aleleone.WOD.Randomizer.domain.model;
+package  com.aleleone.WOD.Randomizer.presentation;
 
 public record JwtTokenRequest(String username, String password) {}
 
