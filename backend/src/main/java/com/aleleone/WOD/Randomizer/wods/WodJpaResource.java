@@ -25,8 +25,6 @@ public class WodJpaResource {
 		int exAmountFuerza = wod.getExAmountFuerza();
 		int exAmountCardio = wod.getExAmountCardio();
 		int exAmountOly = wod.getExAmountOly();
-	
-//		System.out.println(wod);
 		
 		List<Exercise> exercisesByUsername = exerciseRepository.findByUsername(username);
 		

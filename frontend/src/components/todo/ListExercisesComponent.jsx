@@ -48,13 +48,11 @@ export default function ListExercisesComponent() {
 
     return(
         <div className="container">
-            {/* <h3>All your Exercises</h3> */}
             {message && <div className="alert alert-warning">{message}</div>}
             <div className="lista-ejercicios">
                 <table className='table table-hover'>
                     <thead>
                         <tr>
-                            {/* <td>Id</td> */}
                             <th className="ExercisesTitle">Ejercicio</th>
                             <th className="TypeTitle">Tipo</th>
                             <th className="UpdateTitle"></th>
@@ -65,7 +63,6 @@ export default function ListExercisesComponent() {
                         { exercise.map(
                                 exercise => (
                                     <tr key={exercise.exerciseId}>
-                                        {/* <td>{exercise.exerciseId}</td> */}
                                         <td>{exercise.exerciseName}</td>
                                         <td>{exercise.exerciseType}</td>
                                         <td><button className="btn btn-success" onClick={() => updateExercise(exercise.exerciseId) }>Modificar</button></td>

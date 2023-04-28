@@ -30,7 +30,4 @@ public class Wod {
 	public String toString() {
 		return "Wod [exerciseAmount=" + exerciseAmount + ", exerciseType=" + exerciseType + "]";
 	}
-
-	
-	
 }

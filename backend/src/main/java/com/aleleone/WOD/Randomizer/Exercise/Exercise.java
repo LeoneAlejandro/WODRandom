@@ -10,14 +10,13 @@ public class Exercise {
 	@Id
 	@GeneratedValue
 	private Integer exerciseId;
-	
 	private String username;
-	
 	private String exerciseName;
-	
 	private String exerciseType;
 	
+	
 	public Exercise() {	}
+	
 	
 	public Exercise(Integer exerciseId, String username, String exerciseName, String exerciseType) {
 		super();
@@ -59,7 +58,4 @@ public class Exercise {
 		return "Exercise [exerciseId=" + exerciseId + ", exerciseName=" + exerciseName + ", exerciseType="
 				+ exerciseType + "]";
 	}
-	
-	
-
 }

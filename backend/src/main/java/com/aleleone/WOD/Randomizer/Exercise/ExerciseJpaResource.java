@@ -21,7 +21,6 @@ public class ExerciseJpaResource {
 	@Autowired
 	private ExerciseRepository exerciseRepository;
 	
-	
 	@GetMapping("/users/{username}/exercises")
 	public List<Exercise> getExercises(@PathVariable String username) {
 		return exerciseRepository.findByUsername(username);
@@ -64,5 +63,4 @@ public class ExerciseJpaResource {
 		} 
 		throw new UsernameNotFoundException("Username: " + username + " or exercise with ID: " + id + " was not found");
 	}
-	
 }

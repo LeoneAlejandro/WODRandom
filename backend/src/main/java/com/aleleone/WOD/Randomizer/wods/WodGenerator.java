@@ -49,23 +49,5 @@ public class WodGenerator {
 	
 		
 		return wodGenerado;
-		
-		
-		
-//		for(int i = lengthFuerza -1; i >= lengthFuerza - exAmountFuerza; --i) {
-//			Collections.swap(ejerciciosDeFuerza, i, r.nextInt(i+1));
-//		}
-//		List<Exercise> exFuerzas =  ejerciciosDeFuerza.subList(lengthFuerza - exAmountFuerza, lengthFuerza);
-//		
-//		for(int i = lengthCardio -1; i >= lengthCardio - exAmountCardio; --i) {
-//			Collections.swap(ejerciciosDeCardio, i, r.nextInt(i+1));
-//		}
-//		List<Exercise> exCardios = ejerciciosDeCardio.subList(lengthCardio - exAmountCardio, lengthCardio);
-//		
-//		for(int i = lengthOly -1; i >= lengthOly - exAmountOly; --i) {
-//			Collections.swap(ejerciciosDeOly, i, r.nextInt(i+1));
-//		}
-//		List<Exercise> exOlys = ejerciciosDeOly.subList(lengthOly - exAmountOly, lengthOly);
-
 	}
 }
