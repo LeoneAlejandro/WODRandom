@@ -14,7 +14,7 @@ import com.aleleone.WOD.Randomizer.domain.model.Exercise;
 import com.aleleone.WOD.Randomizer.domain.model.Wod;
 
 @Service
-public class WodGeneratorService {
+public class WodService {
 	
 	@Autowired
 	ExerciseRepository exerciseRepository;
