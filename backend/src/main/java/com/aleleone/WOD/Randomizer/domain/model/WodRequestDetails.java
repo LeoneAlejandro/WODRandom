@@ -1,4 +1,4 @@
-package com.aleleone.WOD.Randomizer.wods;
+package com.aleleone.WOD.Randomizer.domain.model;
 
 public class WodRequestDetails {
 	

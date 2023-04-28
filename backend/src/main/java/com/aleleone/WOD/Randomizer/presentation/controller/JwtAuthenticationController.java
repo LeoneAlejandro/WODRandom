@@ -1,4 +1,4 @@
-package com.aleleone.WOD.Randomizer.jwt;
+package com.aleleone.WOD.Randomizer.presentation.controller;
 
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.authentication.AuthenticationManager;
@@ -6,6 +6,10 @@ import org.springframework.security.authentication.UsernamePasswordAuthenticatio
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
+
+import com.aleleone.WOD.Randomizer.domain.model.JwtTokenRequest;
+import com.aleleone.WOD.Randomizer.domain.model.JwtTokenResponse;
+import com.aleleone.WOD.Randomizer.domain.service.JwtTokenService;
 
 @RestController
 public class JwtAuthenticationController {

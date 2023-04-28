@@ -1,4 +1,4 @@
-package  com.aleleone.WOD.Randomizer.jwt;
+package  com.aleleone.WOD.Randomizer.domain.service;
 
 import java.time.Instant;
 import java.time.temporal.ChronoUnit;

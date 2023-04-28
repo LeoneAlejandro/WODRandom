@@ -1,4 +1,4 @@
-package com.aleleone.WOD.Randomizer.wods;
+package com.aleleone.WOD.Randomizer.domain.service;
 
 import java.util.Collection;
 import java.util.Collections;
@@ -6,12 +6,12 @@ import java.util.List;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
-import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Service;
 
-import com.aleleone.WOD.Randomizer.Exercise.Exercise;
+import com.aleleone.WOD.Randomizer.domain.model.Exercise;
 
-@Component
-public class WodGenerator {
+@Service
+public class WodGeneratorService {
 
 	public List<Exercise> generateWod(List<Exercise> list, int exAmountFuerza, int exAmountCardio, int exAmountOly ) {
 		

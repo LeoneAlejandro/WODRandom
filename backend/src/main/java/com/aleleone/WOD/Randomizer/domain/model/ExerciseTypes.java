@@ -1,4 +1,4 @@
-package com.aleleone.WOD.Randomizer.Exercise;
+package com.aleleone.WOD.Randomizer.domain.model;
 
 public enum ExerciseTypes {
 

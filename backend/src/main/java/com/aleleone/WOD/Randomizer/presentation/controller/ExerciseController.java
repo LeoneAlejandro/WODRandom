@@ -1,4 +1,4 @@
-package com.aleleone.WOD.Randomizer.Exercise;
+package com.aleleone.WOD.Randomizer.presentation.controller;
 
 import java.util.List;
 
@@ -13,54 +13,41 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.aleleone.WOD.Randomizer.Exercise.repository.ExerciseRepository;
+import com.aleleone.WOD.Randomizer.domain.model.Exercise;
+import com.aleleone.WOD.Randomizer.domain.service.ExerciseService;
 
 @RestController
-public class ExerciseJpaResource {
+public class ExerciseController {
 
 	@Autowired
-	private ExerciseRepository exerciseRepository;
+	private ExerciseService exerciseService;
+	
 	
 	@GetMapping("/users/{username}/exercises")
 	public List<Exercise> getExercises(@PathVariable String username) {
-		return exerciseRepository.findByUsername(username);
+		return exerciseService.getExercisesForUsername(username);
 	}
 	
 	@GetMapping("/users/{username}/exercises/{id}")
-	public Exercise getExercise(@PathVariable String username, @PathVariable int id) throws UsernameNotFoundException {
-		List<Exercise> exercises = exerciseRepository.findByUsername(username);
-		for (Exercise exercise : exercises) {
-			if(exercise.getExerciseId().equals(id)) {
-				return exercise;
-			}
-		}
-		throw new UsernameNotFoundException("Username: " + username + " or exercise with ID: " + id + " was not found");
+	public Exercise getExercise(@PathVariable String username, @PathVariable int id) {
+		return exerciseService.getExerciseForUsername(username, id);
 	}
+	
 	
 	@PostMapping("/users/{username}/exercises")
 	public Exercise addExerciseById(@PathVariable String username, @RequestBody Exercise exercise) {
-		exercise.setUsername(username);
-		exercise.setExerciseId(null);
-		exerciseRepository.save(exercise);
-		return exercise;
+		return exerciseService.addExercise(username, exercise);
 	}
+	
 	
 	@DeleteMapping("/users/{username}/exercises/{id}")
 	public ResponseEntity<Void> deleteExercise(@PathVariable String username, @PathVariable int id) {
-		exerciseRepository.deleteById(id);
-		return ResponseEntity.noContent().build();
+		return exerciseService.deleteExercise(username, id);
 	}
+	
 	
 	@PutMapping("/users/{username}/exercises/{id}")
 	public Exercise updateExercise(@PathVariable String username, @PathVariable int id, @RequestBody Exercise exercise) throws UsernameNotFoundException {
-		
-		Exercise findExercise = getExercise(username, id);
-		if (findExercise != null) {
-			exercise.setExerciseId(id);
-			exercise.setUsername(username);
-			exerciseRepository.save(exercise);
-			return exercise;
-		} 
-		throw new UsernameNotFoundException("Username: " + username + " or exercise with ID: " + id + " was not found");
+		return exerciseService.updateExercise(username, id, exercise);
 	}
 }

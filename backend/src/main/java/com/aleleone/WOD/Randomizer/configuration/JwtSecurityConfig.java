@@ -1,4 +1,4 @@
-package com.aleleone.WOD.Randomizer.jwt;
+package com.aleleone.WOD.Randomizer.configuration;
 
 
 import java.security.KeyPair;
