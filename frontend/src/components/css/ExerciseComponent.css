@@ -1,20 +1,20 @@
 form.editExercise {
-    /* background-color: blue; */
     display: flex;
     justify-content: center;
     display: inline-block;
 }
 
-/* .form-group.editExercise {
-    background-color: blue;
-
-} */
 
 input.form-control.exercise {
     display: inline-block;
     width: 40%;
     left: 0px;
     margin-left: 0%;
+    box-shadow: none;
+}
+
+input.form-control.exercise:focus {
+    border: 2px solid rgb(153, 27, 27);
 }
 
 
@@ -32,10 +32,12 @@ select.selectType {
     border-radius: 0;
     width: 80px;
     height: 40px;
+    outline: 0px;
 }
 
 select.selectType:focus {
     border: 2px solid rgb(153, 27, 27);
+    outline: 0px;
 }
 
 .alert.alert-warning {
