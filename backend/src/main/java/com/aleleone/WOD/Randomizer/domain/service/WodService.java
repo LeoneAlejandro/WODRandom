@@ -24,7 +24,7 @@ public class WodService {
 		int exAmountCardio = wod.getExAmountCardio();
 		int exAmountOly = wod.getExAmountOly();
 		
-		List<Exercise> exercisesByUsername = exerciseRepository.findByUsername(username);
+		List<Exercise> exercisesByUsername = exerciseRepository.findByUserName(username);
 		
 		List<Exercise> ejerciciosDeFuerza =	exercisesByUsername.stream().filter(
 																p -> p.getExerciseType().equals("Fuerza"))

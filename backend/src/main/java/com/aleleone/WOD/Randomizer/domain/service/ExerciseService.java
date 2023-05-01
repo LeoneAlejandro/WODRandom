@@ -19,15 +19,15 @@ public class ExerciseService {
 	ExerciseRepository exerciseRepository;
 	
 	public List<Exercise> getExercisesForUsername(String username) {
-		return exerciseRepository.findByUsername(username);
+		return exerciseRepository.findByUserName(username);
 	}
 	
 	
-	public Exercise getExerciseForUsername(String username, int id) {
-		List<Exercise> exercises = exerciseRepository.findByUsername(username);
+	public Exercise getExerciseForUsername(String username, Long id) {
+		List<Exercise> exercises = exerciseRepository.findByUserName(username);
 		
 		for (Exercise exercise : exercises) {
-			if(exercise.getExerciseId().equals(id)) {
+			if(exercise.getId().equals(id)) {
 				return exercise;
 			}
 		}
@@ -36,8 +36,8 @@ public class ExerciseService {
 	
 	
 	public Exercise addExercise(String username, Exercise exercise) {
-		exercise.setUsername(username);
-		exercise.setExerciseId(null);
+		exercise.setUserName(username);
+		exercise.setId(null);
 		exerciseRepository.save(exercise);
 		return exercise;
 	}
@@ -49,11 +49,11 @@ public class ExerciseService {
 	}
 	
 	
-	public Exercise updateExercise(String username, int id, Exercise exercise) {
+	public Exercise updateExercise(String username, Long id, Exercise exercise) {
 		Exercise findExercise = getExerciseForUsername(username, id);
 		if (findExercise != null) {
-			exercise.setExerciseId(id);
-			exercise.setUsername(username);
+			exercise.setId(id);
+			exercise.setUserName(username);
 			exerciseRepository.save(exercise);
 			return exercise;
 		} 
