@@ -8,6 +8,6 @@ import com.aleleone.WOD.Randomizer.domain.model.Exercise;
 
 public interface ExerciseRepository extends JpaRepository<Exercise, Integer>{
 
-	List<Exercise> findByUsername(String username);
+	List<Exercise> findByUserName(String username);
 	
 }

@@ -15,4 +15,5 @@ public interface ExerciseService {
     void delete(String username, int id);
 
     Exercise update(String username, int id, Exercise exercise);
+
 }

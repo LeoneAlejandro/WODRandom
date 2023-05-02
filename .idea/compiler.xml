@@ -9,6 +9,11 @@
         <module name="WOD-Randomizer" />
       </profile>
     </annotationProcessing>
+
+    <bytecodeTargetLevel>
+      <module name="WOD-Randomizer" target="17" />
+    </bytecodeTargetLevel>
+
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">

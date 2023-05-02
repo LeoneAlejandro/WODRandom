@@ -46,4 +46,5 @@ public class ExerciseController {
     public Exercise updateExercise(@PathVariable String username, @PathVariable int id, @RequestBody Exercise exercise) throws UsernameNotFoundException {
         return exerciseService.update(username, id, exercise);
     }
+
 }
