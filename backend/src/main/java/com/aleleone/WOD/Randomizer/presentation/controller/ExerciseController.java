@@ -1,24 +1,33 @@
 package com.aleleone.WOD.Randomizer.presentation.controller;
 
-import com.aleleone.WOD.Randomizer.domain.model.Exercise;
-import com.aleleone.WOD.Randomizer.domain.service.ExerciseService;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.ResponseEntity;
-import org.springframework.security.core.userdetails.UsernameNotFoundException;
-import org.springframework.web.bind.annotation.*;
+import static org.springframework.http.ResponseEntity.noContent;
 
 import java.util.List;
 
-import static org.springframework.http.ResponseEntity.noContent;
+import org.springframework.http.ResponseEntity;
+import org.springframework.security.core.userdetails.UsernameNotFoundException;
+import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RestController;
+
+import com.aleleone.WOD.Randomizer.domain.model.Exercise;
+import com.aleleone.WOD.Randomizer.domain.service.ExerciseService;
 
 @RestController
 public class ExerciseController {
 
-    @Autowired
-    private ExerciseService exerciseService;
+    private final ExerciseService exerciseService;
+    
+    public ExerciseController(ExerciseService exerciseService) {
+	super();
+	this.exerciseService = exerciseService;
+}
 
-
-    @GetMapping("/users/{username}/exercises")
+	@GetMapping("/users/{username}/exercises")
     public List<Exercise> getExercises(@PathVariable String username) {
         return exerciseService.find(username);
     }

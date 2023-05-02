@@ -1,22 +1,28 @@
 package com.aleleone.WOD.Randomizer.domain.service.impl;
 
-import com.aleleone.WOD.Randomizer.datasource.repository.ExerciseRepository;
-import com.aleleone.WOD.Randomizer.domain.model.Exercise;
-import com.aleleone.WOD.Randomizer.domain.service.ExerciseService;
-import jakarta.persistence.EntityNotFoundException;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
+import static java.lang.String.format;
 
 import java.util.List;
 
-import static java.lang.String.format;
+import org.springframework.stereotype.Service;
+
+import com.aleleone.WOD.Randomizer.datasource.repository.ExerciseRepository;
+import com.aleleone.WOD.Randomizer.domain.model.Exercise;
+import com.aleleone.WOD.Randomizer.domain.service.ExerciseService;
+
+import jakarta.persistence.EntityNotFoundException;
 
 @Service
 public class ExerciseServiceImpl implements ExerciseService {
 
-    @Autowired
-    ExerciseRepository exerciseRepository;
-
+	
+    private final ExerciseRepository exerciseRepository;
+    
+    public ExerciseServiceImpl(ExerciseRepository exerciseRepository) {
+    	this.exerciseRepository = exerciseRepository;
+    }
+    
+    
     public List<Exercise> find(String username) {
         return exerciseRepository.findByUsername(username);
     }

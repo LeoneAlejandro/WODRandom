@@ -7,15 +7,15 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.aleleone.WOD.Randomizer.presentation.JwtTokenResponse;
 import com.aleleone.WOD.Randomizer.domain.service.JwtTokenService;
 import com.aleleone.WOD.Randomizer.presentation.JwtTokenRequest;
+import com.aleleone.WOD.Randomizer.presentation.JwtTokenResponse;
 
 @RestController
 public class JwtAuthenticationController {
     
     private final JwtTokenService tokenService;
-    
+
     private final AuthenticationManager authenticationManager;
 
     public JwtAuthenticationController(JwtTokenService tokenService, 

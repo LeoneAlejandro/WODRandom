@@ -102,9 +102,9 @@ export default function ExerciseComponent() {
                                     <label>Tipo</label>
                                     <Field as="select" type="select" className="selectType" name="exerciseType">
                                             <option value="" disabled selected>Tipo</option>
-                                            <option value="Fuerza">Fuerza</option>
-                                            <option value="Cardio">Cardio</option>
-                                            <option value="Oly">Oly</option>
+                                            <option value="FUERZA">Fuerza</option>
+                                            <option value="CARDIO">Cardio</option>
+                                            <option value="OLY">Oly</option>
                                     </Field>
                                 </fieldset>
                                 <button className="btn btn-success m-4" type="submit">Agregar</button>

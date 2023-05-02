@@ -33,3 +33,7 @@ build/
 .vscode/
 **/.idea/workspace.xml
 **/.idea/tasks.xml
+
+
+### Personal application.properties ###
+WODRandoapp.properties

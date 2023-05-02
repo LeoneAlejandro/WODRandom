@@ -1,27 +1,36 @@
 package com.aleleone.WOD.Randomizer.domain.service.impl;
 
-import com.aleleone.WOD.Randomizer.datasource.repository.ExerciseRepository;
-import com.aleleone.WOD.Randomizer.domain.model.Exercise;
-import com.aleleone.WOD.Randomizer.domain.model.Wod;
-import com.aleleone.WOD.Randomizer.domain.service.WodService;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
-
-import java.util.Collection;
-import java.util.List;
-
-import static com.aleleone.WOD.Randomizer.domain.model.Exercise.ExerciseType.*;
+import static com.aleleone.WOD.Randomizer.domain.model.Exercise.ExerciseType.CARDIO;
+import static com.aleleone.WOD.Randomizer.domain.model.Exercise.ExerciseType.FUERZA;
+import static com.aleleone.WOD.Randomizer.domain.model.Exercise.ExerciseType.OLY;
 import static java.util.Collections.shuffle;
 import static java.util.stream.Collectors.toList;
 import static java.util.stream.Stream.of;
 
+import java.util.Collection;
+import java.util.List;
+
+import org.springframework.stereotype.Service;
+
+import com.aleleone.WOD.Randomizer.datasource.repository.ExerciseRepository;
+import com.aleleone.WOD.Randomizer.domain.model.Exercise;
+import com.aleleone.WOD.Randomizer.domain.model.Wod;
+import com.aleleone.WOD.Randomizer.domain.service.WodService;
+
 @Service
 public class WodServiceImpl implements WodService {
 
-    @Autowired
-    ExerciseRepository exerciseRepository;
 
-    public List<Exercise> generateWod(String username, Wod wod) {
+    private final ExerciseRepository exerciseRepository;
+    
+    public WodServiceImpl(ExerciseRepository exerciseRepository) {
+		super();
+		this.exerciseRepository = exerciseRepository;
+	}
+
+
+
+	public List<Exercise> generateWod(String username, Wod wod) {
         int exAmountFuerza = wod.getExAmountFuerza();
         int exAmountCardio = wod.getExAmountCardio();
         int exAmountOly = wod.getExAmountOly();

@@ -1,9 +1,8 @@
 package com.aleleone.WOD.Randomizer.domain.service;
 
-import com.aleleone.WOD.Randomizer.domain.model.Exercise;
-import org.springframework.http.ResponseEntity;
-
 import java.util.List;
+
+import com.aleleone.WOD.Randomizer.domain.model.Exercise;
 
 public interface ExerciseService {
     List<Exercise> find(String username);
