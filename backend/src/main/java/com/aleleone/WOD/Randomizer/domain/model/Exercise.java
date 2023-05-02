@@ -1,8 +1,12 @@
 package com.aleleone.WOD.Randomizer.domain.model;
 
+
 import jakarta.persistence.*;
 
 import static jakarta.persistence.GenerationType.IDENTITY;
+
+
+import static jakarta.persistence.EnumType.STRING;
 
 @Entity
 @Table(name = "exercise")
@@ -39,6 +43,7 @@ public class Exercise {
 
     public void setId(Long id) {
         this.id = id;
+
     }
 
     public String getExerciseName() {
@@ -63,6 +68,7 @@ public class Exercise {
 
     public void setUserName(String userName) {
         this.userName = userName;
+
     }
 
     @Override
@@ -70,4 +76,5 @@ public class Exercise {
         return "Exercise [exerciseId=" + id + ", exerciseName=" + exerciseName + ", exerciseType="
                 + exerciseType + "]";
     }
+
 }
