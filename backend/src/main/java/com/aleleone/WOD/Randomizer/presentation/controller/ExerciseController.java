@@ -33,7 +33,7 @@ public class ExerciseController {
     }
 
     @GetMapping("/users/{username}/exercises/{id}")
-    public Exercise getExercise(@PathVariable String username, @PathVariable int id) {
+    public Exercise getExercise(@PathVariable String username, @PathVariable Long id) {
         return exerciseService.find(username, id);
     }
 
@@ -45,14 +45,15 @@ public class ExerciseController {
 
 
     @DeleteMapping("/users/{username}/exercises/{id}")
-    public ResponseEntity<Void> deleteExercise(@PathVariable String username, @PathVariable int id) {
+    public ResponseEntity<Void> deleteExercise(@PathVariable String username, @PathVariable Long id) {
         exerciseService.delete(username, id);
         return noContent().build();
     }
 
 
     @PutMapping("/users/{username}/exercises/{id}")
-    public Exercise updateExercise(@PathVariable String username, @PathVariable int id, @RequestBody Exercise exercise) throws UsernameNotFoundException {
+    public Exercise updateExercise(@PathVariable String username, @PathVariable Long id, @RequestBody Exercise exercise) throws UsernameNotFoundException {
         return exerciseService.update(username, id, exercise);
     }
+
 }

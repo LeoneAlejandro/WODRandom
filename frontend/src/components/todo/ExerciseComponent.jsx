@@ -34,7 +34,7 @@ export default function ExerciseComponent() {
     function onSubmit(values) {
        
         const exercise = { 
-            exerciseId: id, 
+            id: id, 
             username: username, 
             exerciseName: values.exerciseName, 
             exerciseType: values.exerciseType, 

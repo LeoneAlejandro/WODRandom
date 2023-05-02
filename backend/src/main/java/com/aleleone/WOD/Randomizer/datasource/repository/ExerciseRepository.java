@@ -6,8 +6,8 @@ import org.springframework.data.jpa.repository.JpaRepository;
 
 import com.aleleone.WOD.Randomizer.domain.model.Exercise;
 
-public interface ExerciseRepository extends JpaRepository<Exercise, Integer>{
+public interface ExerciseRepository extends JpaRepository<Exercise, Long>{
 
-	List<Exercise> findByUsername(String username);
+	List<Exercise> findByUserName(String username);
 	
 }

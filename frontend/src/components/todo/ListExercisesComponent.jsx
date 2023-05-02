@@ -62,11 +62,11 @@ export default function ListExercisesComponent() {
                     <tbody>
                         { exercise.map(
                                 exercise => (
-                                    <tr key={exercise.exerciseId}>
+                                    <tr key={exercise.id}>
                                         <td>{exercise.exerciseName}</td>
                                         <td>{exercise.exerciseType}</td>
-                                        <td><button className="btn btn-success" onClick={() => updateExercise(exercise.exerciseId) }>Modificar</button></td>
-                                        <td><button className="btn btn-danger" onClick={() => deleteExercise(exercise.exerciseId) }>X</button></td>
+                                        <td><button className="btn btn-success" onClick={() => updateExercise(exercise.id) }>Modificar</button></td>
+                                        <td><button className="btn btn-danger" onClick={() => deleteExercise(exercise.id) }>X</button></td>
                                     </tr>
                                 )
                             )

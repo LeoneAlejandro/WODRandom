@@ -1,0 +1,58 @@
+spring:
+
+  #  test:
+  #    database:
+  #      replace: NONE
+
+  h2:
+    console:
+      enabled: true
+
+  datasource:
+    url: jdbc:h2:mem:localhost;MODE=MySQL;DB_CLOSE_ON_EXIT=FALSE;DB_CLOSE_DELAY=-1;DATABASE_TO_UPPER=false
+    username: sa
+    db:
+    password: null
+    driver-class-name: org.h2.Driver
+    auto-commit: true
+    hikari:
+      # https://bit.ly/3eGDwz2
+      maximum-pool-size: 30
+      minimum-idle: 15
+      connection-timeout: 30000
+      idleTimeout: 600000
+      readOnly: false
+      max-life-time: 400000
+      leak-detection-threshold: 30000
+      connection-init-sql: SELECT 1
+      auto-commit: false
+      # https://bit.ly/2AYCgZQ
+      cachePrepStmts: true
+      prepStmtCacheSize: 250
+      prepStmtCacheSqlLimit: 2048
+      useServerPrepStmts: true
+      useLocalSessionState: true
+      rewriteBatchedStatements: true
+      cacheResultSetMetadata: true
+      cacheServerConfiguration: true
+      elideSetAutoCommits: true
+      maintainTimeStats: false
+
+  jpa:
+    show-sql: true
+    generate-ddl: true
+    database-platform: org.hibernate.dialect.H2Dialect
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.H2Dialect
+        naming_strategy: org.hibernate.cfg.ImprovedNamingStrategy
+        hbm2ddl:
+          auto: create
+    javax:
+      persistence:
+        schema-generation:
+          create-database-schemas: true
+          create-source: metadata
+          scripts:
+            action: create
+            create-target: create.sql

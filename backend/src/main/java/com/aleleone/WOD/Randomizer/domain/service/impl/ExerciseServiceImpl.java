@@ -22,40 +22,40 @@ public class ExerciseServiceImpl implements ExerciseService {
     	this.exerciseRepository = exerciseRepository;
     }
     
-    
+    @Override
     public List<Exercise> find(String username) {
-        return exerciseRepository.findByUsername(username);
+        return exerciseRepository.findByUserName(username);
     }
 
-
-    public Exercise find(String username, int id) {
-        List<Exercise> exercises = exerciseRepository.findByUsername(username);
+    @Override
+    public Exercise find(String username, Long id) {
+        List<Exercise> exercises = exerciseRepository.findByUserName(username);
         return exercises.stream()
-                .filter(e -> e.getExerciseId().equals(id))
+                .filter(e -> e.getId().equals(id))
                 .findFirst().orElseThrow(
                         () -> new EntityNotFoundException(format("Ejercicio con id: %d para el usuario %s no existe", id, username))
                 );
     }
 
-
+    @Override
     public Exercise create(String username, Exercise exercise) {
-        exercise.setUsername(username);
-        exercise.setExerciseId(null);
+        exercise.setUserName(username);
+        exercise.setId(null);
         exerciseRepository.save(exercise);
         return exercise;
     }
 
-
-    public void delete(String username, int id) {
+    @Override
+    public void delete(String username, Long id) {
         exerciseRepository.deleteById(id);
     }
 
-
-    public Exercise update(String username, int id, Exercise exercise) {
+    @Override
+    public Exercise update(String username, Long id, Exercise exercise) {
         Exercise findExercise = find(username, id);
         if (findExercise != null) {
-            exercise.setExerciseId(id);
-            exercise.setUsername(username);
+            exercise.setId(id);
+            exercise.setUserName(username);
             exerciseRepository.save(exercise);
             return exercise;
         }

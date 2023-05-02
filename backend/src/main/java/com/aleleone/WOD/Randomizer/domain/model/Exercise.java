@@ -1,30 +1,50 @@
 package com.aleleone.WOD.Randomizer.domain.model;
 
+
+import static jakarta.persistence.GenerationType.IDENTITY;
+
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
-import jakarta.persistence.Enumerated;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
-
-import static jakarta.persistence.EnumType.STRING;
+import jakarta.persistence.Table;
 
 @Entity
+@Table(name = "exercise")
 public class Exercise {
 
     @Id
-    @GeneratedValue
-    private Integer exerciseId;
-    private String username;
+    @GeneratedValue(strategy = IDENTITY)
+    private Long id;
+
+    @Column(name = "user_name", nullable = false)
+    private String userName;
+    @Column(name = "exercise_name", nullable = false)
     private String exerciseName;
-    @Enumerated(STRING)
+    @Column(name = "exercise_type", nullable = false)
     private ExerciseType exerciseType;
 
 
-    public Integer getExerciseId() {
-        return exerciseId;
+    public Exercise() {
     }
 
-    public void setExerciseId(Integer exerciseId) {
-        this.exerciseId = exerciseId;
+
+    public Exercise(Long id, String userName, String exerciseName, ExerciseType exerciseType) {
+        super();
+        this.id = id;
+        this.userName = userName;
+        this.exerciseName = exerciseName;
+        this.exerciseType = exerciseType;
+    }
+
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+
     }
 
     public String getExerciseName() {
@@ -43,23 +63,26 @@ public class Exercise {
         this.exerciseType = exerciseType;
     }
 
-    public String getUsername() {
-        return username;
+    public String getUserName() {
+        return userName;
     }
 
-    public void setUsername(String username) {
-        this.username = username;
+    public void setUserName(String userName) {
+        this.userName = userName;
+
     }
 
     @Override
     public String toString() {
-        return "Exercise [exerciseId=" + exerciseId + ", exerciseName=" + exerciseName + ", exerciseType="
+        return "Exercise [exerciseId=" + id + ", exerciseName=" + exerciseName + ", exerciseType="
                 + exerciseType + "]";
     }
-
+    
     public enum ExerciseType {
         FUERZA,
         CARDIO,
         OLY
     }
+
+
 }
