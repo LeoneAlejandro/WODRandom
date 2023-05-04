@@ -9,6 +9,7 @@ import AuthProvider, { useAuth } from './security/AuthContext'
 import { Navigate } from 'react-router-dom'
 import ExerciseComponent from './ExerciseComponent'
 import ListExercisesComponent from './ListExercisesComponent'
+import SavedWodsComponent from './SavedWodsComponent'
 
 
 
@@ -46,6 +47,12 @@ export default function WodRandomizerApp() {
                         <Route path='/exercises/:id' element={
                             <AuthenticatedRoute>
                                 <ExerciseComponent />
+                            </AuthenticatedRoute>
+                        } />
+
+                        <Route path='/wods' element={
+                            <AuthenticatedRoute>
+                                <SavedWodsComponent />
                             </AuthenticatedRoute>
                         } />
 

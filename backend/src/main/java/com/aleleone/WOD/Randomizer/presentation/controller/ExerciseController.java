@@ -25,7 +25,7 @@ public class ExerciseController {
     public ExerciseController(ExerciseService exerciseService) {
 	super();
 	this.exerciseService = exerciseService;
-}
+    }
 
 	@GetMapping("/users/{username}/exercises")
     public List<Exercise> getExercises(@PathVariable String username) {

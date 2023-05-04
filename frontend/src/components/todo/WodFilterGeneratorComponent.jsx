@@ -3,6 +3,7 @@ import { useState } from "react"
 import { generateWod } from "./api/WodApiService"
 import { useAuth } from "./security/AuthContext"
 import '../css/WodFilterGeneratorComponent.css'
+import { saveWod } from "./api/SaveWodService"
 
 export default function WodFilterGeneratorComponent() {
 
@@ -11,6 +12,7 @@ export default function WodFilterGeneratorComponent() {
 
     const [listOfExercises, setListOfExercises] = useState('')
     const [badRequest, setBadRequest] = useState(()=>false)
+    const [wodName, setWodName] = useState('')
 
     function onSubmit(values) {
 
@@ -32,23 +34,47 @@ export default function WodFilterGeneratorComponent() {
             .catch(error => console.log(error))
         
         setBadRequest(false)
-
     }
 
-    function validate(values) {
-        let errors = {}
 
-        const total = values.exAmountCardio + values.exAmountFuerza + values.exAmountOly
+    function addWod() {
 
-        if( total < 1 
-            || values.exAmountCardio < 0 
-            || values.exAmountFuerza < 0 
-            || values.exAmountOly < 0) 
-            {
-                errors.exAmountCardio = 'Debes elegir al menos un ejercicio'
+        const listOfExercisesToSave = [];
+
+        const savedWod = {
+            id: null,
+            wodName: wodName,
+            userName: username,
+        }
+
+        listOfExercises.forEach(element => {
+            const saveExercise = {
+                id: null,
+                wodId: null,
+                exerciseId: element.id,
             }
-        return errors
+            listOfExercisesToSave.push(saveExercise);
+        });
+
+        const requestBody = { savedWod, listOfExercisesToSave }
+
+        // saveWod(username, requestBody)
+        //     .then(
+        //         // response => 
+        //         // console.log(response.data)
+        //         )
+        //     .catch(error => console.log(error.data))
+
+        console.log(requestBody)
     }
+
+
+
+    function handleWodName(event) {
+        setWodName(event.target.value)
+    }
+
+
     
     return(
         <div>
@@ -123,10 +149,14 @@ export default function WodFilterGeneratorComponent() {
                                                         <td>{exercise.exerciseType}</td>
                                                     </tr>
                                                 )
-                                            )
-                                        }
+                                                )
+                                            }
                                     </tbody>
                                 </table>
+                                <div>
+                                    <input className="wodName" required="required" type="text" value={wodName} onChange={handleWodName} placeholder="Nombre de Wod"/>
+                                    <button className="buton" onClick={() => addWod()} disabled={!wodName}>Guardar WOD</button>
+                                </div>
                             </div>
                                 }
                         </div>
@@ -135,5 +165,21 @@ export default function WodFilterGeneratorComponent() {
 
          </div>    
     )
+
+
+    function validate(values) {
+        let errors = {}
+
+        const total = values.exAmountCardio + values.exAmountFuerza + values.exAmountOly
+
+        if( total < 1 
+            || values.exAmountCardio < 0 
+            || values.exAmountFuerza < 0 
+            || values.exAmountOly < 0) 
+            {
+                errors.exAmountCardio = 'Debes elegir al menos un ejercicio'
+            }
+        return errors
+    }
 
 }
