@@ -1,39 +1,69 @@
 package com.aleleone.WOD.Randomizer.domain.model;
 
+import static jakarta.persistence.GenerationType.IDENTITY;
+
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.Id;
+import jakarta.persistence.Table;
+
+@Entity
+@Table(name = "wod")
 public class Wod {
+	
+    @Id
+    @GeneratedValue(strategy = IDENTITY)
+    private Long id;
+    
+    @Column(name = "wod_name", nullable = false)
+    private String wodName;
+    @Column(name = "user_name", nullable = false)
+    private String userName;
 
-    private int exAmountFuerza;
-    private int exAmountCardio;
-    private int exAmountOly;
-
-    public int getExAmountFuerza() {
-        return exAmountFuerza;
+    public static Wod createWod(String wodName, String userName) {
+    	Wod wod = new Wod();
+    	
+    	wod.setUserName(userName);
+    	wod.setWodName(wodName);
+    	
+    	return wod;
     }
 
-    public void setExAmountFuerza(int exAmountFuerza) {
-        this.exAmountFuerza = exAmountFuerza;
-    }
+	public Long getId() {
+		return id;
+	}
 
-    public int getExAmountCardio() {
-        return exAmountCardio;
-    }
 
-    public void setExAmountCardio(int exAmountCardio) {
-        this.exAmountCardio = exAmountCardio;
-    }
+	public void setId(Long id) {
+		this.id = id;
+	}
 
-    public int getExAmountOly() {
-        return exAmountOly;
-    }
 
-    public void setExAmountOly(int exAmountOly) {
-        this.exAmountOly = exAmountOly;
-    }
+	public String getWodName() {
+		return wodName;
+	}
 
-    @Override
-    public String toString() {
-        return "WodRequestDetails [exAmountFuerza=" + exAmountFuerza + ", exAmountCardio=" + exAmountCardio
-                + ", exAmountOly=" + exAmountOly + "]";
-    }
 
+	public void setWodName(String wodName) {
+		this.wodName = wodName;
+	}
+
+
+	public String getUserName() {
+		return userName;
+	}
+
+
+	public void setUserName(String userName) {
+		this.userName = userName;
+	}
+
+
+	@Override
+	public String toString() {
+		return "SavedWod [id=" + id + ", wodName=" + wodName + ", userName=" + userName
+				+ "]";
+	}
+    
 }

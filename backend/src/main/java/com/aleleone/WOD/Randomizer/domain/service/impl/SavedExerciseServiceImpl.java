@@ -1,7 +1,7 @@
 package com.aleleone.WOD.Randomizer.domain.service.impl;
 
 import com.aleleone.WOD.Randomizer.datasource.repository.SavedExercisesRepository;
-import com.aleleone.WOD.Randomizer.domain.model.SavedExercise;
+import com.aleleone.WOD.Randomizer.domain.model.ExerciseWod;
 import com.aleleone.WOD.Randomizer.domain.service.SavedExerciseService;
 
 public class SavedExerciseServiceImpl implements SavedExerciseService {
@@ -17,7 +17,7 @@ public class SavedExerciseServiceImpl implements SavedExerciseService {
 	}
 
 	@Override
-	public SavedExercise create(SavedExercise savedExercise) {
+	public ExerciseWod create(ExerciseWod savedExercise) {
 		savedExercisesRepository.save(savedExercise);
 		return null;
 	}

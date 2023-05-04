@@ -1,9 +1,9 @@
 package com.aleleone.WOD.Randomizer.domain.service;
 
-import com.aleleone.WOD.Randomizer.domain.model.SavedExercise;
+import com.aleleone.WOD.Randomizer.domain.model.ExerciseWod;
 
 public interface SavedExerciseService {
 	
-	SavedExercise create(SavedExercise savedExercise);
+	ExerciseWod create(ExerciseWod savedExercise);
 
 }

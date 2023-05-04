@@ -39,24 +39,28 @@ export default function WodFilterGeneratorComponent() {
 
     function addWod() {
 
-        const listOfExercisesToSave = [];
+        // const listOfExercisesToSave = [];
 
-        const savedWod = {
-            id: null,
-            wodName: wodName,
-            userName: username,
-        }
 
+
+        // const savedWod = {
+        //     id: null,
+        //     wodName: wodName,
+        //     userName: username,
+        // }
+        const listExerciesId = []
         listOfExercises.forEach(element => {
-            const saveExercise = {
-                id: null,
-                wodId: null,
-                exerciseId: element.id,
-            }
-            listOfExercisesToSave.push(saveExercise);
+            listExerciesId.push(element.id);
         });
 
-        const requestBody = { savedWod, listOfExercisesToSave }
+        const creationExcerciseWodRequest = {
+            wodName: wodName,
+            exercisesId: listExerciesId
+        }
+
+        saveWod(username, creationExcerciseWodRequest)
+
+        // const requestBody = { savedWod, listOfExercisesToSave }
 
         // saveWod(username, requestBody)
         //     .then(
@@ -65,7 +69,8 @@ export default function WodFilterGeneratorComponent() {
         //         )
         //     .catch(error => console.log(error.data))
 
-        console.log(requestBody)
+        console.log(creationExcerciseWodRequest)
+
     }
 
 
