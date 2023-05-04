@@ -3,10 +3,13 @@ package com.aleleone.WOD.Randomizer.domain.model;
 
 import static jakarta.persistence.GenerationType.IDENTITY;
 
+import java.util.List;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
+import jakarta.persistence.ManyToMany;
 import jakarta.persistence.Table;
 
 @Entity
@@ -24,6 +27,8 @@ public class Exercise {
     @Column(name = "exercise_type", nullable = false)
     private ExerciseType exerciseType;
 
+    @ManyToMany(mappedBy = "exercises")
+    List<Wod> savedWods;
 
     public Exercise() {
     }

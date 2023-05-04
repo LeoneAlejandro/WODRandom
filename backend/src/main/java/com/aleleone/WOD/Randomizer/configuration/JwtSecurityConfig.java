@@ -53,7 +53,8 @@ public class JwtSecurityConfig {
                     .requestMatchers(HttpMethod.OPTIONS,"/**")
                     .permitAll()
                     .anyRequest()
-                    .authenticated())
+                    .authenticated()
+                    )
                 .csrf(AbstractHttpConfigurer::disable)
                 .sessionManagement(session -> session.
                     sessionCreationPolicy(SessionCreationPolicy.STATELESS))

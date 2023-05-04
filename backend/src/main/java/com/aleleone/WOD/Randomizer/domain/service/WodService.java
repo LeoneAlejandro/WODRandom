@@ -6,6 +6,7 @@ import com.aleleone.WOD.Randomizer.presentation.controller.CreationExcerciseWodR
 import com.aleleone.WOD.Randomizer.presentation.controller.CreationWodRequest;
 
 import java.util.List;
+import java.util.Optional;
 
 
 public interface WodService {
@@ -13,7 +14,7 @@ public interface WodService {
     
 	List<Wod> find(String username);
 
-	Wod find(String username, Long id);
+	Optional<Wod> find(Long id);
 
 	Wod create(String username, CreationExcerciseWodRequest requestBodyDetails);
 

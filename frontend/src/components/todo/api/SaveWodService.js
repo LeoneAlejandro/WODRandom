@@ -11,3 +11,9 @@ export const saveWod
 export const retrevieSavedWodsForUsername
         = (username) => apiClient.get(`/users/${username}/wods`)
 
+
+export const retriveSavedWod
+        = (username, id) => apiClient.get(`/users/${username}/wods/${id}`)
+
+export const deleteWodById
+        = (username, id) => apiClient.delete(`/users/${username}/wods/${id}`)

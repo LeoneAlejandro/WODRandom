@@ -3,6 +3,7 @@ package com.aleleone.WOD.Randomizer.presentation.controller;
 import static org.springframework.http.ResponseEntity.noContent;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -37,8 +38,8 @@ public class WodController {
     }
 	
     @GetMapping("/users/{username}/wods/{id}")
-    public Wod getWod(@PathVariable String username, @PathVariable Long id) {
-        return wodService.find(username, id);
+    public Optional<Wod> getWod(@PathVariable String username, @PathVariable Long id) {
+        return wodService.find(id);
     }
 	
     @PostMapping("users/{username}/wods")

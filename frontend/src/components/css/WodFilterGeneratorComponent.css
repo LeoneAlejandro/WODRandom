@@ -75,7 +75,7 @@ th.ExerciseTitle {
 
 .alert.alert-danger {
     /* background-color: blue; */
-    margin-left: 10%;
+    /* margin-left: 10%; */
     margin-top: 2%;
 }
 
@@ -86,11 +86,10 @@ input.wodName {
     border-radius: 0;
     width: 250px;
     height: 38px;
-    box-shadow: none;
     margin-right: 20px;
+    outline: none;
 }
 
 input.wodName:focus {
-    border: 0px solid rgb(153, 27, 27); 
-    box-shadow: none;
+    border: 2px solid rgb(153, 27, 27); 
 }

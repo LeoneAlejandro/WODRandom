@@ -4,11 +4,13 @@ import { generateWod } from "./api/WodApiService"
 import { useAuth } from "./security/AuthContext"
 import '../css/WodFilterGeneratorComponent.css'
 import { saveWod } from "./api/SaveWodService"
+import { useNavigate } from "react-router-dom"
 
 export default function WodFilterGeneratorComponent() {
 
     const authContext = useAuth()
     const username = authContext.username
+    const navigate = useNavigate()
 
     const [listOfExercises, setListOfExercises] = useState('')
     const [badRequest, setBadRequest] = useState(()=>false)
@@ -39,15 +41,6 @@ export default function WodFilterGeneratorComponent() {
 
     function addWod() {
 
-        // const listOfExercisesToSave = [];
-
-
-
-        // const savedWod = {
-        //     id: null,
-        //     wodName: wodName,
-        //     userName: username,
-        // }
         const listExerciesId = []
         listOfExercises.forEach(element => {
             listExerciesId.push(element.id);
@@ -60,17 +53,7 @@ export default function WodFilterGeneratorComponent() {
 
         saveWod(username, creationExcerciseWodRequest)
 
-        // const requestBody = { savedWod, listOfExercisesToSave }
-
-        // saveWod(username, requestBody)
-        //     .then(
-        //         // response => 
-        //         // console.log(response.data)
-        //         )
-        //     .catch(error => console.log(error.data))
-
-        console.log(creationExcerciseWodRequest)
-
+        navigate(`/wods`)
     }
 
 
