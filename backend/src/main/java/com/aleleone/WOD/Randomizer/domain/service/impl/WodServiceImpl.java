@@ -32,6 +32,7 @@ public class WodServiceImpl implements WodService {
     
     private final WodRepository wodRepository;
     
+    
     public WodServiceImpl(ExerciseRepository exerciseRepository, WodRepository wodRepository) {
 		super();
 		this.exerciseRepository = exerciseRepository;
@@ -114,8 +115,6 @@ public class WodServiceImpl implements WodService {
 		Wod savedWod = Wod.createWod(wodName, username, listOfExercises);
 		wodRepository.save(savedWod);
 		
-		System.out.println(savedWod);
-		System.out.println(listOfExercises.toString());
 	
 		return null;
 	}
@@ -123,6 +122,5 @@ public class WodServiceImpl implements WodService {
 
 	public void delete(String username, Long id) {
 		wodRepository.deleteById(id);
-		
 	}
 }

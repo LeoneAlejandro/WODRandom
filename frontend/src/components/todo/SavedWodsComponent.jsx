@@ -2,7 +2,7 @@ import { useEffect, useState } from "react"
 import { useAuth } from "./security/AuthContext"
 import { deleteWodById, retrevieSavedWodsForUsername, retriveSavedWod } from "./api/SaveWodService"
 import '../css/SavedWodsComponent.css'
-import { useNavigate } from "react-router-dom"
+
 
 export default function SavedWodsComponent() {
 
@@ -14,14 +14,14 @@ export default function SavedWodsComponent() {
     const [selectedWod, setSelectedWod] = useState('')
 
     useEffect(
-        () => refreshSavedWods(), []
+        () => refreshSavedWods(), [savedWod]
     )
 
     function refreshSavedWods() {
         retrevieSavedWodsForUsername(username)
             .then(response => 
                 setSavedWod(response.data),
-                setSelectedWod(null)
+                // setSelectedWod(null)
                 // console.log(savedWod)
                 )
             .catch(error => console.log(error)) 
@@ -39,17 +39,17 @@ export default function SavedWodsComponent() {
         deleteWodById(username, selectedWod.id) 
             .then(response => {
                 refreshSavedWods()
+                setSelectedWod(null)
             })
             .catch(error => console.log(error))
-        
     }
 
 
     return(
         <div className="savedWods">
             <div className="lista-wods">
-                <select className="form-selection" onChange={(e) => getSelectedWod(e.target.value)} aria-label="Default select example">
-                             <option selected disabled>Selecciona tu WOD</option>
+                <select className="form-selection" onChange={(e) =>  getSelectedWod(e.target.value)}  defaultValue="default" aria-label="Default select example">
+                             <option value="default" disabled>Selecciona tu WOD</option>
                     { savedWod &&
                     savedWod.map(
                         savedWod => (

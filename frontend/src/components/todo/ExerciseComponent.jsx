@@ -101,7 +101,7 @@ export default function ExerciseComponent() {
                                     <Field type="text" className="form-control exercise" name="exerciseName"/>
                                     <label>Tipo</label>
                                     <Field as="select" type="select" className="selectType" name="exerciseType">
-                                            <option value="" disabled selected>Tipo</option>
+                                            <option value="" disabled>Tipo</option>
                                             <option value="FUERZA">Fuerza</option>
                                             <option value="CARDIO">Cardio</option>
                                             <option value="OLY">Oly</option>

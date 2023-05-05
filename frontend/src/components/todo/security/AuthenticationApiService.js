@@ -1,4 +1,4 @@
-import { apiClient } from "./ApiClient"
+import { apiClient } from "../api/ApiClient"
 
 // export const executeBasicAuthenticationService = 
 //     (token) => apiClient.get(`/basicauth`, {

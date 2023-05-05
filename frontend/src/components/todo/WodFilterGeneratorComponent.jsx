@@ -54,6 +54,7 @@ export default function WodFilterGeneratorComponent() {
         saveWod(username, creationExcerciseWodRequest)
 
         navigate(`/wods`)
+        
     }
 
 
