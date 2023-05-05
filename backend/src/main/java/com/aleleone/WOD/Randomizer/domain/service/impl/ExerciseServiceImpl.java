@@ -59,6 +59,6 @@ public class ExerciseServiceImpl implements ExerciseService {
             exerciseRepository.save(exercise);
             return exercise;
         }
-        throw new EntityNotFoundException("Ejercicio con id: " + id + " para el usuario " + username + " no existe");
+        throw new EntityNotFoundException(format("Ejercicio con id: %d para el usuario %s no existe", id, username));
     }
 }

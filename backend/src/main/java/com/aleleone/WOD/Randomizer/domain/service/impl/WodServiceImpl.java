@@ -3,6 +3,7 @@ package com.aleleone.WOD.Randomizer.domain.service.impl;
 import static com.aleleone.WOD.Randomizer.domain.model.Exercise.ExerciseType.CARDIO;
 import static com.aleleone.WOD.Randomizer.domain.model.Exercise.ExerciseType.FUERZA;
 import static com.aleleone.WOD.Randomizer.domain.model.Exercise.ExerciseType.OLY;
+import static java.lang.String.format;
 import static java.util.Collections.shuffle;
 import static java.util.stream.Collectors.toList;
 import static java.util.stream.Stream.of;
@@ -10,7 +11,6 @@ import static java.util.stream.Stream.of;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
-import java.util.Optional;
 
 import org.springframework.stereotype.Service;
 
@@ -22,6 +22,7 @@ import com.aleleone.WOD.Randomizer.domain.service.WodService;
 import com.aleleone.WOD.Randomizer.presentation.controller.CreationExcerciseWodRequest;
 import com.aleleone.WOD.Randomizer.presentation.controller.CreationWodRequest;
 
+import jakarta.persistence.EntityNotFoundException;
 import jakarta.transaction.Transactional;
 
 @Service
@@ -89,15 +90,13 @@ public class WodServiceImpl implements WodService {
 	}
 
 
-
-	public Optional<Wod> find(Long id) {
-        Optional<Wod> exercises = wodRepository.findById(id);
-//        return exercises.stream()
-//                .filter(e -> e.getId().equals(id))
-//                .findFirst().orElseThrow(
-//                        () -> new EntityNotFoundException(format("Ejercicio con id: %d para el usuario %s no existe", id, username))
-//                );
-        return exercises;
+	public Wod find(String username, Long id) {
+        List<Wod> wods = wodRepository.findByUserName(username);
+        return wods.stream()
+                .filter(e -> e.getId().equals(id))
+                .findFirst().orElseThrow(
+                        () -> new EntityNotFoundException(format("Wod con id: %d para el usuario %s no existe", id, username))
+                );
 	}
 
 	

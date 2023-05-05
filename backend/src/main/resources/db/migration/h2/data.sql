@@ -1,2 +1,2 @@
-INSERT INTO exercise (id, user_name, exercise_name, exercise_type)
-VALUES (1, 'Mock User Name', 'Mock Exercise Name', 'Mock Exercise Type');
+INSERT INTO exercise (id, exercise_name, exercise_type, user_name)
+VALUES (1,  'Mock Exercise Name', 'Mock Exercise Type', 'Mock User Name');
