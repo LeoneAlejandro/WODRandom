@@ -39,4 +39,5 @@ build/
 
 ### Personal application.properties ###
 WODRandoapp.properties
+testing.properties
 

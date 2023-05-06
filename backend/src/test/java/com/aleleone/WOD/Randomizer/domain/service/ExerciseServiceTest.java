@@ -3,6 +3,8 @@ package com.aleleone.WOD.Randomizer.domain.service;
 import com.aleleone.WOD.Randomizer.WodRandomizerApplication;
 import com.aleleone.WOD.Randomizer.datasource.repository.ExerciseRepository;
 import com.aleleone.WOD.Randomizer.domain.model.Exercise;
+import com.aleleone.WOD.Randomizer.domain.model.Exercise.ExerciseType;
+
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.jdbc.AutoConfigureTestDatabase;
@@ -13,6 +15,7 @@ import org.springframework.test.context.jdbc.Sql;
 
 import java.util.List;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.springframework.boot.test.autoconfigure.jdbc.AutoConfigureTestDatabase.Replace.AUTO_CONFIGURED;
 import static org.springframework.boot.test.context.SpringBootTest.WebEnvironment.RANDOM_PORT;
 import static org.springframework.test.annotation.DirtiesContext.ClassMode.AFTER_EACH_TEST_METHOD;
@@ -31,7 +34,7 @@ class ExerciseServiceTest {
     @Test
     @Sql({"/sql/integration.sql"})
     void test() {
-        List<Exercise> mock_user_name = exerciseService.find("Mock User Name");
-        System.out.print("algo");
+        Exercise mock_user_name = exerciseService.find("Mock User Name", 1L);
+        assertEquals(mock_user_name.getUserName(), "Mock User Name");
     }
 }
