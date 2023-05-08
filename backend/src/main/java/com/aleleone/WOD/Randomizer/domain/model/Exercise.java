@@ -42,6 +42,16 @@ public class Exercise {
         this.exerciseType = exerciseType;
     }
 
+    public static Exercise createExercise(String userName, String exerciseName, ExerciseType exerciseType) {
+    	Exercise exercise = new Exercise();
+    	
+    	exercise.setUserName(userName);
+    	exercise.setExerciseName(exerciseName);
+    	exercise.setExerciseType(exerciseType);
+    	
+    	return exercise;
+    }
+    
 
     public Long getId() {
         return id;
