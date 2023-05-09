@@ -4,7 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="6c9bae7f-a74f-44df-86af-a6368d3a0d6e" name="Changes" comment="ghost commit" />
+    <list default="true" id="6c9bae7f-a74f-44df-86af-a6368d3a0d6e" name="Changes" comment="ghost commit">
+      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/test/java/com/aleleone/WOD/Randomizer/domain/service/ExerciseControllerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/test/java/com/aleleone/WOD/Randomizer/domain/service/ExerciseControllerTest.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -55,22 +59,24 @@
     </option>
   </component>
   <component name="ProjectId" id="2P4IWyBbdYRoZOglv3acCVzyAYn" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary": "JUnit5",
-    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5": "",
-    "last_opened_file_path": "/Users/jfarizo/Documents/WODRandom",
-    "nodejs_package_manager_path": "npm",
-    "settings.editor.selected.configurable": "configurable.group.tools"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary&quot;: &quot;JUnit5&quot;,
+    &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5&quot;: &quot;&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/Users/jfarizo/Documents/WODRandom&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;configurable.group.tools&quot;,
+    &quot;spring.configuration.checksum&quot;: &quot;1569701fe783bc26ac6aa899cdd44303&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CreateTestDialog.Recents.Supers">
       <recent name="" />
@@ -82,7 +88,70 @@
       <recent name="com.aleleone.WOD.Randomizer.domain.service" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.ExerciseServiceTest.test">
+  <component name="RunManager" selected="JUnit.ExerciseControllerTest">
+    <configuration name="ExerciseControllerTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="WOD-Randomizer" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.aleleone.WOD.Randomizer.domain.service.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.aleleone.WOD.Randomizer.domain.service" />
+      <option name="MAIN_CLASS_NAME" value="com.aleleone.WOD.Randomizer.domain.service.ExerciseControllerTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="ExerciseControllerTest.givenExercise_whenPost_thenReturnNewExercise" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="WOD-Randomizer" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.aleleone.WOD.Randomizer.domain.service.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.aleleone.WOD.Randomizer.domain.service" />
+      <option name="MAIN_CLASS_NAME" value="com.aleleone.WOD.Randomizer.domain.service.ExerciseControllerTest" />
+      <option name="METHOD_NAME" value="givenExercise_whenPost_thenReturnNewExercise" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="ExerciseControllerTest.givenUsernameAndIdWhenDeleteExerciseThenReturnStatusSuccesAndEmpty" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="WOD-Randomizer" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.aleleone.WOD.Randomizer.domain.service.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.aleleone.WOD.Randomizer.domain.service" />
+      <option name="MAIN_CLASS_NAME" value="com.aleleone.WOD.Randomizer.domain.service.ExerciseControllerTest" />
+      <option name="METHOD_NAME" value="givenUsernameAndIdWhenDeleteExerciseThenReturnStatusSuccesAndEmpty" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="ExerciseControllerTest.givenUsernameAndIdWhenGetExerciseThenReturnExercise" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="WOD-Randomizer" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.aleleone.WOD.Randomizer.domain.service.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.aleleone.WOD.Randomizer.domain.service" />
+      <option name="MAIN_CLASS_NAME" value="com.aleleone.WOD.Randomizer.domain.service.ExerciseControllerTest" />
+      <option name="METHOD_NAME" value="givenUsernameAndIdWhenGetExerciseThenReturnExercise" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="ExerciseServiceTest.test" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="WOD-Randomizer" />
       <extension name="coverage">
@@ -108,6 +177,10 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.ExerciseControllerTest" />
+        <item itemvalue="JUnit.ExerciseControllerTest.givenUsernameAndIdWhenDeleteExerciseThenReturnStatusSuccesAndEmpty" />
+        <item itemvalue="JUnit.ExerciseControllerTest.givenUsernameAndIdWhenGetExerciseThenReturnExercise" />
+        <item itemvalue="JUnit.ExerciseControllerTest.givenExercise_whenPost_thenReturnNewExercise" />
         <item itemvalue="JUnit.ExerciseServiceTest.test" />
       </list>
     </recent_temporary>
@@ -121,6 +194,10 @@
       <option name="presentableId" value="Default" />
       <updated>1682709962479</updated>
       <workItem from="1682874877890" duration="5915000" />
+      <workItem from="1683466507045" duration="1610000" />
+      <workItem from="1683551655854" duration="118000" />
+      <workItem from="1683656885510" duration="884000" />
+      <workItem from="1683657974656" duration="2782000" />
     </task>
     <servers />
   </component>
@@ -145,11 +222,6 @@
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/backend/src/test/java/com/aleleone/WOD/Randomizer/domain/service/ExerciseServiceTest.java</url>
-          <line>33</line>
-          <option name="timeStamp" value="3" />
-        </line-breakpoint>
         <breakpoint enabled="true" type="java-exception">
           <properties class="org.springframework.jdbc.datasource.init.ScriptStatementFailedException" package="org.springframework.jdbc.datasource.init" />
           <option name="timeStamp" value="2" />
