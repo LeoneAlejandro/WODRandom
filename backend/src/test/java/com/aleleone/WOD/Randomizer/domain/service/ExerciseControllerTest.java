@@ -49,14 +49,14 @@ class ExerciseControllerTest {
    
     @Test
     @Sql({"/sql/integration.sql"})
-    void findExercise() {
+    void whenFindByUsernameAndId_thenReturnExercise() {
         Exercise mock_user_name = exerciseService.find("MockUsername", 2L);
         assertEquals(mock_user_name.getUserName(), "MockUsername");
     }
 
     @Test
     @Sql({"/sql/integration.sql"})
-    void addExercise() throws Exception {
+    void givenUsernameAndId_whenGetExercise_thenStatus200() throws Exception {
     	mvc.perform(get("/users/MockUsername/exercises/2").contentType(MediaType.APPLICATION_JSON))
     		.andExpect(status().isOk())
     		.andExpect(content().json("{\r\n"
@@ -69,15 +69,15 @@ class ExerciseControllerTest {
 
     @Test
     @Sql({"/sql/integration.sql"})
-    void deleteExercise() throws Exception {
+    void givenUsernameAndId_whenDeleteExercise_thenStatus204AndEmptyString() throws Exception {
     	mvc.perform(delete("/users/MockUsername/exercises/2").contentType(MediaType.APPLICATION_JSON))
     		.andExpect(status().is2xxSuccessful())
     		.andExpect(content().string(""));
     }
-
+    
     @Test
     @Sql({"/sql/integration.sql"})
-    void createExercise() throws Exception {
+    void givenExercise_whenPost_thenReturnNewExercise() throws Exception {
     	Exercise exercise = Exercise.createExercise("MockUsername", "MockExerciseName", ExerciseType.CARDIO);
     	
     	mvc.perform(post("/users/MockUsername/exercises").contentType(MediaType.APPLICATION_JSON).content(objectMapper.writeValueAsString(exercise)))
@@ -90,7 +90,7 @@ class ExerciseControllerTest {
 
     @Test
     @Sql({"/sql/integration.sql"})
-    void modifyExercise() throws Exception {
+    void givenExercise_whenPut_thenUpdateAndReturnNewExercise() throws Exception {
     	Exercise exercise = Exercise.createExercise("MockUsername", "NewMockExerciseName", ExerciseType.FUERZA);
     	
     	mvc.perform(put("/users/MockUsername/exercises/2").contentType(MediaType.APPLICATION_JSON).content(objectMapper.writeValueAsString(exercise)))

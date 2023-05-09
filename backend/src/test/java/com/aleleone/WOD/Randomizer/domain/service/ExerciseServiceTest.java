@@ -32,7 +32,7 @@ class ExerciseServiceTest {
 	
 	
 	@Test
-	void findExerciseByUsername() {
+	void whenFindByUsername_thenReturnExercise() {
 		List<Exercise> mockList = new ArrayList<>();
 		mockList.add(new Exercise(3L, "Ale", "HSPU", ExerciseType.CARDIO));
 		
@@ -42,12 +42,12 @@ class ExerciseServiceTest {
 	}
 	
 	@Test
-	void when_id_is_null_ExerciseNotFoundException() {
+	void givenIdNull_whenFindExercise_thenThrowsException() {
 		assertThrows(EntityNotFoundException.class, () -> exerciseServiceMock.find("Ale", null));
 	}
 	
 	@Test
-	void when_id_username_null_ExerciseNotFoundException() {
+	void givenUsernameNull_whenFindExercise_thenThrowsException() {
 		assertThrows(EntityNotFoundException.class, () -> exerciseServiceMock.find(null, 1L));
 	}
 	
