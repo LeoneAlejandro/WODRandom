@@ -42,7 +42,7 @@ function ExerciseSelectorPopup( { username, onSelectExercise }) {
             <div className="popup-content">
               <h2 className='title-esp'>Lista de ejercicios</h2>
               <h10>(mantené presionado ctrl para elección multiple)</h10>
-              <input className='searchBar' type="text" placeholder="Search exercises..." value={searchQuery} onChange={(e) => setSearchQuery(e.target.value)} />
+              <input className='searchBar' type="text" placeholder="Buscar ejercicios..." value={searchQuery} onChange={(e) => setSearchQuery(e.target.value)} />
               <ul className='list-exercises'>
                 {exercises.filter(exercise => exercise.exerciseName.toLowerCase().includes(searchQuery.toLowerCase())).map((exercise) => (
                     <li className='exercises' key={exercise.id} onClick={() => handleSelectExercise(exercise.id, exercise.exerciseName)}>

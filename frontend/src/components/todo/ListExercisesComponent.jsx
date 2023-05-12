@@ -13,6 +13,7 @@ export default function ListExercisesComponent() {
 
     const [exercise, setExercise] = useState([])
     const [message, setMessage] = useState(null)
+    const [searchQuery, setSearchQuery] = useState('');
     
     useEffect(
         () => refreshExercises(), []
@@ -48,30 +49,36 @@ export default function ListExercisesComponent() {
 
     return(
         <div className="container">
+            {/* <div className="searchBarContainer"> */}
+                <input className='searchExercisesBar' type="text" placeholder="Buscar ejercicios..." value={searchQuery} onChange={(e) => setSearchQuery(e.target.value)} />
+            {/* </div> */}
             {/* {message && <div className="alert alert-warning">{message}</div>} */}
-            <div className="lista-ejercicios">
+            <div className="listExercises">
                 <table className='tablaEjercicios'>
-                    <thead>
-                        <tr className="tableTitles">
-                            <th className="ExercisesTitle">Ejercicio</th>
-                            <th className="TypeTitle">Tipo</th>
-                            <th className="UpdateTitle"></th>
-                            <th className="DeleteTitle"></th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        { exercise.map(
-                                exercise => (
-                                    <tr className="tableRows" key={exercise.id}>
-                                        <td>{exercise.exerciseName}</td>
-                                        <td>{exercise.exerciseType}</td>
-                                        <td><button className="buttonModify" onClick={() => updateExercise(exercise.id) }>Modificar</button></td>
-                                        <td><button className="buttonDelete" onClick={() => deleteExercise(exercise.id) }>X</button></td>
-                                    </tr>
+                    <div>
+                        <thead>
+                            <tr className="tableTitles">
+                                <th className="ExercisesTitle">Ejercicio</th>
+                                <th className="TypeTitle">Tipo</th>
+                                <th className="UpdateTitle"></th>
+                                <th className="DeleteTitle"></th> 
+                            </tr>
+                        </thead>
+
+                        <tbody>
+                            { exercise.filter(exercise => exercise.exerciseName.toLowerCase().includes(searchQuery.toLowerCase())).map(
+                                    exercise => (
+                                        <tr className="tableRows" key={exercise.id}>
+                                            <td>{exercise.exerciseName}</td>
+                                            <td>{exercise.exerciseType}</td>
+                                            <td><button className="buttonModify" onClick={() => updateExercise(exercise.id) }>Modificar</button></td>
+                                            <td><button className="buttonDelete" onClick={() => deleteExercise(exercise.id) }>X</button></td>
+                                        </tr>
+                                    )
                                 )
-                            )
-                        }
-                    </tbody>
+                            }
+                        </tbody>
+                    </div>
                 </table>
             <button className="buttonModify" onClick={addExercise}>Agregar nuevo ejercicio</button>
             </div>
