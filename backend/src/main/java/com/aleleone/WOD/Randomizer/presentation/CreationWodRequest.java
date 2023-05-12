@@ -1,4 +1,4 @@
-package com.aleleone.WOD.Randomizer.presentation.controller;
+package com.aleleone.WOD.Randomizer.presentation;
 
 
 public class CreationWodRequest {

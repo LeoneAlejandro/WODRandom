@@ -15,6 +15,8 @@ import org.springframework.web.bind.annotation.RestController;
 import com.aleleone.WOD.Randomizer.domain.model.Exercise;
 import com.aleleone.WOD.Randomizer.domain.model.Wod;
 import com.aleleone.WOD.Randomizer.domain.service.WodService;
+import com.aleleone.WOD.Randomizer.presentation.CreationExcerciseWodRequest;
+import com.aleleone.WOD.Randomizer.presentation.CreationWodRequest;
 
 @RestController
 public class WodController {

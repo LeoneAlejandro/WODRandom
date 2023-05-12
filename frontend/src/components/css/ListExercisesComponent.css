@@ -25,3 +25,21 @@ th.DeleteTitle {
     padding-left: 100px;
     
 }
+
+button.button-delete {
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+button.button-success {
+    color: white;
+    border: 2px solid rgb(29, 168, 122);
+    border-radius: 0px;
+    background: #2c2c2c;
+}
+
+button.button-success:hover {
+    color: whitesmoke;
+    background-color: rgb(29, 168, 122);
+    transition: all 0.3s;
+}

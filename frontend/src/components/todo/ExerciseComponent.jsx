@@ -107,7 +107,7 @@ export default function ExerciseComponent() {
                                             <option value="OLY">Oly</option>
                                     </Field>
                                 </fieldset>
-                                <button className="btn btn-success m-4" type="submit">Agregar</button>
+                                <button className="button-success" type="submit">Agregar</button>
                             </Form>
                         )
                     }

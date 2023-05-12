@@ -40,7 +40,7 @@ button:hover {
     color: white;
 }
 
-.table-hover tbody tr:hover td, .table-hover tbody tr:hover th {
+.table-hover tbody tr:hover td, .table-hover tbody th {
     background-color: rgb(55,55,55);
     color: white;
   }

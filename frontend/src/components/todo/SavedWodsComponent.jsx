@@ -59,8 +59,8 @@ export default function SavedWodsComponent() {
                     }
                 </select>
             </div>
+            
 
-            <button className="btn btn-danger" onClick={deleteWod}>Delete WOD</button>
 
             <div className="selected-wod">
                 {selectedWod && 
@@ -87,6 +87,12 @@ export default function SavedWodsComponent() {
                     </table>
                 }
             </div>
+            
+            { selectedWod &&
+                <button className="" onClick={deleteWod}>Delete WOD</button>
+            }
+
+
         </div>
     )
 }

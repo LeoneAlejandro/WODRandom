@@ -1,0 +1,30 @@
+/* div.create-custom-wod-table {
+    padding-top: 20px;
+} */
+
+table.table-custom-exercises {
+    margin: auto;
+    /* margin-top: 20px; */
+    margin-bottom: 20px;
+    width: 400px;
+    margin-bottom: 20px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.35);
+    background-color: rgb(55,55,55);
+}
+
+tr:hover {
+    background-color: #2c2c2c;
+    cursor: pointer;
+}
+
+thead.titles-CCWC {
+    background-color: rgb(150, 30, 30);
+}
+
+button.button-delete {
+    padding: 0;
+    width: 30px;
+    height: 30px;
+    /* border-radius: 50%; */
+    /* background-color: blue; */
+}

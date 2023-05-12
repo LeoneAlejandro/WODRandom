@@ -10,8 +10,7 @@ import { Navigate } from 'react-router-dom'
 import ExerciseComponent from './ExerciseComponent'
 import ListExercisesComponent from './ListExercisesComponent'
 import SavedWodsComponent from './SavedWodsComponent'
-
-
+import CreateCustomWodComponent from './CreateCustomWodComponent'
 
 
 function AuthenticatedRoute({children}) {
@@ -53,6 +52,12 @@ export default function WodRandomizerApp() {
                         <Route path='/wods' element={
                             <AuthenticatedRoute>
                                 <SavedWodsComponent />
+                            </AuthenticatedRoute>
+                        } />
+
+                        <Route path='/createwod' element={
+                            <AuthenticatedRoute>
+                                <CreateCustomWodComponent />
                             </AuthenticatedRoute>
                         } />
 

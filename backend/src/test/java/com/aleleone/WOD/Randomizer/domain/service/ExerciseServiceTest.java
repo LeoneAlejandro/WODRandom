@@ -30,24 +30,36 @@ class ExerciseServiceTest {
 	@InjectMocks
 	private ExerciseServiceImpl exerciseServiceMock;
 	
+	private List<Exercise> mockListExercises = new ArrayList<Exercise>();
+	private Exercise mockExercise = new Exercise(1L, "MockUsername", "MockExerciseName", ExerciseType.CARDIO);
+	
+		
+    @Test
+    void givenUsernameWhenFindThenReturnExercises() {
+    	mockListExercises.add(mockExercise);
+    	when(exerciseRepositoryMock.findByUserName("MockUsername")).thenReturn(mockListExercises);
+        List<Exercise> listFound = exerciseServiceMock.find("MockUsername");
+        assertEquals(listFound, mockListExercises);
+    }
 	
 	@Test
-	void whenFindByUsername_thenReturnExercise() {
+	void givenUsernameAndIdWhenFindThenReturnExercise() {
 		List<Exercise> mockList = new ArrayList<>();
-		mockList.add(new Exercise(3L, "Ale", "HSPU", ExerciseType.CARDIO));
+		Exercise mockExercise = new Exercise(3L, "MockUsername", "MockExerciseName", ExerciseType.CARDIO);
+		mockList.add(mockExercise);
 		
-		when(exerciseRepositoryMock.findByUserName("Ale")).thenReturn(mockList);
-		Exercise mockExerciseFound = exerciseServiceMock.find("Ale", 3L);
-		assertEquals(ExerciseType.CARDIO, mockExerciseFound.getExerciseType());
+		when(exerciseRepositoryMock.findByUserName("MockUsername")).thenReturn(mockList);
+		Exercise mockExerciseFound = exerciseServiceMock.find("MockUsername", 3L);
+		assertEquals(mockExercise, mockExerciseFound);
 	}
 	
 	@Test
-	void givenIdNull_whenFindExercise_thenThrowsException() {
+	void givenIdNullWhenFindExerciseThenThrowsException() {
 		assertThrows(EntityNotFoundException.class, () -> exerciseServiceMock.find("Ale", null));
 	}
 	
 	@Test
-	void givenUsernameNull_whenFindExercise_thenThrowsException() {
+	void givenUsernameNullWhenFindExerciseThenThrowsException() {
 		assertThrows(EntityNotFoundException.class, () -> exerciseServiceMock.find(null, 1L));
 	}
 	

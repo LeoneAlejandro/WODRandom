@@ -4,8 +4,8 @@ import java.util.List;
 
 import com.aleleone.WOD.Randomizer.domain.model.Exercise;
 import com.aleleone.WOD.Randomizer.domain.model.Wod;
-import com.aleleone.WOD.Randomizer.presentation.controller.CreationExcerciseWodRequest;
-import com.aleleone.WOD.Randomizer.presentation.controller.CreationWodRequest;
+import com.aleleone.WOD.Randomizer.presentation.CreationExcerciseWodRequest;
+import com.aleleone.WOD.Randomizer.presentation.CreationWodRequest;
 
 
 public interface WodService {

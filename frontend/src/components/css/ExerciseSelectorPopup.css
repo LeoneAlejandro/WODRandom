@@ -1,0 +1,55 @@
+div.popup-content {
+    margin-bottom: 20px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.35);
+    background-color: rgb(55,55,55);
+}
+
+div.popup {
+    position: absolute;
+    left: 700px;
+    top: 100px;
+    /* margin: auto; */
+    margin-top: 10px;
+    /* margin-bottom: 20px; */
+    width: 500px;
+}
+
+.background {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    top: 0px;
+    background-color: rgba(55, 55, 55, 0.77);
+}
+
+.closePopup {
+    /* background-color: blue; */
+}
+
+h2.title-esp {
+    background-color: rgb(150, 30, 30);
+    padding-top: 5px;
+    padding-bottom: 10px;
+    margin: 0;
+}
+
+button.select-exercise-esp {
+    margin-bottom: 20px;
+}
+
+
+ul.list-exercises {
+    /* margin: auto; */
+    list-style: none;
+    padding: 0;
+    padding-bottom: 10px;
+}
+
+li.exercises:hover {
+    background-color: rgb(150, 30, 30);
+    cursor: pointer;
+}
+
+.overlay {
+    background-color: black;
+}

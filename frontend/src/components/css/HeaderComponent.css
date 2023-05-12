@@ -4,36 +4,47 @@ nav.navbar.navbar-expand{
 
 a.navbar-brand {
     color: white;
-    /* position: fixed; */
     left: 0%;
     bottom: 0px;
-    /* transform: translate(0%, -9%); */
     font-weight: bold;
     font-size: 250%;
+    /* transform: translate(0%, -9%); */
+    /* position: fixed; */
 }
 
 a.navbar-brand:hover {
     color: rgb(153, 27, 27);
-
 }
 
-a.nav-link {
+a.nav-link-header {
     color: white;
     font-size: 150%;
+    padding: 10px;
+    text-decoration: none ;
 }
 
+a.nav-link-header:hover {
+    color: rgb(153, 27, 27);
+}
 
-a.nav-link:hover {
+a.nav-link-log {
+    color: white;
+    font-size: 200%;
+    /* padding: 10px; */
+    text-decoration: none ;
+}
+
+a.nav-link-log:hover {
     color: rgb(153, 27, 27);
 }
 
 
-
-.nav-items {
+/* .nav-items {
+    color: white;
     transform: translate(0%, 10%);
     font-size: 125%;
-}
+} */
 
 .collapse.navbar-collapse {
-        transform: translate(0%, 10%);
+    transform: translate(0%, 10%);
 }

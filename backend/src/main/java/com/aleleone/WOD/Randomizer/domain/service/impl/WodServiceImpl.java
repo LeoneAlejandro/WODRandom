@@ -1,33 +1,28 @@
 package com.aleleone.WOD.Randomizer.domain.service.impl;
 
-import static com.aleleone.WOD.Randomizer.domain.model.Exercise.ExerciseType.CARDIO;
-import static com.aleleone.WOD.Randomizer.domain.model.Exercise.ExerciseType.FUERZA;
-import static com.aleleone.WOD.Randomizer.domain.model.Exercise.ExerciseType.OLY;
 import static java.lang.String.format;
 import static java.util.Collections.shuffle;
-import static java.util.stream.Collectors.toList;
-import static java.util.stream.Stream.of;
 
 import java.util.ArrayList;
-import java.util.Collection;
 import java.util.List;
+import java.util.stream.Collectors;
 
 import org.springframework.stereotype.Service;
 
 import com.aleleone.WOD.Randomizer.datasource.repository.ExerciseRepository;
 import com.aleleone.WOD.Randomizer.datasource.repository.WodRepository;
 import com.aleleone.WOD.Randomizer.domain.model.Exercise;
+import com.aleleone.WOD.Randomizer.domain.model.Exercise.ExerciseType;
 import com.aleleone.WOD.Randomizer.domain.model.Wod;
 import com.aleleone.WOD.Randomizer.domain.service.WodService;
-import com.aleleone.WOD.Randomizer.presentation.controller.CreationExcerciseWodRequest;
-import com.aleleone.WOD.Randomizer.presentation.controller.CreationWodRequest;
+import com.aleleone.WOD.Randomizer.presentation.CreationExcerciseWodRequest;
+import com.aleleone.WOD.Randomizer.presentation.CreationWodRequest;
 
 import jakarta.persistence.EntityNotFoundException;
 import jakarta.transaction.Transactional;
 
 @Service
 public class WodServiceImpl implements WodService {
-
 
     private final ExerciseRepository exerciseRepository;
     
@@ -47,18 +42,13 @@ public class WodServiceImpl implements WodService {
         int exAmountCardio = creationWodRequest.getExAmountCardio();
         int exAmountOly = creationWodRequest.getExAmountOly();
 
-        List<Exercise> exercisesByUsername = exerciseRepository.findByUserName(username);
+        List<Exercise> allExercises = exerciseRepository.findByUserName(username);
         
-        shuffle(exercisesByUsername);
-
-        List<Exercise> ejerciciosDeFuerza = exercisesByUsername.stream().filter(p -> FUERZA.equals(p.getExerciseType()))
-                .collect(toList());
-
-        List<Exercise> ejerciciosDeCardio = exercisesByUsername.stream().filter(p -> CARDIO.equals(p.getExerciseType()))
-                .collect(toList());
-
-        List<Exercise> ejerciciosDeOly = exercisesByUsername.stream().filter(p -> OLY.equals(p.getExerciseType()))
-                .collect(toList());
+        shuffle(allExercises);
+        
+        List<Exercise> ejerciciosDeFuerza = filterExercisesByType(allExercises, ExerciseType.FUERZA);
+        List<Exercise> ejerciciosDeCardio = filterExercisesByType(allExercises, ExerciseType.CARDIO);
+        List<Exercise> ejerciciosDeOly = filterExercisesByType(allExercises, ExerciseType.OLY);
 
 
         int lengthFuerza = ejerciciosDeFuerza.size();
@@ -66,24 +56,32 @@ public class WodServiceImpl implements WodService {
         int lengthOly = ejerciciosDeOly.size();
 
         if (lengthFuerza < exAmountFuerza || lengthCardio < exAmountCardio || lengthOly < exAmountOly) {
-//			throw new IndexOutOfBoundsException(); "Elegiste muchos ejercicios para tu lista"
-            return null;
+        		throw new IndexOutOfBoundsException("Elegiste muchos ejercicios para tu lista"); 
         }
 
 
-        List<Exercise> exFuerzas = ejerciciosDeFuerza.subList(0, exAmountFuerza);
-        List<Exercise> exCardios = ejerciciosDeCardio.subList(0, exAmountCardio);
-        List<Exercise> exOlys = ejerciciosDeOly.subList(0, exAmountOly);
-
-        List<Exercise> wodGenerado = of(exFuerzas, exCardios, exOlys)
-                .flatMap(Collection::stream)
-                .collect(toList());
-
+        List<Exercise> wodGenerado = new ArrayList<>();
+        for (int i = 0; i < exAmountFuerza; i++) {
+        	wodGenerado.add(ejerciciosDeFuerza.get(i));
+        }
+        for (int i = 0; i < exAmountCardio; i++) {
+        	wodGenerado.add(ejerciciosDeCardio.get(i));
+        }
+        for (int i = 0; i < exAmountOly; i++) {
+        	wodGenerado.add(ejerciciosDeOly.get(i));
+        }
+        
         shuffle(wodGenerado);
 
         return wodGenerado;
     }
 	
+	
+	private List<Exercise> filterExercisesByType(List<Exercise> exercises, ExerciseType type) {
+	    return exercises.stream()
+	            .filter(e -> e.getExerciseType() == type)
+	            .collect(Collectors.toList());
+	}
 
 	public List<Wod> find(String username) {
 		return wodRepository.findByUserName(username);
@@ -98,7 +96,6 @@ public class WodServiceImpl implements WodService {
                         () -> new EntityNotFoundException(format("Wod con id: %d para el usuario %s no existe", id, username))
                 );
 	}
-
 	
 	@Transactional
 	public Wod create(String username, CreationExcerciseWodRequest requestBodyDetails) {
@@ -114,8 +111,7 @@ public class WodServiceImpl implements WodService {
 		Wod savedWod = Wod.createWod(wodName, username, listOfExercises);
 		wodRepository.save(savedWod);
 		
-	
-		return null;
+		return savedWod;
 	}
 	
 

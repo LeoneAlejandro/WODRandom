@@ -48,7 +48,7 @@ export default function ListExercisesComponent() {
 
     return(
         <div className="container">
-            {message && <div className="alert alert-warning">{message}</div>}
+            {/* {message && <div className="alert alert-warning">{message}</div>} */}
             <div className="lista-ejercicios">
                 <table className='table table-hover'>
                     <thead>
@@ -65,8 +65,8 @@ export default function ListExercisesComponent() {
                                     <tr key={exercise.id}>
                                         <td>{exercise.exerciseName}</td>
                                         <td>{exercise.exerciseType}</td>
-                                        <td><button className="btn btn-success" onClick={() => updateExercise(exercise.id) }>Modificar</button></td>
-                                        <td><button className="btn btn-danger" onClick={() => deleteExercise(exercise.id) }>X</button></td>
+                                        <td><button className="button-success" onClick={() => updateExercise(exercise.id) }>Modificar</button></td>
+                                        <td><button className="button-delete" onClick={() => deleteExercise(exercise.id) }>X</button></td>
                                     </tr>
                                 )
                             )
@@ -74,7 +74,7 @@ export default function ListExercisesComponent() {
                     </tbody>
                 </table>
             </div>
-            <div className="btn btn-success" onClick={addExercise}>Agregar nuevo ejercicio</div>
+            <button className="button-success" onClick={addExercise}>Agregar nuevo ejercicio</button>
         </div>
     )
 }
