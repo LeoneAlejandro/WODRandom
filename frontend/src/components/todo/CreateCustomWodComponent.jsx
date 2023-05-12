@@ -5,7 +5,7 @@ import { saveWod } from "./api/SaveWodService";
 import { useNavigate } from "react-router-dom";
 import '../css/CreateCustomWodComponent.css'
 
-function ParentComponent() {
+function CreateCustomWodComponent() {
   const [selectedExerciseIds, setSelectedExerciseIds] = useState([]);
   const [wodName, setWodName] = useState('')
 
@@ -40,9 +40,6 @@ function ParentComponent() {
   }
 
   function removeSelectedExercise(e) {
-    console.log(e)
-    console.log(selectedExerciseIds[e])
-    console.log(selectedExerciseIds)
     setSelectedExerciseIds((selectedExerciseIds) => {
       const newSelectedExerciseIds = [...selectedExerciseIds];
       newSelectedExerciseIds.splice(e, 1);
@@ -56,31 +53,29 @@ function ParentComponent() {
       <ExerciseSelectorPopup username={username} onSelectExercise={handleSelectExercise} />
       <div className='create-custom-wod-table'>
         { selectedExerciseIds.length > 0 &&
-        <div className='table-custom-exercises'>
-          <table className="table-custom-exercises">
+          <table className="tableCustomWod">
             <thead className='titles-CCWC'>
-              <tr>
-                <th className="ExerciseTitle">Ejercicio</th>
-                <th className="ExerciseTitle">Borrar</th>
+              <tr >
+                <th className="exerciseHeader">Ejercicio</th>
+                <th >Borrar</th>
               </tr>
             </thead>
               <tbody>
                 {selectedExerciseIds.map((exercise, index) => (
-                  <tr key={index}>
+                  <tr className='tableCustomRows' key={index}>
                       <td value={index}>{exercise.name}</td>
-                      <td><button className='button-delete' onClick={()=>removeSelectedExercise(index)}>X</button></td>
+                      <td><button className='buttonDeleteEx' onClick={()=>removeSelectedExercise(index)}>X</button></td>
                   </tr>
                 ))}
               </tbody>
           </table>
-        </div>
         }
 
         <input className="wodName" required="required" type="text" value={wodName} onChange={(e) => setWodName(e.target.value)} placeholder="Nombre de Wod"/>
         <button className="buton" onClick={handleSaveWod} disabled={!wodName}>Guardar WOD</button>
-      </div>
     </div>
+  </div>
   );
 }
 
-export default ParentComponent;
+export default CreateCustomWodComponent;

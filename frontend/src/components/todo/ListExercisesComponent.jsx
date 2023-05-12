@@ -50,9 +50,9 @@ export default function ListExercisesComponent() {
         <div className="container">
             {/* {message && <div className="alert alert-warning">{message}</div>} */}
             <div className="lista-ejercicios">
-                <table className='table table-hover'>
+                <table className='tablaEjercicios'>
                     <thead>
-                        <tr>
+                        <tr className="tableTitles">
                             <th className="ExercisesTitle">Ejercicio</th>
                             <th className="TypeTitle">Tipo</th>
                             <th className="UpdateTitle"></th>
@@ -62,19 +62,19 @@ export default function ListExercisesComponent() {
                     <tbody>
                         { exercise.map(
                                 exercise => (
-                                    <tr key={exercise.id}>
+                                    <tr className="tableRows" key={exercise.id}>
                                         <td>{exercise.exerciseName}</td>
                                         <td>{exercise.exerciseType}</td>
-                                        <td><button className="button-success" onClick={() => updateExercise(exercise.id) }>Modificar</button></td>
-                                        <td><button className="button-delete" onClick={() => deleteExercise(exercise.id) }>X</button></td>
+                                        <td><button className="buttonModify" onClick={() => updateExercise(exercise.id) }>Modificar</button></td>
+                                        <td><button className="buttonDelete" onClick={() => deleteExercise(exercise.id) }>X</button></td>
                                     </tr>
                                 )
                             )
                         }
                     </tbody>
                 </table>
+            <button className="buttonModify" onClick={addExercise}>Agregar nuevo ejercicio</button>
             </div>
-            <button className="button-success" onClick={addExercise}>Agregar nuevo ejercicio</button>
         </div>
     )
 }

@@ -12,6 +12,7 @@ div.popup {
     margin-top: 10px;
     /* margin-bottom: 20px; */
     width: 500px;
+    z-index: 2;
 }
 
 .background {
@@ -20,6 +21,7 @@ div.popup {
     width: 100%;
     top: 0px;
     background-color: rgba(55, 55, 55, 0.77);
+    z-index: 1;
 }
 
 .closePopup {
@@ -31,6 +33,16 @@ h2.title-esp {
     padding-top: 5px;
     padding-bottom: 10px;
     margin: 0;
+}
+
+.searchBar {
+    background-color: rgba(55, 55, 55, 0.77);
+    border: 2px solid rgb(150, 30, 30);
+    outline: none;
+    padding: 0px 0px 0px 10px;
+    /* padding-left: 10px ; */
+    margin-top: 2px;
+    color: white;
 }
 
 button.select-exercise-esp {

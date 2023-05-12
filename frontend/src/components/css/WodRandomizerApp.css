@@ -35,54 +35,30 @@ button:hover {
     background-color: rgb(55, 55, 55);
 }
 
-.table.table-dark {
+/* .table.table-dark {
     background-color: rgb(55, 55, 55);
     color: white;
-}
+} */
 
-.table-hover tbody tr:hover td, .table-hover tbody th {
+/* .table-hover tbody tr:hover td, .table-hover tbody th {
     background-color: rgb(55,55,55);
     color: white;
-  }
+  } */
 
-td {
+/* td {
     color: white;
 }
 
 th {
     color: white;
     font-size: 120%;
-}
+} */
 
 
 .WodRandomizerApp {
     background-color: rgb(55, 55, 55);
     color: white;
 }
-
-/* 
-footer {
-    bottom: 0;
-    position: absolute;
-    width: 90%;
-    height: 40pxs;
-} */
-
-/* a.navbar-brand.ms-2.fs-2.fw-bold {
-    color: white;
-}
-
-a.nav-link {
-    color: white;
-}
-
-a.navbar-brand.ms-2.fs-2.fw-bold:hover {
-    color: rgb(153, 27, 27);
-}
-
-a.nav-link:hover {
-    color: rgb(153, 27, 27);
-} */
 
 .username, .password {
     padding: 3px;

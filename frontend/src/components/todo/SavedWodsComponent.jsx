@@ -47,7 +47,7 @@ export default function SavedWodsComponent() {
 
     return(
         <div className="savedWods">
-            <div className="lista-wods">
+            <div className="wodList">
                 <select className="form-selection" onChange={(e) =>  getSelectedWod(e.target.value)}  defaultValue="default" aria-label="Default select example">
                              <option value="default" disabled>Selecciona tu WOD</option>
                     { savedWod &&
@@ -64,11 +64,11 @@ export default function SavedWodsComponent() {
 
             <div className="selected-wod">
                 {selectedWod && 
-                    <table className='table table-hover'>
+                    <table className='tableSavedWods'>
                         <thead>
-                            <tr>
+                            <tr className="savedWodsTableHeader">
                                 <th className="selectedExTitle">Ejercicio</th>
-                                <th className="selectedExType">Tipo</th>
+                                <th >Tipo</th>
                                 {/* <th className="Update"></th>
                                 <th className="Delete"></th> */}
                             </tr>
@@ -76,7 +76,7 @@ export default function SavedWodsComponent() {
                         <tbody>
                             { selectedWod.exercises.map(
                                     selectedWod => (
-                                        <tr key={selectedWod.id}>
+                                        <tr className="savedWodsTableRows" key={selectedWod.id}>
                                             <td>{selectedWod.exerciseName}</td>
                                             <td>{selectedWod.exerciseType}</td>
                                         </tr>

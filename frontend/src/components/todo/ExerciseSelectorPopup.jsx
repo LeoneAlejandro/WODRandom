@@ -6,6 +6,7 @@ import '../css/ExerciseSelectorPopup.css'
 function ExerciseSelectorPopup( { username, onSelectExercise }) {
   const [exercises, setExercises] = useState([]);
   const [showPopup, setShowPopup] = useState(false);
+  const [searchQuery, setSearchQuery] = useState('');
 
 
   useEffect(() => {
@@ -19,23 +20,34 @@ function ExerciseSelectorPopup( { username, onSelectExercise }) {
 
 
   function handleSelectExercise(exerciseId, exerciseName) {
-    setShowPopup(false);
+    if(!window.event.ctrlKey) {
+      setShowPopup(false);
+    }
     onSelectExercise(exerciseId, exerciseName);
   }
 
+  function handleOpenPopup() {
+    setShowPopup(true)
+    setSearchQuery('')
+  }
+
+  
+
   return (
     <>
-      <button className='select-exercise-esp' onClick={() => setShowPopup(true)}>Select Exercise</button>
+      <button className='select-exercise-esp' onClick={handleOpenPopup}>Elegir ejercicios</button>
       {showPopup && (
-        <div className='background' onClick={() => setShowPopup(false)}>
+        <div className='background'>
           <div className="popup">
             <div className="popup-content">
               <h2 className='title-esp'>Lista de ejercicios</h2>
+              <h10>(mantené presionado ctrl para elección multiple)</h10>
+              <input className='searchBar' type="text" placeholder="Search exercises..." value={searchQuery} onChange={(e) => setSearchQuery(e.target.value)} />
               <ul className='list-exercises'>
-                {exercises.map((exercise) => (
-                  <li className='exercises' key={exercise.id} onClick={() => handleSelectExercise(exercise.id, exercise.exerciseName)}>
-                    {exercise.exerciseName}
-                  </li>
+                {exercises.filter(exercise => exercise.exerciseName.toLowerCase().includes(searchQuery.toLowerCase())).map((exercise) => (
+                    <li className='exercises' key={exercise.id} onClick={() => handleSelectExercise(exercise.id, exercise.exerciseName)}>
+                        {exercise.exerciseName}
+                    </li>
                 ))}
               </ul>
             </div>
