@@ -2,9 +2,11 @@ package com.aleleone.WOD.Randomizer.domain.service.impl;
 
 import static java.lang.String.format;
 import static java.util.Collections.shuffle;
+import static org.mockito.ArgumentMatchers.notNull;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 import java.util.stream.Collectors;
 
 import org.springframework.stereotype.Service;
@@ -102,9 +104,10 @@ public class WodServiceImpl implements WodService {
 		String wodName = requestBodyDetails.getWodName();
 		List<Long> listOfIds = requestBodyDetails.getExercisesId();
 		List<Exercise> listOfExercises = new ArrayList<Exercise>();
-				
+		
 		for (Long id : listOfIds) {
-			Exercise exercise = exerciseRepository.getById(id);
+			Exercise exercise = exerciseRepository.findById(id)
+									.orElseThrow(() -> new EntityNotFoundException(format("Ejercicio con id: %d para el usuario %s no existe", id, username)));
 			listOfExercises.add(exercise);
 		}
 		

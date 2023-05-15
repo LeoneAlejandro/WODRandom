@@ -113,8 +113,8 @@ export default function WodFilterGeneratorComponent() {
                             </thead>
                             <tbody>
                                 { listOfExercises.map(
-                                        exercise => (
-                                            <tr className="rowTableExercise" key={listOfExercises.exerciseId}>
+                                        (exercise, index) => (
+                                            <tr className="rowTableExercise" key={index}>
                                                 <td >{exercise.exerciseName}</td>
                                                 <td >{exercise.exerciseType}</td>
                                             </tr>

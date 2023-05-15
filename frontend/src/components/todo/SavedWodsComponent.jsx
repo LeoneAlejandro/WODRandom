@@ -52,8 +52,9 @@ export default function SavedWodsComponent() {
                              <option value="default" disabled>Selecciona tu WOD</option>
                     { savedWod &&
                     savedWod.map(
-                        savedWod => (
-                                <option value={savedWod.id}>{savedWod.wodName}</option>
+                        (savedWod, index) => (
+                            <option key={index} value={savedWod.id}>{savedWod.wodName}</option>
+                            
                         )
                     )
                     }
@@ -75,7 +76,7 @@ export default function SavedWodsComponent() {
                         </thead>
                         <tbody>
                             { selectedWod.exercises.map(
-                                    selectedWod => (
+                                    (selectedWod, index) => (
                                         <tr className="savedWodsTableRows" key={selectedWod.id}>
                                             <td>{selectedWod.exerciseName}</td>
                                             <td>{selectedWod.exerciseType}</td>

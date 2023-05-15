@@ -39,12 +39,11 @@ a.nav-link-log:hover {
 }
 
 
-/* .nav-items {
-    color: white;
-    transform: translate(0%, 10%);
-    font-size: 125%;
-} */
-
 .collapse.navbar-collapse {
     transform: translate(0%, 10%);
+}
+
+.headerRandomizer {
+    border-bottom: 1px solid white;
+    margin-bottom: 30px;
 }

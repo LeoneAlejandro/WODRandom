@@ -52,7 +52,7 @@ input[type=number] {
 }
 
 .rowTableExercise {
-    border-bottom: 1px solid rgb(71, 71, 71);
+    /* border-bottom: 1px solid rgb(71, 71, 71); */
     height: 30px;
 }
 
@@ -63,6 +63,7 @@ input[type=number] {
 
 .thExerciseWFGC {
     width: 280px;
+    height: 35px;
 }
 
 .exerciseTitle {

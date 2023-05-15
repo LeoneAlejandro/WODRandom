@@ -12,7 +12,7 @@ export default function HeaderComponent() {
     }
 
     return(
-         <header className="border-bottom mb-5 p-0">
+        <header className="headerRandomizer">
         <div className="container">
             {/* <div className="row"> */}
                 <nav className="navbar navbar-expand">

@@ -19,6 +19,7 @@ div.wodList {
 
 .selectedExTitle {
     width: 280px;
+    height: 35px;
 }
 
 .tableSavedWods {
@@ -27,7 +28,7 @@ div.wodList {
 }
 
 .savedWodsTableRows {
-    border-bottom: 1px solid rgb(71, 71, 71);
+    /* border-bottom: 1px solid rgb(71, 71, 71); */
     height: 30px;
 }
 

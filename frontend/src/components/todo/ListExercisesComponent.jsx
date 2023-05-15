@@ -48,14 +48,14 @@ export default function ListExercisesComponent() {
 
 
     return(
-        <div className="container">
+        <div className="containerExerciseList">
             {/* <div className="searchBarContainer"> */}
                 <input className='searchExercisesBar' type="text" placeholder="Buscar ejercicios..." value={searchQuery} onChange={(e) => setSearchQuery(e.target.value)} />
             {/* </div> */}
             {/* {message && <div className="alert alert-warning">{message}</div>} */}
             <div className="listExercises">
                 <table className='tablaEjercicios'>
-                    <div>
+                    {/* <div> */}
                         <thead>
                             <tr className="tableTitles">
                                 <th className="ExercisesTitle">Ejercicio</th>
@@ -78,7 +78,7 @@ export default function ListExercisesComponent() {
                                 )
                             }
                         </tbody>
-                    </div>
+                    {/* </div> */}
                 </table>
             <button className="buttonModify" onClick={addExercise}>Agregar nuevo ejercicio</button>
             </div>
