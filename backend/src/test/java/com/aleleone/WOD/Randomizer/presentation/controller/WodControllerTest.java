@@ -1,9 +1,8 @@
 package com.aleleone.WOD.Randomizer.presentation.controller;
 
+import static org.hamcrest.Matchers.*;
 import static org.mockito.ArgumentMatchers.anyString;
-import static org.mockito.Mockito.verify;
-import static org.mockito.Mockito.when;
-import static org.hamcrest.Matchers.hasSize;
+import static org.mockito.Mockito.*;
 import static org.springframework.boot.test.autoconfigure.jdbc.AutoConfigureTestDatabase.Replace.AUTO_CONFIGURED;
 import static org.springframework.boot.test.context.SpringBootTest.WebEnvironment.RANDOM_PORT;
 import static org.springframework.test.annotation.DirtiesContext.ClassMode.AFTER_EACH_TEST_METHOD;
@@ -59,7 +58,8 @@ public class WodControllerTest {
     private MockMvc mvc;
 
 
-    private Exercise exercise1 = new Exercise(2L, "MockUsername", "MockExerciseName2", ExerciseType.FUERZA);
+    private Exercise exercise1 = new Exercise(1L, "MockUsername", "MockExerciseName1", ExerciseType.FUERZA);
+    private Exercise exercise2 = new Exercise(2L, "MockUsername", "MockExerciseName2", ExerciseType.FUERZA);
 //    private Exercise exercise2 = new Exercise(3L, "MockUsername", "MockExerciseName3", ExerciseType.OLY);
 //    private Exercise exercise3 = new Exercise(4L, "MockUsername", "MockExerciseName4", ExerciseType.FUERZA);
 //    private List<Exercise> mockExercises = Arrays.asList(exercise1, exercise2, exercise3);
@@ -78,19 +78,20 @@ public class WodControllerTest {
     	MvcResult result = mvc.perform(post("/users/{username}/wods", "MockUsername").contentType(MediaType.APPLICATION_JSON).content(objectMapper.writeValueAsString(wodRequest)))
     		.andExpect(status().isOk())
     		.andExpect(jsonPath("$").isNotEmpty())
+    		.andExpect(jsonPath("$.exercises", hasSize(3)))
+    		.andExpect(jsonPath("$.userName").value("MockUsername"))
     		.andExpect(jsonPath("$.wodName").value("MockWodname"))
     		.andExpect(jsonPath("$.exercises[0].exerciseName").value("MockExerciseName1"))
-    		.andExpect(jsonPath("$.exercises[0].userName").value("MockUsername"))
     		.andExpect(jsonPath("$.exercises[0].exerciseType").value("FUERZA"))
-//    		.andExpect(jsonPath("$.exercises[0]").value(exercise1))
+//			.andExpect(jsonPath("$.exercises[0]").value(exercise1))
     		.andReturn();
-    		;
-    		
-    		
-//    		String content = result.getResponse().getContentAsString();
-//    		System.out.println(content.toString());
+ 
+		
+//		String content = result.getResponse().getContentAsString();
+//		System.out.println(content.toString());
 //
-//    		System.out.println("post");    
+//		System.out.println("post");   
+    	
     }
     
     @Test
@@ -143,26 +144,26 @@ public class WodControllerTest {
     		.andExpect(status().is2xxSuccessful())
     		.andExpect(jsonPath("$[0].wodName").value("MockWodname1"))
     		.andExpect(jsonPath("$[1].wodName").value("MockWodname2"))
+    		.andExpect(jsonPath("$[0].userName").value("MockUsername"))
             .andExpect(jsonPath("$", hasSize(2)))
+            .andExpect(jsonPath("$[0].exercises", hasSize(2)))
+            .andExpect(jsonPath("$[1].exercises", hasSize(2)))
     		.andExpect(jsonPath("$[0].exercises[0].id").value(1))
     		.andExpect(jsonPath("$[0].exercises[0].exerciseName").value("MockExerciseName1"))
     		.andExpect(jsonPath("$[0].exercises[0].exerciseType").value("FUERZA"))
     		.andExpect(jsonPath("$[0].exercises[1].id").value(2))
     		.andExpect(jsonPath("$[0].exercises[1].exerciseName").value("MockExerciseName2"))
     		.andExpect(jsonPath("$[0].exercises[1].exerciseType").value("CARDIO"))
-//    		.andExpect(jsonPath("$").value(response))
     		.andExpect(content().json(response))
-    		
     		.andReturn();
     	
 //    		.andExpect(jsonPath("$.exercises[0]").value(exercise1))
 //    		.andExpect(jsonPath("$.userName").value("MockUsername"))
-    		;
     		
-    		String content = result.getResponse().getContentAsString();
-    		System.out.println(content.toString());
-
-    		System.out.println("get");
+//    		String content = result.getResponse().getContentAsString();
+//    		System.out.println(content.toString());
+//
+//    		System.out.println("get");
     }
     
 //    @Test

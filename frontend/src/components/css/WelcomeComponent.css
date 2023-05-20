@@ -11,26 +11,9 @@
 }
 
 .containerCards {
-    /* display: grid; */
-    width: 1400px;
-    height: 800px;
+    width: 70vmax;
+    height: 40vmax;
     margin: auto;
-
-    /* height: 1000px; */
-
-    /* background-color: rgb(10, 10, 10); */
-    /* display: grid; */
-    /* height: 100vh; */
-    /* margin: 0px; */
-    /* padding: 0px; */
-    /* place-items: center; */
-
-    /* background-color: rgb(10, 10, 10); */
-    /* display: grid; */
-    /* height: 100vh; */
-    /* margin: 0px; */
-    /* padding: 0px; */
-    /* place-items: center; */
 }
 
 .menuCard {
@@ -38,11 +21,12 @@
     border: 0.5vmin solid var(--border);
     cursor: pointer;
     position: relative;
-    width: 500px;
-    height: 30vmin;
+    width: 30vmax;
+    height: 15vmax;
     margin: 30px;
     display: inline-table;
     /* display: inline; */
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.55);
   }
   
   .menuCard:hover:before {
@@ -93,7 +77,8 @@
     background-position: 0% 0%;
     background-size: 3vmin 3vmin;
     height: calc(100%);
-    padding: 4vmin;
+    /* padding: 4vmin; */
+    padding: 20px;
     position: relative;
     transition: background-position 350ms ease;
     width: calc(100%);
@@ -110,11 +95,12 @@ margin: 0px;
 }
   
 .menuCard-title {
-font-size: 4vmin;
+/* font-size: 2vmax; */
+font-size: 1,5vmax;
 }
   
 .menuCard-subtitle {
-font-size: 2vmin;
+font-size: 0.8vmax;
 margin-top: 1vmin;
 
 }
