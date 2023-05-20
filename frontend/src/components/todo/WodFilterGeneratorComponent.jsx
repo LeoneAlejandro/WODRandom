@@ -1,4 +1,4 @@
-import { Formik, Form, Field, ErrorMessage } from "formik"
+import { Formik, Form, Field } from "formik"
 import { useState } from "react"
 import { generateWod } from "./api/WodApiService"
 import { useAuth } from "./security/AuthContext"
@@ -15,6 +15,7 @@ export default function WodFilterGeneratorComponent() {
     const [listOfExercises, setListOfExercises] = useState('')
     const [badRequest, setBadRequest] = useState(()=>false)
     const [wodName, setWodName] = useState('')
+    
 
     function onSubmit(values) {
 
@@ -23,8 +24,6 @@ export default function WodFilterGeneratorComponent() {
             exAmountCardio: values.exAmountCardio, 
             exAmountOly: values.exAmountOly
             }
-
-
 
         generateWod(username, wod)
             .then(response => {
@@ -39,7 +38,7 @@ export default function WodFilterGeneratorComponent() {
     }
 
 
-    function addWod() {
+    async function addWod() {
 
         const listExerciesId = []
         listOfExercises.forEach(element => {
@@ -52,9 +51,10 @@ export default function WodFilterGeneratorComponent() {
         }
 
         saveWod(username, creationExcerciseWodRequest)
-
-        navigate(`/wods`)
-        
+            .then((response) => {
+                navigate(`/wods`)
+            })
+            .catch(error => console.log(error))        
     }
 
     function handleWodName(event) {
@@ -132,5 +132,4 @@ export default function WodFilterGeneratorComponent() {
             </div>
          </div>    
     )
-
 }

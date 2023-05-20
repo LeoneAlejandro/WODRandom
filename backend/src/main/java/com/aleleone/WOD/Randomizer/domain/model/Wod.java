@@ -50,8 +50,11 @@ public class Wod {
     @ManyToMany
     @JoinTable(
 		name = "saved_wods",
-		joinColumns = @JoinColumn(name = "exercise_id"),
-		inverseJoinColumns = @JoinColumn(name = "wod_id"))
+//		joinColumns = @JoinColumn(name = "exercise_id"),
+//		inverseJoinColumns = @JoinColumn(name = "wod_id")
+        joinColumns = @JoinColumn(name = "wod_id"),
+        inverseJoinColumns = @JoinColumn(name = "exercise_id")
+		)
     List<Exercise> exercises;
     
 

@@ -5,10 +5,9 @@ import java.util.List;
 public class CreationExcerciseWodRequest {
 
 	private String wodName;
-	private String userName;
 	private List<Long> exercisesId;
 	
-	public CreationExcerciseWodRequest(String wodName, String userName, List<Long> exercisesId) {
+	public CreationExcerciseWodRequest(String wodName, List<Long> exercisesId) {
 		super();
 		this.wodName = wodName;
 		this.exercisesId = exercisesId;
@@ -32,8 +31,7 @@ public class CreationExcerciseWodRequest {
 
 	@Override
 	public String toString() {
-		return "CreationExcerciseWodRequest [wodName=" + wodName + ", userName=" + userName + ", exercisesId="
-				+ exercisesId + "]";
+		return "CreationExcerciseWodRequest [wodName=" + wodName + ", exercisesId=" + exercisesId + "]";
 	}
 	
 }

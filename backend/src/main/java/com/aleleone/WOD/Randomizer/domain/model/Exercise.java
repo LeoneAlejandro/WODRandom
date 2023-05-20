@@ -89,10 +89,14 @@ public class Exercise {
 
     @Override
     public String toString() {
-        return "Exercise [exerciseId=" + id + ", exerciseName=" + exerciseName + ", exerciseType="
-                + exerciseType + "]";
+        return "Exercise{" +
+                "id=" + id +
+                ", userName='" + userName + '\'' +
+                ", exerciseName='" + exerciseName + '\'' +
+                ", exerciseType=" + exerciseType +
+                '}';
     }
-    
+
     public enum ExerciseType {
         FUERZA,
         CARDIO,

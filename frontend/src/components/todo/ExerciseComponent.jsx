@@ -59,14 +59,12 @@ export default function ExerciseComponent() {
     
     function validate(values) {
         let errors = {}
-
         if(values.exerciseName.length < 2) {
-            errors.exerciseName = 'El ejercicio debe tener más de 2 caracteres'
-        }
-        
+            errors.exerciseName = 'El ejercicio debe tener más de 2 caracteres'     }
         if(values.exerciseType.length < 2) {
-            errors.exerciseType = 'Selecciona un tipo de ejercicio'
-        }
+            errors.exerciseName = 'Selecciona un tipo de ejercicio'    }
+        if(values.exerciseType.length < 2 && values.exerciseName.length < 2) {
+            errors.exerciseName = 'El ejercicio debe tener más de 2 caracteres y debes también seleccionar un tipo de ejercicio'    }
 
         return errors
     }
@@ -91,11 +89,11 @@ export default function ExerciseComponent() {
                                     component='div'
                                     className="alert alert-warning"
                                 />
-                                <ErrorMessage 
+                                {/* <ErrorMessage 
                                     name='exerciseType'
                                     component='div'
                                     className="alert alert-warning"
-                                />
+                                /> */}
                                 <fieldset className="form-group editExercise">
                                     <label>Ejercicio</label>
                                     <Field type="text" className="form-control exercise" name="exerciseName"/>

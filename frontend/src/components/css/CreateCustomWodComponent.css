@@ -15,7 +15,14 @@
 
 .buton {
     cursor: pointer;
+    margin-left: 20px;
 }
+
+
+.nameAndSave {
+    display: inline-flex;
+}
+
 
 thead.titles-CCWC {
     height: 35px;

@@ -10,21 +10,23 @@ export default function SavedWodsComponent() {
     const username = authContext.username
  
 
-    const [savedWod, setSavedWod] = useState('')
+    const [savedWod, setSavedWod] = useState([])
     const [selectedWod, setSelectedWod] = useState('')
 
     useEffect(
-        () => refreshSavedWods(), [savedWod]
+        () => {
+            refreshSavedWods()
+        } , []
     )
 
     function refreshSavedWods() {
         retrevieSavedWodsForUsername(username)
-            .then(response => 
-                setSavedWod(response.data),
-                // setSelectedWod(null)
-                // console.log(savedWod)
-                )
-            .catch(error => console.log(error)) 
+            .then(response => {
+                setSavedWod(response.data)
+            })
+            .catch(error => {
+                console.log(error) 
+            })
     }
 
     function getSelectedWod(id) {
@@ -37,7 +39,7 @@ export default function SavedWodsComponent() {
 
     function deleteWod() {
         deleteWodById(username, selectedWod.id) 
-            .then(response => {
+            .then(() => {
                 refreshSavedWods()
                 setSelectedWod(null)
             })
@@ -48,16 +50,14 @@ export default function SavedWodsComponent() {
     return(
         <div className="savedWods">
             <div className="wodList">
-                <select className="form-selection" onChange={(e) =>  getSelectedWod(e.target.value)}  defaultValue="default" aria-label="Default select example">
-                             <option value="default" disabled>Selecciona tu WOD</option>
+                <select className="form-selection" onChange={(e) =>  getSelectedWod(e.target.value)}  defaultValue="default">
+                             <option value="default" disabled selected={!selectedWod}>Selecciona tu WOD</option>
                     { savedWod &&
                     savedWod.map(
                         (savedWod, index) => (
                             <option key={index} value={savedWod.id}>{savedWod.wodName}</option>
-                            
                         )
-                    )
-                    }
+                    )}
                 </select>
             </div>
             

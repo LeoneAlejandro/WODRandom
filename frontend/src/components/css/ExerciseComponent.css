@@ -1,15 +1,15 @@
 form.editExercise {
-    display: flex;
-    justify-content: center;
-    display: inline-block;
+    /* display: flex; */
+    /* justify-content: center; */
+    /* display: inline-block; */
 }
 
 
 input.form-control.exercise {
-    display: inline-block;
-    width: 40%;
-    left: 0px;
-    margin-left: 0%;
+    display: inline-flex;
+    width: 250px;
+    /* left: 0px; */
+    /* margin-left: 0%; */
     box-shadow: none;
 }
 
@@ -19,32 +19,30 @@ input.form-control.exercise:focus {
 
 
 input.form-control.type {
-    display: inline-block;
-    width: 15%;
-    left: 1px;
-    margin-left: 1%;
+    /* display: inline-block; */
+    /* width: 15%; */
+    /* left: 1px; */
+    /* margin-left: 1%; */
 }
 
 select.selectType {
     background-color: #2c2c2c;
     color: white;
     border: 2px solid rgb(153, 27, 27);
-    border-radius: 0;
+    /* border-radius: 0; */
     width: 80px;
     height: 40px;
-    outline: 0px;
+    outline: none;
+    text-indent: 5px;
 }
 
 select.selectType:focus {
     border: 2px solid rgb(153, 27, 27);
-    outline: 0px;
+    /* outline: 0px; */
 }
 
 .alert.alert-warning {
-    margin-top: 3%;
+    margin: auto;
+    width: 700px;
 }
 
-
-.exercises:nth-of-type(2n+1) {
-    background-color: rgb(66, 66, 66);
-}

@@ -16,11 +16,11 @@ export default function HeaderComponent() {
         <div className="container">
             {/* <div className="row"> */}
                 <nav className="navbar navbar-expand">
-                    <a className="navbar-brand" href="http://localhost:3000/">Randomiz</a>
+                    <Link className="navbarBrand" to="/welcome">Home</Link>
                     <div className="collapse navbar-collapse">
                         <ul className="navbar-nav">
                             <li className="nav-item">
-                                {isAuthenticated && <Link className="nav-link-header" to="/welcome/Ale">Inicio</Link>} 
+                                {isAuthenticated && <Link className="nav-link-header" to="/randomize">Randomizar</Link>} 
                             </li>
                             <li className="nav-item">
                                 {isAuthenticated && <Link className="nav-link-header" to="/exercises">Ejercicios</Link>}
@@ -29,7 +29,7 @@ export default function HeaderComponent() {
                                 {isAuthenticated && <Link className="nav-link-header" to="/wods">Wods</Link>}
                             </li>
                             <li className="nav-item">
-                                {isAuthenticated && <Link className="nav-link-header" to="/createWod">Crear Wods</Link>}
+                                {isAuthenticated && <Link className="nav-link-header" to="/createWod">Custom Wods</Link>}
                             </li>
                         </ul>
                     </div>

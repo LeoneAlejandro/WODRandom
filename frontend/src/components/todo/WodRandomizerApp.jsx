@@ -11,6 +11,7 @@ import ExerciseComponent from './ExerciseComponent'
 import ListExercisesComponent from './ListExercisesComponent'
 import SavedWodsComponent from './SavedWodsComponent'
 import CreateCustomWodComponent from './CreateCustomWodComponent'
+import WodFilterGeneratorComponent from './WodFilterGeneratorComponent'
 
 
 function AuthenticatedRoute({children}) {
@@ -32,11 +33,18 @@ export default function WodRandomizerApp() {
                         <Route path='/' element={<LoginComponent />} />
                         <Route path='/login' element={<LoginComponent />}/>
 
-                        <Route path='/welcome/:username' element={
+                        <Route path='/welcome' element={
                             <AuthenticatedRoute>
                                 <WelcomeComponent />
                             </AuthenticatedRoute>
                         } />
+
+                        <Route path='/randomize' element={
+                            <AuthenticatedRoute>
+                                <WodFilterGeneratorComponent />
+                            </AuthenticatedRoute>
+                        } />
+
                         <Route path='/exercises' element={
                             <AuthenticatedRoute>
                                 <ListExercisesComponent />

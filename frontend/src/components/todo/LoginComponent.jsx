@@ -22,7 +22,7 @@ export default function LoginComponent() {
 
     async function handleSubmit(){
         if(await authContext.login(username, password)) {
-            navigate(`/welcome/${username}`)
+            navigate(`/welcome`)
         } else {
             // console.log(authContext.login(username, password))
             // console.log(username + " " + password)

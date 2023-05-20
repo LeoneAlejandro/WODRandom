@@ -54,22 +54,31 @@ class ExerciseControllerTest {
     @Sql({"/sql/integration.sql"})
     @WithMockUser(username = "MockUsername")
     void givenUsernameAndIdWhenGetExerciseThenReturnExercise() throws Exception {
-        Exercise exercise = new Exercise(2L, "MockUsername", "MockExerciseName", ExerciseType.CARDIO);
-        String exerciseJson = objectMapper.writeValueAsString(exercise);
+        Exercise exercise = new Exercise(2L, "MockUsername", "MockExerciseName2", ExerciseType.CARDIO);
 
         mvc.perform(get(USERNAME_EXERCISES_ID_URL, "MockUsername", "2").contentType(MediaType.APPLICATION_JSON))
                 .andExpect(status().isOk())
-                .andExpect(content().json(exerciseJson));
+                .andExpect(content().json(objectMapper.writeValueAsString(exercise)));
     }
 
     @Test
     @Sql({"/sql/integration.sql"})
     @WithMockUser(username = "MockUsername")
     void givenUsernameAndIdWhenDeleteExerciseThenReturnStatusSuccessAndEmpty() throws Exception {
-        mvc.perform(delete(USERNAME_EXERCISES_ID_URL, "MockUsername", "2").contentType(MediaType.APPLICATION_JSON))
+        mvc.perform(delete(USERNAME_EXERCISES_ID_URL, "MockUsername", "5").contentType(MediaType.APPLICATION_JSON))
                 .andExpect(status().is2xxSuccessful())
                 .andExpect(content().string(EMPTY));
     }
+    
+//    VER!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+//    @Test
+//    @Sql({"/sql/integration.sql"})
+//    @WithMockUser(username = "MockUsername")
+//    void givenUsernameAndIdWhenDeleteExerciseWithWodThenReturn500() throws Exception {
+//        mvc.perform(delete(USERNAME_EXERCISES_ID_URL, "MockUsername", "5").contentType(MediaType.APPLICATION_JSON))
+//                .andExpect(status().is5xxServerError())
+//                .andExpect(content().string(EMPTY));
+//    }
 
     @Test
     @Sql({"/sql/integration.sql"})

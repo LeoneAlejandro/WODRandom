@@ -29,7 +29,9 @@ import org.springframework.security.oauth2.jwt.NimbusJwtDecoder;
 import org.springframework.security.oauth2.jwt.NimbusJwtEncoder;
 import org.springframework.security.provisioning.InMemoryUserDetailsManager;
 import org.springframework.security.web.SecurityFilterChain;
+import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
 import org.springframework.web.servlet.handler.HandlerMappingIntrospector;
+import static org.springframework.boot.autoconfigure.security.servlet.PathRequest.toH2Console;
 
 import com.nimbusds.jose.JOSEException;
 import com.nimbusds.jose.jwk.JWKSet;
@@ -49,13 +51,16 @@ public class JwtSecurityConfig {
                 .authorizeHttpRequests(auth -> auth
                     .requestMatchers("/authenticate").permitAll()
 //                    .requestMatchers(toH2Console()).permitAll()
-//                    .requestMatchers("/h2-console").permitAll()
+//                    .requestMatchers("/h2-console/**").permitAll()
+//                    .requestMatchers(AntPathRequestMatcher.antMatcher("/h2-console/**")).permitAll()
                     .requestMatchers(HttpMethod.OPTIONS,"/**")
                     .permitAll()
                     .anyRequest()
                     .authenticated()
+//                    .permitAll()
                     )
                 .csrf(AbstractHttpConfigurer::disable)
+//                .csrf().ignoringRequestMatchers(toH2Console())
                 .sessionManagement(session -> session.
                     sessionCreationPolicy(SessionCreationPolicy.STATELESS))
                 .oauth2ResourceServer(

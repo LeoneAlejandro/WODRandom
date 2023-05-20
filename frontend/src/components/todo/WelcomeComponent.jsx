@@ -1,32 +1,40 @@
-// import { useParams, useNavigate } from 'react-router-dom'
-import  WodFilterGeneratorComponent  from './WodFilterGeneratorComponent'
+import { useNavigate } from 'react-router-dom'
+import '../css/WelcomeComponent.css'
 
 export default function WelcomeComponent() {
 
-    // const { username } = useParams()
-
-    // const navigate = useNavigate()
-
-    // function toExercises() {
-    //     navigate('/exercises')
-    // }
+    const navigate = useNavigate()
 
     return(
-        <div>
-            <div className="WelcomeComponent">
-                {/* <h1>{username} ! Bienvenido al generador de WODs</h1> */}
-                <h1>Vamos a generar un WOD</h1>
+            <div className='containerCards'>
+                <div class="menuCard">
+                    <div class="menuCard-content" onClick={() => navigate(`/randomize`)}>
+                        <h3 class="menuCard-title">Randomizar</h3>
+                        <h4 class="menuCard-subtitle">creá un wod aleatorio seleccionado de tus ejercicios favoritos</h4>
+                    </div>
+                </div>
 
-                <WodFilterGeneratorComponent />
+                <div class="menuCard">
+                    <div class="menuCard-content" onClick={() => navigate(`/exercises`)} >
+                        <h3 class="menuCard-title" >Ejercicios</h3>
+                        <h4 class="menuCard-subtitle">agregá tus ejercicios preferidos para crear wods aleatorios o customizados a tu elección</h4>
+                    </div>
+                </div>
 
-                <br />
+                <div class="menuCard">
+                    <div class="menuCard-content" onClick={() => navigate(`/wods`)}>
+                        <h3 class="menuCard-title" >Wods</h3>
+                        <h4 class="menuCard-subtitle">accedé a todos tus wods favoritos guardados, también podés editar wods existentes</h4>
+                    </div>
+                </div>
 
+                <div class="menuCard">
+                    <div class="menuCard-content"  onClick={() => navigate(`/createWod`)}>
+                        <h3 class="menuCard-title">Custom Wods</h3>
+                        <h4 class="menuCard-subtitle">creá Wods a tu medida, eligiendo a tu elección tus ejercicios preferidos</h4>
+                    </div>
+                </div>
             </div>
 
-            {/* <div className='footer'>
-                    Para ver la lista de ejercicios: <button className="btn btn-danger m-2" onClick={toExercises} >Exercises</button>
-            </div> */}
-
-        </div>
-    )
+        )
 }

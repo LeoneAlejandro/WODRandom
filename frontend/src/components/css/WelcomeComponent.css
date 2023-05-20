@@ -1,0 +1,141 @@
+:root {
+    --border: rgb(153, 27, 27);
+/*     
+    --g1: rgb(98, 0, 234);
+    --g2: rgb(236, 64, 122);
+    --g3: rgb(253, 216, 53); */
+
+    --g1: rgb(143, 3, 131);
+    --g2: rgb(179, 6, 6);
+    --g3: rgb(104, 2, 2);
+}
+
+.containerCards {
+    /* display: grid; */
+    width: 1400px;
+    height: 800px;
+    margin: auto;
+
+    /* height: 1000px; */
+
+    /* background-color: rgb(10, 10, 10); */
+    /* display: grid; */
+    /* height: 100vh; */
+    /* margin: 0px; */
+    /* padding: 0px; */
+    /* place-items: center; */
+
+    /* background-color: rgb(10, 10, 10); */
+    /* display: grid; */
+    /* height: 100vh; */
+    /* margin: 0px; */
+    /* padding: 0px; */
+    /* place-items: center; */
+}
+
+.menuCard {
+    /* aspect-ratio: 1 / 1.6; */
+    border: 0.5vmin solid var(--border);
+    cursor: pointer;
+    position: relative;
+    width: 500px;
+    height: 30vmin;
+    margin: 30px;
+    display: inline-table;
+    /* display: inline; */
+  }
+  
+  .menuCard:hover:before {
+    background-position: 100% 100%;
+    transform: scale(1.08, 1.03);
+  }
+  
+  .menuCard:hover > .menuCard-content {
+    background-position: -10% 0%;
+  }
+  
+  /* .menuCard:hover > .menuCard-icon {
+    color: white; 
+  } */
+  
+  /* .menuCard:hover > .menuCard-content > .menuCard-subtitle > .menuCard-subtitle-word {  
+    opacity: 1;
+    transform: translateY(0%);
+    transition: opacity 0ms, transform 200ms cubic-bezier(.90, .06, .15, .90);
+  } */
+  
+  .menuCard:before {
+    background: linear-gradient(
+      130deg, 
+      transparent 0% 33%, 
+      var(--g1) 66%, 
+      var(--g2) 83.5%, 
+      var(--g3) 100%
+    );
+    background-position: 0% 0%;
+    background-size: 300% 300%;
+    content: "";
+    height: 100%;
+    left: 0px;
+    pointer-events: none;
+    position: absolute;
+    /* top: 0px; */
+    transition: background-position 350ms ease, transform 350ms ease;
+    width: 100%;
+    z-index: 1;
+  }
+  
+  .menuCard-content {
+    background-image: radial-gradient(
+      rgba(255, 255, 255, 0.2) 8%, 
+      transparent 8%
+    );
+    background-position: 0% 0%;
+    background-size: 3vmin 3vmin;
+    height: calc(100%);
+    padding: 4vmin;
+    position: relative;
+    transition: background-position 350ms ease;
+    width: calc(100%);
+    z-index: 2;
+  }
+  
+.menuCard-title,
+.menuCard-subtitle {
+text-align: left;
+color: white;
+/* font-family: "Anek Latin", sans-serif; */
+/* font-weight: 400; */
+margin: 0px;
+}
+  
+.menuCard-title {
+font-size: 4vmin;
+}
+  
+.menuCard-subtitle {
+font-size: 2vmin;
+margin-top: 1vmin;
+
+}
+  
+  /* .menuCard-subtitle-word {
+    display: inline-block;
+    margin: 0vmin 0.3vmin;
+    opacity: 0;
+    position: relative;  
+    transform: translateY(40%);
+    transition: none;
+  } */
+
+  
+.menuCard-subtitle{
+    opacity: 0;
+    transform: translateY(40%);
+}
+
+.menuCard:hover .menuCard-subtitle {
+    opacity: 1;
+    transform: translateY(0%);
+    transition: transform 300ms linear;
+}

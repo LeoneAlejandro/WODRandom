@@ -36,7 +36,10 @@ function CreateCustomWodComponent() {
     }
 
     saveWod(username, creationExcerciseWodRequest)
-    navigate(`/wods`)
+      .then(() => {
+        navigate(`/wods`)
+      })
+      .catch(error => console.log(error))
   }
 
   function removeSelectedExercise(e) {
@@ -70,9 +73,10 @@ function CreateCustomWodComponent() {
               </tbody>
           </table>
         }
-
+        <div className='nameAndSave'>
         <input className="wodName" required="required" type="text" value={wodName} onChange={(e) => setWodName(e.target.value)} placeholder="Nombre de Wod"/>
         <button className="buton" onClick={handleSaveWod} disabled={!wodName}>Guardar WOD</button>
+        </div>
     </div>
   </div>
   );
