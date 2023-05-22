@@ -17,6 +17,7 @@ export const updateExerciseApi
 export const createExerciseApi
         = (username, exercise) => apiClient.post(`/users/${username}/exercises`, exercise)
 
-
+export const retriveRandomExerciseByType
+        = (username, exercise) => apiClient.post(`/users/${username}/exercises/type`, exercise)
 
 

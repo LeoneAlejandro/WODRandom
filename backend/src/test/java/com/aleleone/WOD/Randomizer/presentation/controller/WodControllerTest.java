@@ -83,7 +83,7 @@ public class WodControllerTest {
     		.andExpect(jsonPath("$.wodName").value("MockWodname"))
     		.andExpect(jsonPath("$.exercises[0].exerciseName").value("MockExerciseName1"))
     		.andExpect(jsonPath("$.exercises[0].exerciseType").value("FUERZA"))
-//			.andExpect(jsonPath("$.exercises[0]").value(exercise1))
+//			.andExpect(jsonPath("$.exercises[0]").equals(exercise1))
     		.andReturn();
  
 		

@@ -2,12 +2,15 @@ package com.aleleone.WOD.Randomizer.domain.service.impl;
 
 import static java.lang.String.format;
 
+import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
 
 import org.springframework.stereotype.Service;
 
 import com.aleleone.WOD.Randomizer.datasource.repository.ExerciseRepository;
 import com.aleleone.WOD.Randomizer.domain.model.Exercise;
+import com.aleleone.WOD.Randomizer.domain.model.Exercise.ExerciseType;
 import com.aleleone.WOD.Randomizer.domain.service.ExerciseService;
 
 import jakarta.persistence.EntityNotFoundException;
@@ -61,4 +64,23 @@ public class ExerciseServiceImpl implements ExerciseService {
         }
         throw new EntityNotFoundException(format("Ejercicio con id: %d para el usuario %s no existe", id, username));
     }
+
+	@Override
+	public Exercise find(String username, Exercise exercise) {
+		List<Exercise> exercises = exerciseRepository.findByUserName(username);
+		List<Exercise> exercisesByType = new ArrayList<>();
+		ExerciseType exType = exercise.getExerciseType();
+		for (Exercise ex : exercises) {
+			if(ex.getExerciseType() == exType && ex.getId() != exercise.getId()) {
+				exercisesByType.add(ex);
+			}
+		}
+		
+		
+		Random r = new Random();
+		Exercise randomExerciseByType = exercisesByType.get(r.nextInt(exercisesByType.size()));
+		return randomExerciseByType;
+		
+//		return exercise;
+	}
 }

@@ -111,3 +111,38 @@ input[type=number] {
     font-weight: bold;
     padding-top: 15px;
 }
+
+.reRollButton {
+    border-radius: 50%;
+    height: 30px;
+    width: 30px;
+    padding: 0;
+    margin: auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.icon {
+    height: 30px;
+    /* width: 100%;
+    height: 100%; */
+    align-items: center;
+    justify-content: center;
+}
+
+/* .reRollButton {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    padding: 0;
+    background: none;
+    border: none;
+  }
+  
+  .icon {
+    width: 100%;
+    height: 100%;
+  } */

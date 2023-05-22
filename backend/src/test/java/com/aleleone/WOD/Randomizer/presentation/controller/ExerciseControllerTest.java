@@ -90,8 +90,7 @@ class ExerciseControllerTest {
                 .andExpect(status().isOk())
                 .andExpect(jsonPath("$.userName").value("MockUsername"))
                 .andExpect(jsonPath("$.exerciseName").value("MockExerciseName"))
-                .andExpect(jsonPath("$.exerciseType").value("CARDIO"))
-        ;
+                .andExpect(jsonPath("$.exerciseType").value("CARDIO"));
     }
 
     @Test

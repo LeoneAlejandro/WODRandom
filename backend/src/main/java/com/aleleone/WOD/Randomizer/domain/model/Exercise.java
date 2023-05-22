@@ -97,6 +97,7 @@ public class Exercise {
                 '}';
     }
 
+    
     public enum ExerciseType {
         FUERZA,
         CARDIO,
