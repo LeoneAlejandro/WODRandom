@@ -15,16 +15,16 @@ export default function WelcomeComponent() {
                 </div>
 
                 <div className="menuCard">
-                    <div className="menuCard-content" onClick={() => navigate(`/exercises`)} >
-                        <h3 className="menuCard-title" >Ejercicios</h3>
-                        <h4 className="menuCard-subtitle">agregá tus ejercicios preferidos para crear wods aleatorios o customizados a tu elección</h4>
+                    <div className="menuCard-content" onClick={() => navigate(`/wods`)}>
+                        <h3 className="menuCard-title" >Wods</h3>
+                        <h4 className="menuCard-subtitle">accedé a todos tus wods favoritos guardados, también podés editar wods existentes</h4>
                     </div>
                 </div>
 
                 <div className="menuCard">
-                    <div className="menuCard-content" onClick={() => navigate(`/wods`)}>
-                        <h3 className="menuCard-title" >Wods</h3>
-                        <h4 className="menuCard-subtitle">accedé a todos tus wods favoritos guardados, también podés editar wods existentes</h4>
+                    <div className="menuCard-content" onClick={() => navigate(`/exercises`)} >
+                        <h3 className="menuCard-title" >Ejercicios</h3>
+                        <h4 className="menuCard-subtitle">agregá tus ejercicios preferidos para crear wods aleatorios o customizados a tu elección</h4>
                     </div>
                 </div>
 

@@ -63,7 +63,7 @@ export default function WodRandomizerApp() {
                             </AuthenticatedRoute>
                         } />
 
-                        <Route path='/createwod' element={
+                        <Route path='/createwod/:id' element={
                             <AuthenticatedRoute>
                                 <CreateCustomWodComponent />
                             </AuthenticatedRoute>

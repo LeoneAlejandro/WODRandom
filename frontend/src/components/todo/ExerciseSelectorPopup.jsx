@@ -15,7 +15,6 @@ function ExerciseSelectorPopup( { username, onSelectExercise }) {
     async function fetchExercises() {
       const response = await retriveAllExercisesForUsernameApi(username);
       setExercises(response.data);
-      // console.log(response.data)
     }
     fetchExercises();
   }, [username]);

@@ -43,3 +43,29 @@ thead.titles-CCWC {
     width: 260px;
 
 }
+
+/* .buttonUpAndDown {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.upButton, .downButton {
+    height: 30px;
+    width: 30px;
+    margin: auto;
+    padding: 0;
+    border-radius: 50%;
+    align-items: center;
+    justify-content: center;
+}
+
+.icon {
+    height: 20px;
+    margin: auto;
+} */
+
+
+.buttonUpdateWod {
+    margin-right: 20px;
+}

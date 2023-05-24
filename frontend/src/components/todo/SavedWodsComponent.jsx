@@ -2,12 +2,14 @@ import { useEffect, useState } from "react"
 import { useAuth } from "./security/AuthContext"
 import { deleteWodById, retrevieSavedWodsForUsername, retriveSavedWod } from "./api/SaveWodService"
 import '../css/SavedWodsComponent.css'
+import { useNavigate } from "react-router-dom"
 
 
 export default function SavedWodsComponent() {
 
     const authContext = useAuth()
     const username = authContext.username
+    const navigate = useNavigate()
  
 
     const [savedWod, setSavedWod] = useState([])
@@ -46,6 +48,10 @@ export default function SavedWodsComponent() {
             .catch(error => console.log(error))
     }
 
+    function updateWod() {
+            navigate(`/createWod/${selectedWod.id}`)
+    }
+
 
     return(
         <div className="savedWods">
@@ -70,14 +76,12 @@ export default function SavedWodsComponent() {
                             <tr className="savedWodsTableHeader">
                                 <th className="selectedExTitle">Ejercicio</th>
                                 <th >Tipo</th>
-                                {/* <th className="Update"></th>
-                                <th className="Delete"></th> */}
                             </tr>
                         </thead>
                         <tbody>
                             { selectedWod.exercises.map(
                                     (selectedWod, index) => (
-                                        <tr className="savedWodsTableRows" key={selectedWod.id}>
+                                        <tr className="savedWodsTableRows" key={index}>
                                             <td>{selectedWod.exerciseName}</td>
                                             <td>{selectedWod.exerciseType}</td>
                                         </tr>
@@ -90,7 +94,10 @@ export default function SavedWodsComponent() {
             </div>
             
             { selectedWod &&
-                <button className="" onClick={deleteWod}>Delete WOD</button>
+                <div>
+                    <button className="buttonUpdateWod" onClick={updateWod}>Modificar</button>
+                    <button className="" onClick={deleteWod}>Borrar</button>
+                </div>
             }
 
 

@@ -115,6 +115,28 @@ public class WodServiceImpl implements WodService {
 		return savedWod;
 	}
 	
+	public Wod update(String username, Long id, CreationExcerciseWodRequest requestBodyDetails) {
+		Wod findWod = find(username, id);
+		if(findWod != null) {
+			String wodName = requestBodyDetails.getWodName();
+			List<Long> listOfIds = requestBodyDetails.getExercisesId();
+			List<Exercise> listOfExercises = new ArrayList<Exercise>();
+			
+			for (Long exercisesId : listOfIds) {
+				Exercise exercise = exerciseRepository.findById(exercisesId)
+										.orElseThrow(() -> new EntityNotFoundException(format("Ejercicio con id: %d para el usuario %s no existe", exercisesId, username)));
+				listOfExercises.add(exercise);
+			}
+			Wod updatedWod = Wod.createWod(id, wodName, username, listOfExercises);
+		
+			wodRepository.save(updatedWod);
+			
+			return updatedWod;
+		}
+		
+        throw new EntityNotFoundException(format("Wod con id: %d para el usuario %s no existe", id, username));
+	}
+	
 
 	public void delete(String username, Long id) {
 		wodRepository.deleteById(id);

@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -46,6 +47,11 @@ public class WodController {
     @PostMapping("users/{username}/wods")
     public Wod addWod(@PathVariable String username, @RequestBody CreationExcerciseWodRequest creationExcerciseWodRequest) {
     	return wodService.create(username, creationExcerciseWodRequest);
+    }
+    
+    @PutMapping("users/{username}/wods/{id}")
+    public Wod updateWod(@PathVariable String username,@PathVariable Long id, @RequestBody CreationExcerciseWodRequest creationExcerciseWodRequest) {
+    	return wodService.update(username, id, creationExcerciseWodRequest);
     }
     
     @DeleteMapping("users/{username}/wods/{id}")

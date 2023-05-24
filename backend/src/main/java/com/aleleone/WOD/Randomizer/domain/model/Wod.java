@@ -67,6 +67,18 @@ public class Wod {
     	
     	return wod;
     }
+    
+    public static Wod createWod(Long id, String wodName, String userName, List<Exercise> exercises) {
+    	Wod wod = new Wod();
+    	
+    	wod.setId(id);
+    	wod.setExercises(exercises);
+    	wod.setUserName(userName);
+    	wod.setWodName(wodName);
+    	
+    	return wod;
+    }
+    
 
 	public Long getId() {
 		return id;

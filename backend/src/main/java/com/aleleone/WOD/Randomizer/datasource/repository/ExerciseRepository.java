@@ -6,7 +6,6 @@ import java.util.Optional;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import com.aleleone.WOD.Randomizer.domain.model.Exercise;
-import com.aleleone.WOD.Randomizer.domain.model.Exercise.ExerciseType;
 
 public interface ExerciseRepository extends JpaRepository<Exercise, Long>{
 

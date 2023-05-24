@@ -12,7 +12,6 @@ export default function ListExercisesComponent() {
     const navigate = useNavigate()
 
     const [exercise, setExercise] = useState([])
-    const [message, setMessage] = useState(null)
     const [searchQuery, setSearchQuery] = useState('');
     
     useEffect(
@@ -29,12 +28,9 @@ export default function ListExercisesComponent() {
 
     function deleteExercise(id){
         deleteExerciseApi(username, id)
-            .then(
-                () => {
-                    setMessage(`Exercise with id: ${id} was deleted`)
+            .then(() => {
                     refreshExercises()
-                }
-            )
+            })
             .catch(error => console.log(error))
     }
 
@@ -49,13 +45,9 @@ export default function ListExercisesComponent() {
 
     return(
         <div className="containerExerciseList">
-            {/* <div className="searchBarContainer"> */}
                 <input className='searchExercisesBar' type="text" placeholder="Buscar ejercicios..." value={searchQuery} onChange={(e) => setSearchQuery(e.target.value)} />
-            {/* </div> */}
-            {/* {message && <div className="alert alert-warning">{message}</div>} */}
             <div className="listExercises">
                 <table className='tablaEjercicios'>
-                    {/* <div> */}
                         <thead>
                             <tr className="tableTitles">
                                 <th className="ExercisesTitle">Ejercicio</th>
@@ -78,7 +70,6 @@ export default function ListExercisesComponent() {
                                 )
                             }
                         </tbody>
-                    {/* </div> */}
                 </table>
             <button className="buttonModify" onClick={addExercise}>Agregar nuevo ejercicio</button>
             </div>

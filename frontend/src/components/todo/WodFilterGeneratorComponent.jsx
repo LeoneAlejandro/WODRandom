@@ -65,11 +65,9 @@ export default function WodFilterGeneratorComponent() {
 
     function onReRoll(index) {
         const exercise = listOfExercises[index]
-        console.log(exercise)
 
         retriveRandomExerciseByType(username, exercise)
             .then(res => {
-                console.log(res.data)
                 const updatedExercises = [...listOfExercises];
                 updatedExercises[index] = res.data;
                 setListOfExercises(updatedExercises);

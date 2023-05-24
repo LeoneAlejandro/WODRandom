@@ -14,3 +14,6 @@ export const retriveSavedWod
 
 export const deleteWodById
         = (username, id) => apiClient.delete(`/users/${username}/wods/${id}`)
+
+export const updateWodById
+        = (username, id, wod) => apiClient.put(`/users/${username}/wods/${id}`, wod)

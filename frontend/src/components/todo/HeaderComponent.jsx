@@ -14,7 +14,6 @@ export default function HeaderComponent() {
     return(
         <header className="headerRandomizer">
         <div className="container">
-            {/* <div className="row"> */}
                 <nav className="navbar navbar-expand">
                     <Link className="navbarBrand" to="/welcome">Home</Link>
                     <div className="collapse navbar-collapse">
@@ -29,7 +28,7 @@ export default function HeaderComponent() {
                                 {isAuthenticated && <Link className="nav-link-header" to="/wods">Wods</Link>}
                             </li>
                             <li className="nav-item">
-                                {isAuthenticated && <Link className="nav-link-header" to="/createWod">Custom Wods</Link>}
+                                {isAuthenticated && <Link className="nav-link-header" to="/createWod/-1">Custom Wods</Link>}
                             </li>
                         </ul>
                     </div>
@@ -38,7 +37,6 @@ export default function HeaderComponent() {
                         <li className="nav-items">{isAuthenticated && <Link className="nav-link-log" to="/logout" onClick={logout}>Logout</Link>}</li>              
                     </ul>
                 </nav>
-            {/* </div> */}
         </div>
         </header>
 

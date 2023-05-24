@@ -1,12 +1,15 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import ExerciseSelectorPopup from './ExerciseSelectorPopup';
 import { useAuth } from './security/AuthContext';
-import { saveWod } from "./api/SaveWodService";
-import { useNavigate } from "react-router-dom";
+import { retriveSavedWod, saveWod, updateWodById } from "./api/SaveWodService";
+import { useNavigate, useParams } from "react-router-dom";
 import '../css/CreateCustomWodComponent.css'
+import up_arrow from '../../assets/images/up arrow.png'
 
 function CreateCustomWodComponent() {
-  const [selectedExerciseIds, setSelectedExerciseIds] = useState([]);
+
+  const { id } = useParams()
+  const [selectedExerciseIds, setSelectedExerciseIds] = useState([])
   const [wodName, setWodName] = useState('')
 
   const navigate = useNavigate()
@@ -14,14 +17,32 @@ function CreateCustomWodComponent() {
   const authContext = useAuth()
   const username = authContext.username
 
+  useEffect(() => {
+     retriveWod()
+  }, [id])
+
+  async function retriveWod() {
+    if (id !== "-1") {
+      try {
+        const response = await retriveSavedWod(username, id);
+        setSelectedExerciseIds(response.data.exercises);
+        setWodName(response.data.wodName)
+      } catch (error) {
+        console.log(error);
+      }
+    } else {
+      setSelectedExerciseIds('')
+      setWodName('')
+    }
+  }
+
   function handleSelectExercise(exerciseId, exerciseName) {
     const exercise = {
       id: exerciseId,
-      name: exerciseName
+      exerciseName: exerciseName
     }
     setSelectedExerciseIds((prevSelectedExerciseIds) => [...prevSelectedExerciseIds, exercise ]);
   }
-
 
   function handleSaveWod() {
     const listExerciesId = []
@@ -35,11 +56,16 @@ function CreateCustomWodComponent() {
         exercisesId: listExerciesId
     }
 
-    saveWod(username, creationExcerciseWodRequest)
-      .then(() => {
-        navigate(`/wods`)
-      })
-      .catch(error => console.log(error))
+    if(id !== "-1") {
+      updateWodById(username, id, creationExcerciseWodRequest)
+        .then(() => navigate(`/wods`))
+    } else {
+      saveWod(username, creationExcerciseWodRequest)
+        .then(() => {
+          navigate(`/wods`)
+        })
+        .catch(error => console.log(error))
+    }
   }
 
   function removeSelectedExercise(e) {
@@ -49,7 +75,7 @@ function CreateCustomWodComponent() {
       return newSelectedExerciseIds;
     });
   }
-  
+ 
   return (
     <div>
       <h2>Crea tu custom WOD</h2>
@@ -61,12 +87,13 @@ function CreateCustomWodComponent() {
               <tr >
                 <th className="exerciseHeader">Ejercicio</th>
                 <th >Borrar</th>
+                <th ></th>
               </tr>
             </thead>
               <tbody>
                 {selectedExerciseIds.map((exercise, index) => (
                   <tr className='tableCustomRows' key={index}>
-                      <td value={index}>{exercise.name}</td>
+                      <td value={index}>{exercise.exerciseName}</td>
                       <td><button className='buttonDeleteEx' onClick={()=>removeSelectedExercise(index)}>X</button></td>
                   </tr>
                 ))}

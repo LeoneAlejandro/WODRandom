@@ -66,21 +66,19 @@ public class ExerciseServiceImpl implements ExerciseService {
     }
 
 	@Override
-	public Exercise find(String username, Exercise exercise) {
+	public Exercise findByType(String username, Exercise exercise) {
 		List<Exercise> exercises = exerciseRepository.findByUserName(username);
 		List<Exercise> exercisesByType = new ArrayList<>();
 		ExerciseType exType = exercise.getExerciseType();
+		
 		for (Exercise ex : exercises) {
 			if(ex.getExerciseType() == exType && ex.getId() != exercise.getId()) {
 				exercisesByType.add(ex);
 			}
 		}
 		
-		
 		Random r = new Random();
 		Exercise randomExerciseByType = exercisesByType.get(r.nextInt(exercisesByType.size()));
 		return randomExerciseByType;
-		
-//		return exercise;
 	}
 }

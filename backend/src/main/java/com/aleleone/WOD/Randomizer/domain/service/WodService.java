@@ -18,4 +18,6 @@ public interface WodService {
 	Wod create(String username, CreationExcerciseWodRequest requestBodyDetails);
 
 	void delete(String username, Long id);
+	
+	Wod update(String username, Long id, CreationExcerciseWodRequest requestBodyDetails);
 }

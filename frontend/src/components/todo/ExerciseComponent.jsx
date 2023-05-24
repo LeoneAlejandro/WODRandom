@@ -17,7 +17,7 @@ export default function ExerciseComponent() {
     const [exerciseType, setExerciseType] = useState('')
 
     function retriveExercises() {
-        if(id != -1) {
+        if(id !== "-1") {
             retriveExerciseApi(username, id)
                 .then(response => {
                     setExerciseName(response.data.exerciseName)
@@ -40,17 +40,15 @@ export default function ExerciseComponent() {
             exerciseType: values.exerciseType, 
             }
 
-        if(id ==-1) {
+        if(id === "-1") {
             createExerciseApi(username, exercise)
                 .then(response => {
-                    // console.log(response)
                   navigate('/exercises')
                 })
                 .catch(error => console.log(error))
         } else {
             updateExerciseApi(username, id, exercise)
                 .then(response => {
-                    // console.log(response)
                     navigate('/exercises')
                 })
                 .catch(error => console.log(error))
@@ -60,11 +58,11 @@ export default function ExerciseComponent() {
     function validate(values) {
         let errors = {}
         if(values.exerciseName.length < 2) {
-            errors.exerciseName = 'El ejercicio debe tener más de 2 caracteres'     }
+            errors.exerciseName = 'El ejercicio debe tener más de 2 caracteres'}
         if(values.exerciseType.length < 2) {
             errors.exerciseName = 'Selecciona un tipo de ejercicio'    }
         if(values.exerciseType.length < 2 && values.exerciseName.length < 2) {
-            errors.exerciseName = 'El ejercicio debe tener más de 2 caracteres y debes también seleccionar un tipo de ejercicio'    }
+            errors.exerciseName = 'El ejercicio debe tener más de 2 caracteres y debe tener un tipo de ejercicio'}
 
         return errors
     }
@@ -81,19 +79,13 @@ export default function ExerciseComponent() {
                     validateOnChange = {false}
                     validateOnBlur = {false}
                     >
-                    {
-                        (props) => (
+                    {(props) => (
                             <Form className="editExercise" autoComplete="off">
                                 <ErrorMessage 
                                     name='exerciseName'
                                     component='div'
                                     className="alert alert-warning"
                                 />
-                                {/* <ErrorMessage 
-                                    name='exerciseType'
-                                    component='div'
-                                    className="alert alert-warning"
-                                /> */}
                                 <fieldset className="form-group editExercise">
                                     <label>Ejercicio</label>
                                     <Field type="text" className="form-control exercise" name="exerciseName"/>
@@ -109,7 +101,6 @@ export default function ExerciseComponent() {
                             </Form>
                         )
                     }
-
                 </Formik>
             </div>
         </div>

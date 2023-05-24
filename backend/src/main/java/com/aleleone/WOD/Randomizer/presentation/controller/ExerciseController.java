@@ -15,7 +15,6 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.aleleone.WOD.Randomizer.domain.model.Exercise;
-import com.aleleone.WOD.Randomizer.domain.model.Exercise.ExerciseType;
 import com.aleleone.WOD.Randomizer.domain.service.ExerciseService;
 
 @RestController
@@ -59,7 +58,7 @@ public class ExerciseController {
     
     @PostMapping("/users/{username}/exercises/type")
     public Exercise getExerciseByType(@PathVariable String username, @RequestBody Exercise exercise) throws UsernameNotFoundException {
-        return exerciseService.find(username, exercise);
+        return exerciseService.findByType(username, exercise);
     }
 
 }

@@ -2,16 +2,12 @@ package com.aleleone.WOD.Randomizer.presentation.controller;
 
 import static com.aleleone.WOD.Randomizer.domain.model.Exercise.createExercise;
 import static org.apache.commons.lang3.StringUtils.EMPTY;
+import static org.hamcrest.Matchers.*;
 import static org.springframework.boot.test.autoconfigure.jdbc.AutoConfigureTestDatabase.Replace.AUTO_CONFIGURED;
 import static org.springframework.boot.test.context.SpringBootTest.WebEnvironment.RANDOM_PORT;
 import static org.springframework.test.annotation.DirtiesContext.ClassMode.AFTER_EACH_TEST_METHOD;
-import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.delete;
-import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
-import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
-import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.put;
-import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.content;
-import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
-import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.*;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -61,23 +57,34 @@ class ExerciseControllerTest {
                 .andExpect(content().json(objectMapper.writeValueAsString(exercise)));
     }
 
+    
     @Test
     @Sql({"/sql/integration.sql"})
     @WithMockUser(username = "MockUsername")
-    void givenUsernameAndIdWhenDeleteExerciseThenReturnStatusSuccessAndEmpty() throws Exception {
-        mvc.perform(delete(USERNAME_EXERCISES_ID_URL, "MockUsername", "5").contentType(MediaType.APPLICATION_JSON))
-                .andExpect(status().is2xxSuccessful())
-                .andExpect(content().string(EMPTY));
+    void givenUsernameWhenGetExercisesThenReturnExercises() throws Exception {
+
+    	mvc.perform(get(USERNAME_EXERCISES_URL, "MockUsername").contentType(MediaType.APPLICATION_JSON))
+                .andExpect(status().isOk())
+                .andExpect(jsonPath("$", hasSize(5)))
+                .andExpect(jsonPath("$[0].id").value("1"));
+
     }
     
-//    VER!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+    
+    
+    
+////    VER
 //    @Test
 //    @Sql({"/sql/integration.sql"})
 //    @WithMockUser(username = "MockUsername")
 //    void givenUsernameAndIdWhenDeleteExerciseWithWodThenReturn500() throws Exception {
-//        mvc.perform(delete(USERNAME_EXERCISES_ID_URL, "MockUsername", "5").contentType(MediaType.APPLICATION_JSON))
+//        MvcResult result = mvc.perform(delete(USERNAME_EXERCISES_ID_URL, "MockUsername", "1").contentType(MediaType.APPLICATION_JSON))
 //                .andExpect(status().is5xxServerError())
-//                .andExpect(content().string(EMPTY));
+//                .andReturn();
+////               .andExpect(content().string(EMPTY));
+//        System.out.println(result);
+//		String content = result.getResponse().getContentAsString();
+//		System.out.println(content.toString());
 //    }
 
     @Test
@@ -105,6 +112,15 @@ class ExerciseControllerTest {
                 .andExpect(jsonPath("$.userName").value("MockUsername"))
                 .andExpect(jsonPath("$.exerciseName").value("NewMockExerciseName"))
                 .andExpect(jsonPath("$.exerciseType").value("FUERZA"));
+    }
+    
+    @Test
+    @Sql({"/sql/integration.sql"})
+    @WithMockUser(username = "MockUsername")
+    void givenUsernameAndIdWhenDeleteExerciseThenReturnStatusSuccessAndEmpty() throws Exception {
+        mvc.perform(delete(USERNAME_EXERCISES_ID_URL, "MockUsername", "5").contentType(MediaType.APPLICATION_JSON))
+                .andExpect(status().is2xxSuccessful())
+                .andExpect(content().string(EMPTY));
     }
     
     @Test
