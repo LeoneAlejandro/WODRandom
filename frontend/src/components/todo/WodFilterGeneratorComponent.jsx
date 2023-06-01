@@ -131,9 +131,11 @@ export default function WodFilterGeneratorComponent() {
                                             <tr className="rowTableExercise" key={index}>
                                                 <td >{exercise.exerciseName}</td>
                                                 <td >{exercise.exerciseType}</td>
-                                                <td><button className="reRollButton" onClick={() => onReRoll(index)}>
+                                                <td>
+                                                    <button className="reRollButton" onClick={() => onReRoll(index)}>
                                                         <img src={refresh} alt="Icon" className="icon" />
-                                                    </button></td>
+                                                    </button>
+                                                </td>
                                             </tr>
                                         )
                                         )

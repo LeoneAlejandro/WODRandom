@@ -48,24 +48,21 @@ thead.titles-CCWC {
     display: flex;
     align-items: center;
     justify-content: center;
-}
+} */
 
-.upButton, .downButton {
-    height: 30px;
-    width: 30px;
-    margin: auto;
+/* .buttonMoveUp, .buttonMoveDown {
     padding: 0;
-    border-radius: 50%;
     align-items: center;
     justify-content: center;
+    background-color: transparent;
+    border: none;
+}
+
+.buttonMoveUp:hover, .buttonMoveDown:hover {
+    background-color: transparent;
 }
 
 .icon {
-    height: 20px;
     margin: auto;
+    padding-left: 2px;
 } */
-
-
-.buttonUpdateWod {
-    margin-right: 20px;
-}

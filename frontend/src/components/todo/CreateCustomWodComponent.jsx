@@ -4,7 +4,6 @@ import { useAuth } from './security/AuthContext';
 import { retriveSavedWod, saveWod, updateWodById } from "./api/SaveWodService";
 import { useNavigate, useParams } from "react-router-dom";
 import '../css/CreateCustomWodComponent.css'
-import up_arrow from '../../assets/images/up arrow.png'
 
 function CreateCustomWodComponent() {
 
@@ -87,7 +86,6 @@ function CreateCustomWodComponent() {
               <tr >
                 <th className="exerciseHeader">Ejercicio</th>
                 <th >Borrar</th>
-                <th ></th>
               </tr>
             </thead>
               <tbody>

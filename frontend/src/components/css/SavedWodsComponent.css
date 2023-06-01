@@ -47,3 +47,7 @@ div.wodList {
     width: 500px;
     margin: auto;
 }
+
+.buttonUpdateWod {
+    margin-right: 20px;
+}

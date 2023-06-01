@@ -25,10 +25,12 @@ public class ExerciseServiceImpl implements ExerciseService {
     	this.exerciseRepository = exerciseRepository;
     }
     
+    
     @Override
     public List<Exercise> find(String username) {
         return exerciseRepository.findByUserName(username);
     }
+    
 
     @Override
     public Exercise find(String username, Long id) {
@@ -39,6 +41,7 @@ public class ExerciseServiceImpl implements ExerciseService {
                         () -> new EntityNotFoundException(format("Ejercicio con id: %d para el usuario %s no existe", id, username))
                 );
     }
+    
 
     @Override
     public Exercise create(String username, Exercise exercise) {
@@ -47,11 +50,13 @@ public class ExerciseServiceImpl implements ExerciseService {
         exerciseRepository.save(exercise);
         return exercise;
     }
+    
 
     @Override
     public void delete(String username, Long id) {
         exerciseRepository.deleteById(id);
     }
+    
 
     @Override
     public Exercise update(String username, Long id, Exercise exercise) {
@@ -64,6 +69,7 @@ public class ExerciseServiceImpl implements ExerciseService {
         }
         throw new EntityNotFoundException(format("Ejercicio con id: %d para el usuario %s no existe", id, username));
     }
+    
 
 	@Override
 	public Exercise findByType(String username, Exercise exercise) {

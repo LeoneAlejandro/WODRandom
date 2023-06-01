@@ -2,12 +2,17 @@ package com.aleleone.WOD.Randomizer.presentation.controller;
 
 import static com.aleleone.WOD.Randomizer.domain.model.Exercise.createExercise;
 import static org.apache.commons.lang3.StringUtils.EMPTY;
-import static org.hamcrest.Matchers.*;
+import static org.hamcrest.Matchers.hasSize;
 import static org.springframework.boot.test.autoconfigure.jdbc.AutoConfigureTestDatabase.Replace.AUTO_CONFIGURED;
 import static org.springframework.boot.test.context.SpringBootTest.WebEnvironment.RANDOM_PORT;
 import static org.springframework.test.annotation.DirtiesContext.ClassMode.AFTER_EACH_TEST_METHOD;
-import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.*;
-import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.delete;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.put;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.content;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -69,23 +74,6 @@ class ExerciseControllerTest {
                 .andExpect(jsonPath("$[0].id").value("1"));
 
     }
-    
-    
-    
-    
-////    VER
-//    @Test
-//    @Sql({"/sql/integration.sql"})
-//    @WithMockUser(username = "MockUsername")
-//    void givenUsernameAndIdWhenDeleteExerciseWithWodThenReturn500() throws Exception {
-//        MvcResult result = mvc.perform(delete(USERNAME_EXERCISES_ID_URL, "MockUsername", "1").contentType(MediaType.APPLICATION_JSON))
-//                .andExpect(status().is5xxServerError())
-//                .andReturn();
-////               .andExpect(content().string(EMPTY));
-//        System.out.println(result);
-//		String content = result.getResponse().getContentAsString();
-//		System.out.println(content.toString());
-//    }
 
     @Test
     @Sql({"/sql/integration.sql"})
@@ -99,7 +87,8 @@ class ExerciseControllerTest {
                 .andExpect(jsonPath("$.exerciseName").value("MockExerciseName"))
                 .andExpect(jsonPath("$.exerciseType").value("CARDIO"));
     }
-
+    
+    
     @Test
     @Sql({"/sql/integration.sql"})
     @WithMockUser(username = "MockUsername")

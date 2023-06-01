@@ -33,7 +33,9 @@ class ExerciseServiceTest {
 	private List<Exercise> mockListExercises = new ArrayList<Exercise>();
 	private Exercise mockExercise = new Exercise(1L, "MockUsername", "MockExerciseName", ExerciseType.CARDIO);
 	
-		
+	
+	// FIND TESTS
+	
     @Test
     void givenUsernameWhenFindThenReturnExercises() {
     	mockListExercises.add(mockExercise);
@@ -54,13 +56,46 @@ class ExerciseServiceTest {
 	}
 	
 	@Test
+	void givenUsernameAndNotExistingIdWhenFindThenReturnNotFoundException() {
+		List<Exercise> mockList = new ArrayList<>();
+		String exceptionMessage = "Ejercicio con id: 2 para el usuario MockUsername no existe";
+		
+		when(exerciseRepositoryMock.findByUserName("MockUsername")).thenReturn(mockList);
+		
+		EntityNotFoundException e = 
+				assertThrows(EntityNotFoundException.class, () -> exerciseServiceMock.find("MockUsername", 2L));
+				assertEquals(e.getMessage(), exceptionMessage);
+	}
+	
+	@Test
 	void givenIdNullWhenFindExerciseThenThrowsException() {
-		assertThrows(EntityNotFoundException.class, () -> exerciseServiceMock.find("Ale", null));
+				assertThrows(EntityNotFoundException.class, () -> exerciseServiceMock.find("Ale", null));
 	}
 	
 	@Test
 	void givenUsernameNullWhenFindExerciseThenThrowsException() {
-		assertThrows(EntityNotFoundException.class, () -> exerciseServiceMock.find(null, 1L));
+				assertThrows(EntityNotFoundException.class, () -> exerciseServiceMock.find(null, 1L));
+	}
+	
+	// CREATE TESTS
+	
+	@Test
+	void givenUsernameAndExerciseWhenCreateThenReturnSavedExercise() {
+		Exercise mockExercise = new Exercise(3L, "MockUsername", "MockExerciseName", ExerciseType.CARDIO);
+		
+		when(exerciseRepositoryMock.save(mockExercise)).thenReturn(mockExercise);
+		Exercise mockSavedExercise = exerciseServiceMock.create("MockUsername",mockExercise);
+		assertEquals(mockExercise, mockSavedExercise);
+	}
+	
+	// UPDATE TESTS
+	
+	void givenUsernameIdAndExerciseWhenUpdateThenReturnUpdatedExercise() {
+		Exercise mockExercise = new Exercise(3L, "MockUsername", "MockExerciseName", ExerciseType.CARDIO);
+		
+		when(exerciseRepositoryMock.save(mockExercise)).thenReturn(mockExercise);
+		Exercise mockSavedExercise = exerciseServiceMock.create("MockUsername",mockExercise);
+		assertEquals(mockExercise, mockSavedExercise);
 	}
 	
 }

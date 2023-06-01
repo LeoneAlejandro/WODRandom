@@ -29,7 +29,7 @@ export default function WelcomeComponent() {
                 </div>
 
                 <div className="menuCard">
-                    <div className="menuCard-content"  onClick={() => navigate(`/createWod`)}>
+                    <div className="menuCard-content"  onClick={() => navigate(`/createWod/-1`)}>
                         <h3 className="menuCard-title">Custom Wods</h3>
                         <h4 className="menuCard-subtitle">creá Wods a tu medida, eligiendo a tu elección tus ejercicios preferidos</h4>
                     </div>
