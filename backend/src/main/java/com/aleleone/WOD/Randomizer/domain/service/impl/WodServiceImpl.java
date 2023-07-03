@@ -77,6 +77,7 @@ public class WodServiceImpl implements WodService {
 		}
 
 		List<Exercise> wodGenerado = new ArrayList<>();
+		
 		for (int i = 0; i < exAmountFuerza; i++) {
 			wodGenerado.add(ejerciciosDeFuerza.get(i));
 		}
