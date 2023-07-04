@@ -1,5 +1,5 @@
 import './App.css';
-import WodRandomizerApp from './components/todo/WodRandomizerApp';
+import WodRandomizerApp from './components/randomizer/WodRandomizerApp';
 
 
 function App() {
