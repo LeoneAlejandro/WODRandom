@@ -1,0 +1,1302 @@
+{
+  "WODs": [
+    {
+      "id": "1",
+      "name": "Murph",
+      "exercises": [
+        "1 mile Run",
+        "100 Pull-Ups",
+        "200 Push-Ups",
+        "300 Air Squats",
+        "1 mile Run"
+      ]
+    },
+    {
+      "id": "2",
+      "name": "Michael",
+      "exercises": [
+        "Run 800 m",
+        "50 back extensions",
+        "50 sit-ups"
+      ],
+      "description": "3 rounds for time"
+    },
+    {
+      "id": "3",
+      "name": "Zachary Tellier",
+      "exercises": [
+        "10 Burpees",
+        "25 Push-Ups",
+        "10 Burpees",
+        "25 Push-Ups",
+        "50 Lunges",
+        "10 Burpees",
+        "25 Push-Ups",
+        "50 Lunges",
+        "100 Sit-Ups",
+        "10 Burpees",
+        "25 Push-Ups",
+        "50 Lunges",
+        "100 Sit-Ups",
+        "150 Air Squats"
+      ]
+    },
+    {
+      "id": "4",
+      "name": "The Seven",
+      "exercises": [
+        "7 Handstand Push-Ups",
+        "7 Thrusters",
+        "7 Knees-to-Elbows",
+        "7 Deadlifts",
+        "7 Burpees",
+        "7 Kettlebell Swings",
+        "7 Pull-Ups"
+      ],
+      "description": "7 rounds for time"
+    },
+    {
+      "id": "5",
+      "name": "Holleyman",
+      "exercises": [
+        "5 Wall Ball Shots",
+        "3 Handstand Push-Ups",
+        "1 Power Clean"        
+      ],
+      "description":"30 rounds for time"
+    },
+    {
+      "id": "6",
+      "name": "Bert",
+      "exercises": [
+        "50 Burpees",
+        "400 meter Run",
+        "100 Push-Ups",
+        "400 meter Run",
+        "150 Walking Lunges",
+        "400 meter Run",
+        "200 Air Squats",
+        "400 meter Run",
+        "150 Walking Lunges",
+        "400 meter Run",
+        "100 Push-Ups",
+        "400 meter Run",
+        "50 Burpees"
+      ]
+    },
+    {
+      "id": "7",
+      "name": "Daniel",
+      "exercises": [
+        "50 Pull-ups",
+        "400 meter run",
+        "95 pound Thruster, 21 reps",
+        "800 meter run",
+        "95 pound Thruster, 21 reps",
+        "400 meter run",
+        "50 Pull-ups"
+      ]
+    },
+    {
+      "id": "8",
+      "name": "Josh",
+      "exercises": [
+        "21 Overhead squat (45 kg)",
+        "42 Pull-ups",
+        "15 reps",
+        "30 Pull-ups",
+        "9 Overhead squat (45 kg)",
+        "18 Pull-ups"
+      ]
+    },
+    {
+      "id": "9",
+      "name": "Jason",
+      "exercises": [
+        "For time:",
+        "100 Squats",
+        "5 Muscle-ups",
+        "75 Squats",
+        "10 Muscle-ups",
+        "50 Squats",
+        "15 Muscle-ups",
+        "25 Squats",
+        "20 Muscle-ups"
+      ]
+    },
+    {
+      "id": "10",
+      "name": "Badger",
+      "exercises": [
+        "Do three rounds for time:",
+        "30 Squat clean (45 kg)",
+        "30 Pull-ups",
+        "Run 800 meter"
+      ]
+    },
+    {
+      "id": "11",
+      "name": "Joshie",
+      "exercises": [
+        "21 Dumbbell Snatch with Right arm (20 kg)",
+        "21 L Pull-ups",
+        "21 Dumbbell Snatch with Left-arm (20 kg)",
+        "21 L Pull-ups"
+      ],
+      "description":"3 rounds for time"
+    },
+    {
+      "id": "12",
+      "name": "Griff",
+      "exercises": [
+        "Run 800 meters",
+        "Run 400 meters backwards",
+        "Run 800 meters",
+        "Run 400 meters backwards"
+      ]
+    },
+    {
+      "id": "13",
+      "name": "The Ryan",
+      "exercises": [
+        "7 Muscle-ups",
+        "21 Burpees"
+      ],
+      "description":"5 rounds for time"
+    },
+    {
+      "id": "14",
+      "name": "Mr. Joshua",
+      "exercises": [
+        "Run 400 meters",
+        "30 Glute-ham sit-ups",
+        "15 Deadlift (115 kg)"
+      ],
+      "description":"5 rounds for time"
+    },
+    {
+      "id": "15",
+      "name": "The Danny",
+      "exercises": [
+        "30 Box Jump",
+        "20 Push Press (52,5 kg)",
+        "30 Pull-ups"
+      ]
+    },
+    {
+      "id": "16",
+      "name": "The Hansen",
+      "exercises": [
+        "30 Kettlebell Swing",
+        "30 Burpees",
+        "30 Sit-ups"
+      ],
+      "description":"5 rounds for time"
+    },
+    {
+      "id": "17",
+      "name": "The Stephen",
+      "exercises": [
+        "GHD sit-up",
+        "Back extension",
+        "Knees to elbow",
+        "Deadlift rumano (45 kg)"
+      ],
+      "description":"30-25-20-15-10-5"
+    },
+    {
+      "id": "18",
+      "name": "Garrett",
+      "exercises": [
+        "75 Squats",
+        "25 Ring handstand push-ups",
+        "25 L-pull-ups"
+      ],
+      "description":"3 rounds for time"
+    },
+    {
+      "id": "19",
+      "name": "War Frank",
+      "exercises": [
+        "25 Muscle-ups",
+        "100 Squats",
+        "35 GHD situps"
+      ],
+      "description":"3 rounds for time"
+    },
+    {
+      "id": "20",
+      "name": "Lumberjack 20",
+      "exercises": [
+        "20 Deadlifts (125 kg)",
+        "Run 400m",
+        "20 KB swings (2pood)",
+        "Run 400m",
+        "20 Overhead Squats (52,5 kg)",
+        "Run 400m",
+        "20 Burpees",
+        "Run 400m",
+        "20 Pullups (Chest to Bar)",
+        "Run 400m",
+        "20 Box jumps (24″)",
+        "Run 400m",
+        "20 DB Squat Cleans (20kg each)",
+        "Run 400m"
+      ]
+    },
+    {
+      "id": "21",
+      "name": "Paul",
+      "exercises": [
+        "50 Double unders",
+        "35 Knees to elbows",
+        "20 meters Overhead Walk with 85 kilos"
+      ],
+      "description":"5 rounds for time"
+    },
+    {
+      "id": "22",
+      "name": "Nutts",
+      "exercises": [
+        "10 Handstand push-ups",
+        "15 Deadlift (115 kg)",
+        "25 Box jumps",
+        "50 Pull-ups",
+        "100 Wallball shots (9 kg)",
+        "200 Double-unders",
+        "400 meters Run with a 20kg plate"
+      ]
+    },
+    {
+      "id": "23",
+      "name": "Arnie",
+      "exercises": [
+        "21 Turkish get-ups with Right arm",
+        "50 KB Swings",
+        "21 Overhead squats",
+        "50 Kettlebell Swings",
+        "21 Overhead squats",
+        "50 KB Swings",
+        "21 Turkish get-ups with Left arm"
+      ]
+    },
+    {
+      "id": "24",
+      "name": "Hammer",
+      "exercises": [
+        "5 Power clean (62,5 kg)",
+        "10 Front squat (62,5 kg)",
+        "5 Jerk (62,5 kg)",
+        "20 Pull-ups"
+      ],
+      "description":"5 rounds for time"
+    },
+    {
+      "id": "25",
+      "name": "Adambrown",
+      "exercises": [
+        "24 Deadlift with 132,5 kg",
+        "24 Box jumps",
+        "24 Wallball shots with 9 kg ball",
+        "24 Bench Press with 88,5 kg",
+        "24 Box jumps",
+        "24 Wallball shots with 9 kg ball",
+        "24 Clean with 65 kg"
+      ],
+      "description":"2 rounds for time"
+    },
+    {
+      "id": "26",
+      "name": "Bradley",
+      "exercises": [
+        "Sprint 100 meters",
+        "10 Pull-ups",
+        "Sprint 100 meters",
+        "10 Burpees"
+      ],
+      "description":"10 rounds for time"
+    },
+    {
+      "id": "27",
+      "name": "Hamilton",
+      "exercises": [
+        "1000 meters Rowing",
+        "50 Push-ups",
+        "1000 meters Running",
+        "50 Pull-ups"
+      ],
+      "description":"3 rounds for time"
+    },
+    {
+      "id": "28",
+      "name": "Santiago",
+      "exercises": [
+        "18 Dumbbell hang squat clean with 15 kg",
+        "18 Pull-ups",
+        "10 Power clean with 61,5 kg",
+        "10 Handstand push-ups"
+      ],
+      "description":"7 rounds for time"
+    },
+    {
+      "id": "29",
+      "name": "Bradshaw",
+      "exercises": [
+        "3 Handstand push-ups",
+        "6 Deadlift with 100 kg",
+        "12 Pull-ups",
+        "24 Double-unders"
+      ],
+      "description":"10 Rounds for time"
+    },
+    {
+      "id": "30",
+      "name": "Ralph",
+      "exercises": [
+        "8 Deadlift with 113 kg",
+        "16 Burpees",
+        "15 foot Rope climb, 3 ascents",
+        "600 meters Run"
+      ],
+      "description":"4 Rounds for time"
+    },
+    {
+      "id": "31",
+      "name": "Loredo",
+      "exercises": [
+        "24 Squats",
+        "24 Push-ups",
+        "24 Walking lunge steps",
+        "400 meters Run"
+      ],
+      "description":"6 Rounds for time"
+    },
+    {
+      "id": "32",
+      "name": "Omar",
+      "exercises": [
+        "10 Barbell Thrusters with 43 kg",
+        "15 Bar-facing burpees",
+        "10 Barbell Thrusters with 43 kg",
+        "25 Bar-facing burpees",
+        "30 pound barbell Thrusters with 43 kg",
+        "35 Bar-facing burpees"
+      ]
+    },
+    {
+      "id": "33",
+      "name": "Fran",
+      "exercises": [
+        "Thrusters and Pull-Ups"
+      ],
+      "description":"21-15-9 reps"
+    },
+    {
+      "id": "34",
+      "name": "The Longest Mile",
+      "exercises": [
+        "10 Burpees",
+        "100 meter Run",
+        "10 Air Squats",
+        "100 meter Run",
+        "10 Push-Ups",
+        "100 meter Run",
+        "10 Sit-Ups",
+        "100 meter Run"
+      ],
+      "description": "Repeat all for 4 rounds"
+    },
+    {
+      "id": "35",
+      "name": "Fat Amy",
+      "exercises": [
+        "50 Air Squats",
+        "10 Burpees",
+        "40 Sit-Ups",
+        "10 Burpees",
+        "30 Lunges",
+        "10 Burpees",
+        "20 Kettlebell Swings",
+        "10 Burpees",
+        "10 meter Bear Crawl",
+        "10 Burpees",
+        "20 Kettlebell Swings",
+        "10 Burpees",
+        "30 Lunges",
+        "10 Burpees",
+        "40 Sit-Ups",
+        "10 Burpees",
+        "50 Air Squats"
+      ],
+      "description":"Do each exercise as fast as possible"
+    },
+    {
+      "id": "36",
+      "name": "Chelsea",
+      "exercises": [
+        "5 Pull-Ups",
+        "10 Push-Ups",
+        "15 Air Squats"
+      ],
+      "description":"EMOM for 30 minutes"
+    },
+    {
+      "id": "37",
+      "name": "Annie",
+      "exercises": [
+        "Double unders",
+        "Sit-ups"
+      ],
+      "description":"50 – 40 – 30 – 20 – 10 reps (in a descending ladder)"
+    },
+    {
+      "id": "38",
+      "name": "Eva",
+      "exercises": [
+        "800 meters Run",
+        "30 KB swings",
+        "30 pullups"
+      ],
+      "description":"Repeat For 5 Rounds"
+    },
+    {
+      "id": "39",
+      "name": "Nancy",
+      "exercises": [
+        "400 meters Run",
+        "15 Overhead Squat with 43 kgs"
+      ],
+      "description":"5 rounds for time"
+    },
+    {
+      "id": "40",
+      "name": "Kelly",
+      "exercises": [
+        "Run 400m",
+        "30 Box Jumps",
+        "30 Wall Balls 20lbs"
+      ],
+      "description": "5 Rounds with 3 minutes rest"
+    },
+    {
+      "id": "41",
+      "name": "Barbara",
+      "exercises": [
+        "20 Pull-ups",
+        "30 Push-ups",
+        "40 Sit-ups",
+        "50 Squats"
+      ],
+      "description":"5 rounds for time"
+    },
+    {
+      "id": "42",
+      "name": "Diane",
+      "exercises": [
+        "Deadlift with 100kg",
+        "Handstand Push-ups"
+      ],
+      "description": "50–40–30–20–10 reps"
+    },
+    {
+      "id": "43",
+      "name": "Jackie",
+      "exercises": [
+        "1000 meters Rowing",
+        "50 Thruster with 20 kg",
+        "30 Pull Ups"
+      ]
+    },
+    {
+      "id": "44",
+      "name": "Elizabeth",
+      "exercises": [
+        "Clean with 60 kg", 
+        "Ring Dips"
+      ],
+      "description": "21-15-9 reps"
+    },
+    {
+      "id": "45",
+      "name": "Marguerita",
+      "exercises": [
+        "1 Burpee",
+        "1 Push-Up",
+        "1 Jumping-Jack",
+        "1 Sit-Up",
+        "1 Handstand"
+      ],
+      "description":"50 rounds for time"
+    },
+    {
+      "id": "46",
+      "name": "Karen",
+      "exercises": [
+        "150 Wall Balls 9 kgs"
+      ],
+      "description": "For time"
+    },
+    {
+      "id": "47",
+      "name": "Bear Complex",
+      "exercises": [
+        "Power clean",
+        "Front Squat",
+        "Push Press",
+        "Back Squat",
+        "Push Press"
+      ],
+      "description":"5 rounds of 7 unbroken sets"
+    },
+    {
+      "id": "48",
+      "name": "Helen",
+      "exercises": [
+        "Run 400 meters",
+        "21 Kettle Bell Swings with 25 kg",
+        "12 Pull-ups"
+      ],
+      "description":"5 rounds for time"
+    },
+    {
+      "id": "49",
+      "name": "Grace",
+      "exercises": [
+        "30 Clean and Jerk with 60/45 kgs"
+      ]
+    },
+    {
+      "id": "50",
+      "name": "Filthy Fifty",
+      "exercises": [
+        "50 Box Jumps",
+        "50 Jumping Pull-Ups",
+        "50 Kettlebell Swings",
+        "50 Walking Lunges",
+        "50 Knees-to-Elbows",
+        "50 Push Presses with 20 kg",
+        "50 Back Extensions",
+        "50 Wall Ball Shots with 9 kg",
+        "50 Burpees",
+        "50 Double-Unders"
+      ]
+    },
+    {
+      "id": "51",
+      "name": "Angie",
+      "exercises": [
+        "100 Pull-Ups",
+        "100 Push-Ups",
+        "100 Sit-Ups",
+        "100 Air Squats"
+      ]
+    },
+    {
+      "id": "52",
+      "name": "Grettel",
+      "exercises": [
+        "3 Clean-and-Jerks with 60/45 kgs",
+        "3 Bar Over Burpees"
+      ],
+      "description":"Repeat 10 times"
+    },
+    {
+      "id": "53",
+      "name": "Isabel",
+      "exercises": [
+        "Do 30 Snatches with 60/45 kgs for time"
+      ]
+    },
+    {
+      "id": "54",
+      "name": "Cooper",
+      "exercises": [
+        "10 Burpees",
+        "10 Air Squats",
+        "10 Push-Ups",
+        "10 Sit-Ups"
+      ],
+      "description":"10 rounds for time"
+    },
+    {
+      "id": "55",
+      "name": "Dirty Thirty",
+      "exercises": [
+        "30 Box Jumps",
+        "30 Jumping Pull-Ups",
+        "30 Kettlebell Swings with 35 lbs",
+        "30 Lunges",
+        "30 Knees-to-Elbows",
+        "30 Push Presses 45 lbs",
+        "30 Back Extensions",
+        "30 Wall Ball Shots 20 lbs",
+        "30 Burpees",
+        "30 Double-Unders"
+      ]
+    },
+    {
+      "id": "56",
+      "name": "Baseline",
+      "exercises": [
+        "500 meter Row",
+        "40 Air Squats",
+        "30 Sit-Ups",
+        "20 Push-Ups",
+        "10 Pull-Ups"
+      ]
+    },
+    {
+      "id": "57",
+      "name": "Ellen",
+      "exercises": [
+        "20 Burpees",
+        "21 Alternating Dumbbell Snatches with 22,5 kg",
+        "12 Dumbbell Thrusters 16 kg"
+      ],
+      "description":"3 rounds for time"
+    },
+    {
+      "id": "58",
+      "name": "Amanda",
+      "exercises": [
+        "Muscle-up",
+        "Squat snatch (62,5/43 kg)"
+      ],
+      "description":"9–7–5 reps"
+    },
+    {
+      "id": "59",
+      "name": "Nasty Girls",
+      "exercises": [
+        "50 Air Squats",
+        "7 Muscle-Ups",
+        "10 Hang Power Cleans (62,5/43 kg)"
+      ],
+      "description":"3 rounds for time"
+    },
+    {
+      "id": "60",
+      "name": "Christine",
+      "exercises": [
+        "500 meter Row",
+        "12 Deadlifts",
+        "21 Box Jumps"
+      ],
+      "description":"3 rounds for time"
+    },
+    {
+      "id": "61",
+      "name": "King Kong Jr",
+      "exercises": [
+        "1 Deadlift with 110-80 kg",
+        "2 Muscle-Ups",
+        "3 Squat Cleans with 80-55 kg",
+        "4 Handstand Push Ups"
+      ],
+      "description":"3 rounds for time"
+    },
+    {
+      "id": "62",
+      "name": "Betty",
+      "exercises": [
+        "12 Push Press (62,5/43 kg)",
+        "20 Box Jumps"
+      ],
+      "description":"5 rounds for time"
+    },
+    {
+      "id": "63",
+      "name": "Cindy",
+      "exercises": [
+        "5 Pull Ups",
+        "10 Push Ups",
+        "15 Squats"
+      ],
+      "description":"Timecap: 20 minutes"
+    },
+    {
+      "id": "64",
+      "name": "Nate",
+      "exercises": [
+        "2 Muscle-ups",
+        "4 Handstand Push-ups",
+        "8 Kettlebell swings"
+      ],
+      "description":"Timecap: 30 minutes"
+    },
+    {
+      "id": "65",
+      "name": "McGhee",
+      "exercises": [
+        "5 Deadlifts with 125 kg",
+        "13 Push-ups",
+        "9 Box jumps"
+      ],
+      "description":"Timecap: 30 minutes"
+    },
+    {
+      "id": "66",
+      "name": "Johnson",
+      "exercises": [
+        "9 Deadlift 112 kg",
+        "8 Muscle-ups",
+        "9 Squat clean 70 kg"
+      ],
+      "description":"Timecap: 20 minutes"
+    },
+    {
+      "id": "67",
+      "name": "Mary",
+      "exercises": [
+        "5 Handstand Push-ups",
+        "10 Pistol Squats",
+        "15 Pull-ups"      
+      ],
+        "description":"Timecap: 20 minutes"
+    },
+    {
+      "id": "68",
+      "name": "Ricky",
+      "exercises": [
+        "10 Pull-ups",
+        "5 Dumbbell Deadlift with 35 kg",
+        "8 Push Jerks 70 kg"      
+      ],
+        "description":"Timecap: 20 minutes"
+    },
+    {
+      "id": "69",
+      "name": "Roy",
+      "exercises": [
+        "5 Deadlifts with 100 kg",
+        "5 Ring Muscle-ups",
+        "5 Box Jumps"      
+      ],
+        "description":"Timecap: 20 minutes"
+    },
+    {
+      "id": "70",
+      "name": "The Chief",
+      "exercises": [
+        "AMRAP in 3 minutes",
+        "3 Power Cleans (61,5/43 kg)",
+        "6 Push-Ups",
+        "9 Air Squats"
+      ],
+      "description":"Complete 5 rounds"
+    },
+    {
+      "id": "71",
+      "name": "The Incredible Hulk",
+      "exercises": [
+        "With 52,5/34 kg",
+        "5 Deadlifts",
+        "5 Hang Power Cleans",
+        "5 Front Squats",
+        "5 Push Press",
+        "5 Back Squat"
+      ],
+      "description":"Timecap: 20 minutes"
+    },
+    {
+      "id": "72",
+      "name": "The Ghost",
+      "exercises": [
+        "1 minute of Rowing",
+        "1 minute of Burpees",
+        "1 minute of Double-Unders",
+        "1 minute Rest"
+      ],
+      "description":"Timecap: 23 minutes"
+    },
+    {
+      "id": "73",
+      "name": "Jack",
+      "exercises": [
+        "10 Push Presses with 52/38,5 kg",
+        "10 Kettlebell Swings",
+        "10 Box Jumps"
+      ],
+      "description":"Timecap: 20 minutes"
+    },
+    {
+      "id": "74",
+      "name": "Phantom",
+      "exercises": [
+        "Do AMRAP in 30 minutes with a partner",
+        "1 mile Run (together)",
+        "Then, AMRAP in the remaining time of:",
+        "27 Push-Ups",
+        "20 Deadlifts (140/92 kg)"
+      ],
+      "description":"Timecap: 30 minutes"
+    },
+    {
+      "id": "75",
+      "name": "Artie",
+      "exercises": [
+        "5 Pull-Ups",
+        "10 Push-Ups",
+        "15 Squats",
+        "5 Pull-Ups",
+        "10 Thrusters with 45/30 kg"
+      ],
+      "description":"AMRAP 20 minutes"
+    },
+    {
+      "id": "76",
+      "name": "Marston",
+      "exercises": [
+        "1 Deadlift with 120/85 kg",
+        "10 Toes-to-Bar",
+        "15 Bar Facing Burpees"
+      ],
+      "description":"AMRAP 20 minutes"
+    },
+    {
+      "id": "77",
+      "name": "Rankel",
+      "exercises": [
+        "6 Deadlifts with 100/70 kgs",
+        "7 Burpee Pull-Ups",
+        "10 Kettlebell Swings (32 kgs)",
+        "200 meters Run"
+      ],
+      "description":"AMRAP 20 minutes"
+    },
+    {
+      "id": "78",
+      "name": "Laura",
+      "exercises": [
+        "30 calorie Row",
+        "20 Burpees Over Rower",
+        "10 Power Cleans (70/47,5 kgs)"
+      ],
+      "description":"Do AMRAP in 21 minutes with a partner"
+    },
+    {
+      "id": "79",
+      "name": "Zimmerman",
+      "exercises": [
+        "11 Chest-to-Bar Pull-Ups",
+        "2 Deadlifts with 140/90 kgs",
+        "10 Handstand Push-ups"
+      ],
+      "description":"AMRAP 25 minutes"
+    },
+    {
+      "id": "80",
+      "name": "Rahoi",
+      "exercises": [
+        "12 Box Jumps 20-24 inches",
+        "6 Thrusters with 45/30 kgs",
+        "6 Bar Facing Burpees"
+      ],
+      "description":"AMRAP 12 minutes"
+    },
+    {
+      "id": "81",
+      "name": "Oscar",
+      "exercises": [
+        "9 Devil Presses (2x 18/12 kgs)",
+        "20 Alternating Dumbbell Lunges (2x 18/12 kgs)",
+        "9 Dumbbell Push Presses (2x 18/12 kgs)",
+        "20 Sit-Ups"
+      ],
+      "description":"AMRAP 23 minutes"
+    },
+    {
+      "id": "82",
+      "name": "Heidi",
+      "exercises": [
+        "23 Air Squats",
+        "23 Push-Ups",
+        "23 Kettlebell Swings with 16-24 kg KB",
+        "23 Jumping Lunges",
+        "23 Sit-Ups",
+        "23 Box Jumps on 20-24 20 inches box"
+      ],
+      "description":"AMRAP 23 minutes"
+    },
+    {
+      "id": "83",
+      "name": "Runyan",
+      "exercises": [
+        "21 Bar Over Burpees",
+        "7 Deadlifts with 1.5x of your bodyweight",
+        "10 Pull-Ups"
+      ],
+      "description":"AMRAP 24 minutes"
+    },
+    {
+      "id": "84",
+      "name": "Jenkins",
+      "exercises": [
+        "50 Burpees",
+        "400 meter Run",
+        "50 Kettlebell Swings with 16-24 kg KB",
+        "400 meter Run",
+        "50 Pull-Ups",
+        "400 meter Run",
+        "50 Push-Ups",
+        "400 meter Run"
+      ],
+      "description":"AMRAP 40 minutes with a partner:"
+    },
+    {
+      "id": "85",
+      "name": "Dork",
+      "exercises": [
+        "33 calorie Row",
+        "15 Deadlifts with 100/70 kgs",
+        "4 Rope Climbs"
+      ],
+      "description":"AMRAP 20 minutes"
+    },
+    {
+      "id": "86",
+      "name": "Jenny",
+      "exercises": [
+        "20 Overhead Squats with 20 kgs",
+        "20 Back Squats with 20 kgs bar",
+        "400 meter Run"
+      ],
+      "description":"AMRAP 20 minutes"
+    },
+    {
+      "id": "87",
+      "name": "Armistice",
+      "exercises": [
+        "11 Power Cleans with 60/45 kgs",
+        "11 Burpees Over the Bar",
+        "19 Deadlifts with 60/45 kgs",
+        "18 Pull-Ups"
+      ],
+      "description":"Timecap: 11 minutes"
+    },
+    {
+      "id": "88",
+      "name": "Tyrant 22",
+      "exercises": [
+        "22 Deadlifts 275/185 lb)",
+        "22 Wall Ball Shots (20/14 lb)",
+        "22 Toes-to-Bars",
+        "22 Hand Release Push-Ups"
+      ],
+      "description":"AMRAP 22 minutes"
+    },
+    {
+      "id": "89",
+      "name": "Havana",
+      "exercises": [
+        "150 Double-Unders",
+        "50 Push-Ups",
+        "15 Power Cleans with 85/55 kgs"
+      ],
+      "description":"AMRAP 25 minutes"
+    },
+    {
+        "id": "90",
+        "name": "Murph Jr.",
+        "exercises": [
+          "800 meter Run",
+          "50 Push-Ups",
+          "100 Air Squats",
+          "800 meter Run"
+        ]
+      },
+      {
+        "id": "91",
+        "name": "Linda",
+        "exercises": [
+          "Deadlift (1.5x bodyweight)",
+          "Bench Press (bodyweight)",
+          "Clean (0.75x bodyweight)"
+        ],
+        "description":"10-9-8-7-6-5-4-3-2-1 reps"
+      },
+      {
+        "id": "92",
+        "name": "Fran Jr.",
+        "exercises": [
+          "Thrusters (45 kgs)",
+          "Pull-Ups"
+        ],
+        "description":"15-12-9 reps"
+      },
+      {
+        "id": "93",
+        "name": "Cindy's Revenge",
+        "exercises": [
+          "5 Pull-Ups",
+          "10 Push-Ups",
+          "15 Air Squats",
+          "5 Burpees",
+          "10 Box Jumps (24 inches)"
+        ],
+        "description":"AMRAP 20 minutes"
+      },
+      {
+        "id": "94",
+        "name": "Grace Jr.",
+        "exercises": [
+          "30 Clean and Jerk (20 kgs) for time"
+        ]
+      },
+      {
+        "id": "95",
+        "name": "Annie's Cousin",
+        "exercises": [
+          "Double Unders",
+          "Sit-Ups"
+        ],
+        "description":"50-40-30-20-10 reps "
+      },
+      {
+        "id": "96",
+        "name": "Barbara Jr.",
+        "exercises": [
+          "10 Pull-Ups",
+          "20 Push-Ups",
+          "30 Sit-Ups",
+          "40 Air Squats"
+        ],
+        "description":"5 rounds for time. Rest 3 minutes between rounds"
+      },
+      {
+        "id": "97",
+        "name": "Kelly Jr.",
+        "exercises": [
+          "400 meter Run",
+          "15 Box Jumps (24 inches)",
+          "15 Wall Balls (9 kgs)"
+        ],
+        "description":"4 rounds for time"
+      },
+      {
+        "id": "98",
+        "name": "Nancy Jr.",
+        "exercises": [
+          "400 meter Run",
+          "12 Overhead Squats (35 kgs)"
+        ],
+        "description":"4 rounds for time"
+      },
+      {
+        "id": "99",
+        "name": "Helen Jr.",
+        "exercises": [
+          "400 meter Run",
+          "21 Kettlebell Swings (16 kgs)",
+          "12 Pull-Ups"
+        ],
+        "description":"3 rounds for time"
+      },
+      {
+        "id": "100",
+        "name": "Graceful Annie",
+        "exercises": [
+          "Clean and Jerk (30 kgs)",
+          "Double Unders"
+        ],
+        "description":"50-40-30-20-10 reps"
+      },
+      {
+        "id": "101",
+        "name": "Double Diane",
+        "exercises": [
+          "Frist: 21-15-9 reps of:",
+          "Deadlift (185 lbs)",
+          "Handstand Push-Ups",
+          "Then: 21-15-9 reps of:",
+          "Deadlift (185 lbs)",
+          "Hand Release Push-Ups"
+        ]
+      },
+      {
+        "id": "102",
+        "name": "Fran's Twin",
+        "exercises": [
+          "Thrusters (45 kgs)",
+          "Burpees"
+        ],
+        "description":"15-12-9 reps"
+      },
+      {
+        "id": "103",
+        "name": "Run and Jump",
+        "exercises": [
+          "400 meter Run",
+          "15 Box Jumps (24 inches)"
+        ],
+        "description":"5 rounds for time"
+      },
+      {
+        "id": "104",
+        "name": "Heavy Helen",
+        "exercises": [
+          "400 meter Run",
+          "21 Kettlebell Swings (24 kg)",
+          "12 Pull-Ups"
+        ],
+        "description":"3 rounds for time"
+      },
+      {
+        "id": "105",
+        "name": "Graceful Nancy",
+        "exercises": [
+          "400 meter Run",
+          "12 Overhead Squats (45 kgs)"
+        ],
+        "description":"5 rounds for time"
+      },
+      {
+        "id": "106",
+        "name": "Annie's Revenge",
+        "exercises": [
+          "Double Unders",
+          "Sit-Ups",
+          "5 Burpees after each set"
+        ],
+        "description":"50-40-30-20-10 reps"
+      },
+      {
+        "id": "107",
+        "name": "Helen's Twin",
+        "exercises": [
+          "400 meter Run",
+          "21 Kettlebell Swings (20 kgs)",
+          "12 Pull-Ups"
+        ],
+        "description":"3 rounds for time"
+      },
+      {
+        "id": "108",
+        "name": "Heavy Barbara",
+        "exercises": [
+          "10 Pull-Ups",
+          "20 Push-Ups",
+          "30 Sit-Ups",
+          "40 Air Squats"
+        ],
+        "description":"5 rounds for time. Rest 2 minutes between rounds"
+      },
+      {
+        "id": "109",
+        "name": "Double Kelly",
+        "exercises": [
+          "400 meter Run",
+          "15 Box Jumps (30 inches)",
+          "15 Wall Balls (14 kgs)"
+        ],
+        "description":"4 rounds for time"
+      },
+      {
+        "id": "110",
+        "name": "Double Grace",
+        "exercises": [
+          "60 Clean and Jerk (16 kgs) for time"
+        ]
+      },
+      {
+        "id": "111",
+        "name": "Annie's Sister",
+        "exercises": [
+          "Double Unders",
+          "Sit-Ups"
+        ],
+        "description": "40-30-20-10 reps"
+      },
+      {
+        "id": "112",
+        "name": "Heavy Nancy",
+        "exercises": [
+          "400 meter Run",
+          "12 Overhead Squats (52 kgs)"
+        ],
+        "description":"4 rounds for time"
+      },
+      {
+        "id": "113",
+        "name": "Murph's Revenge",
+        "exercises": [
+          "1600 meter Run",
+          "100 Push-Ups",
+          "200 Air Squats",
+          "1600 meter Run"
+        ]
+      },
+      {
+        "id": "114",
+        "name": "Filthy Fifty Jr.",
+        "exercises": [
+          "50 Box Jumps (24 inches)",
+          "50 Jumping Pull-Ups",
+          "50 Kettlebell Swings (16 kgs)",
+          "50 Walking Lunges",
+          "50 Knees-to-Elbows",
+          "50 Push Presses (20 kgs)",
+          "50 Back Extensions",
+          "50 Wall Ball Shots (9 kgs)",
+          "50 Burpees",
+          "50 Double-Unders"
+        ]
+      },
+      {
+        "id": "115",
+        "name": "Isabel's Cousin",
+        "exercises": [
+          "30 Snatches (45 kgs) for time"
+        ]
+      },
+      {
+        "id": "116",
+        "name": "Diane's Twin",
+        "exercises": [
+          "Deadlift (100 kgs)",
+          "Handstand Push-Ups"
+        ],
+        "description":"21-15-9 reps"
+      },
+      {
+        "id": "117",
+        "name": "Double Cindy",
+        "exercises": [
+          "5 Pull-Ups",
+          "10 Push-Ups",
+          "15 Air Squats",
+          "5 Burpees",
+          "10 Box Jumps (30 inches)"
+        ],
+        "description":"20 minute AMRAP"
+      },
+      {
+        "id": "118",
+        "name": "Heavy Isabel",
+        "exercises": [
+          "30 Snatches (60 kgs)"
+        ]
+      },
+      {
+        "id": "119",
+        "name": "Heavy Diane",
+        "exercises": [
+          "Deadlift (315 lbs)",
+          "Handstand Push-Ups"
+        ],
+        "description":"21-15-9 reps"
+      },
+      {
+        "id": "120",
+        "name": "Hero's Challenge",
+        "exercises": [
+          "800 meter Run",
+          "20 Pull-Ups",
+          "30 Push-Ups",
+          "40 Air Squats",
+          "50 Double-Unders"
+        ],
+        "description":"5 rounds for time"
+      }
+  ]
+}

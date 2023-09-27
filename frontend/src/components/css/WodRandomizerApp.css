@@ -33,6 +33,7 @@ button:hover {
 .container {
     color: white;
     background-color: rgb(55, 55, 55);
+    width: 100vmax;
 }
 
 /* .table.table-dark {
@@ -60,6 +61,7 @@ th {
 .WodRandomizerApp {
     background-color: rgb(55, 55, 55);
     color: white;
+    /* width: 100vmax; */
 }
 
 .username, .password {
@@ -72,15 +74,16 @@ th {
 
 .inputbox {
     margin: auto;
-    padding: 20p;
+    padding: 0,5vmax;
     position: relative;
-    width: 196px;
+    width: 10vmax;
   }
   
   .inputbox input {
     position: relative;
     width: 100%;
     padding: 20px 10px 10px;
+    /* padding: 2vmax 1vmax 1vmax; */
     background: transparent;
     outline: none;
     box-shadow: none;

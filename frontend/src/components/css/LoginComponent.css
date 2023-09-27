@@ -1,0 +1,61 @@
+.loginMenu {
+  width: 70%;
+  display: flexbox;
+  margin: auto;
+  height: 800px;
+}
+
+.login {
+  width: 45%;
+  float: right;
+  /* padding: 20px; */
+  padding-top: 6%;
+  /* border: 2px solid blue;  */
+  height: 600px;
+}
+
+.loginCard {
+  background-color: rgb(49, 48, 48);
+  border: 2px solid rgb(153, 27, 27);
+  margin: auto;
+  padding: 30px;
+  width: 80%;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.35);
+}
+
+.legacyWods {
+  padding-top: 50px;
+  padding-left: 0px;
+  width: 45%;
+  /* padding: 20px; */
+  /* padding-top: 40px; */
+  /* width: 55%; */
+  /* float: left; */
+  /* border: 2px solid red; */
+  /* height: 600px; */
+}
+
+.legacyWodsList {
+  display: inline;
+}
+
+.legacyWodsListName {
+  padding: 0.8vmax 0vmax 0.6vmax;
+  font-weight: bold;
+  font-size: 1.1vmax;
+  margin: auto;
+}
+
+.legacyWodsButton {
+  margin-top: 20px;
+}
+
+.lWLDescription {
+  padding-top: 1.2vmax;
+  font-size: 0.9vmax;
+  font-weight: bold;
+}
+
+tr.legacyWodSingleRow:nth-of-type(2n) {
+  background-color: transparent;
+}
