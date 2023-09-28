@@ -13,7 +13,7 @@ export default function HeaderComponent() {
 
     return(
         <header className="headerRandomizer">
-        <div className="container">
+        <div className="headerContainer">
                 <nav className="navbar navbar-expand">
                     <Link className="navbarBrand" to="/welcome">Home</Link>
                     <div className="collapse navbar-collapse">

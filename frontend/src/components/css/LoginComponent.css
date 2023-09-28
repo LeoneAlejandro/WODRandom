@@ -1,38 +1,53 @@
 .loginMenu {
-  width: 70%;
-  display: flexbox;
+  /* background-color: blue; */
+  width: 70vmax;
   margin: auto;
-  height: 800px;
+  display: flex;
+  /* padding-left: 14vmax;
+  padding-right: 14vmax; */
+  /* height: 800px; */
+  column-gap: 2vmax;
 }
 
 .login {
-  width: 45%;
+  /* width: 45%; */
+  width: 31vmax;
   float: right;
   /* padding: 20px; */
-  padding-top: 6%;
+  /* padding-top: 6%; */
+  padding-top: 4vmax;
   /* border: 2px solid blue;  */
-  height: 600px;
+  /* height: 600px; */
+  /* height: 2vmax; */
+  display: inline-block;
 }
 
-.loginCard {
-  background-color: rgb(49, 48, 48);
-  border: 2px solid rgb(153, 27, 27);
-  margin: auto;
-  padding: 30px;
-  width: 80%;
-  box-shadow: 0 0 20px rgba(0, 0, 0, 0.35);
-}
+
 
 .legacyWods {
-  padding-top: 50px;
-  padding-left: 0px;
-  width: 45%;
+  display: inline-block;
+  /* padding-top: 50px; */
+  padding-top: 3vmax;
+  padding-left: 0;
+  /* width: 45%; */
+  width: 33vmax;
+  /* background-color: blue; */
   /* padding: 20px; */
   /* padding-top: 40px; */
   /* width: 55%; */
   /* float: left; */
   /* border: 2px solid red; */
   /* height: 600px; */
+}
+
+.loginCard {
+  background-color: rgb(49, 48, 48);
+  border: 2px solid rgb(153, 27, 27);
+  margin: auto;
+  padding: 2vmax;
+  /* width: 80%; */
+  width: 25vmax;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.35);
 }
 
 .legacyWodsList {
@@ -47,7 +62,8 @@
 }
 
 .legacyWodsButton {
-  margin-top: 20px;
+  /* margin-top: 20px; */
+  margin-top: 1vmax;
 }
 
 .lWLDescription {

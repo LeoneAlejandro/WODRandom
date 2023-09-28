@@ -4,18 +4,26 @@
 
 .tableCustomWod {
     margin: auto;
-    /* margin-top: 20px; */
-    margin-bottom: 20px;
-    width: 400px;
-    margin-bottom: 20px;
+    /* margin-bottom: 20px; */
+    /* margin-bottom: 22vmax; */
+    /* width: 400px; */
+    width: 25vmax;
+    /* margin-bottom: 20px; */
+    margin-bottom: 1.5vmax;
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.35);
     background-color: rgb(55,55,55);
     cursor: pointer;
 }
 
-.buton {
+.saveCustomWodButton {
     cursor: pointer;
-    margin-left: 20px;
+    margin-left: 1.5vmax;
+    font-size: 0.9vmax;
+    height: 2vmax;
+}
+
+.select-exercise-esp {
+    font-size: 0.9vmax;
 }
 
 
@@ -23,16 +31,23 @@
     display: inline-flex;
 }
 
+.CustomWodh2 {
+    font-size: 2vmax;
+    padding-bottom: 0.5vmax;
+}
 
-thead.titles-CCWC {
-    height: 35px;
+
+.titles-CCWC {
+    /* height: 35px; */
+    height: 1.8vmax;
     background-color: rgb(150, 30, 30);
+    font-size: 1vmax;
 }
 
 .buttonDeleteEx {
     padding: 0;
-    width: 30px;
-    height: 30px;
+    width: 1.7vmax;
+    height: 1.5vmax;
 }
 
 .tableCustomRows:hover {
@@ -40,8 +55,8 @@ thead.titles-CCWC {
 }
 
 .exerciseHeader {
-    width: 260px;
-
+    /* width: 260px; */
+    width: 18vmax;
 }
 
 /* .buttonUpAndDown {

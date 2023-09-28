@@ -44,6 +44,24 @@ export default function LoginComponent() {
     return(
         
         <div className='loginMenu'>
+            <div className="legacyWods">
+                    <h1>WODs Tradicionales</h1>
+                    <button className='legacyWodsButton' onClick={getRandomWOD}>Random WOD</button>
+                    {randomWOD && (
+                        <div className='legacyWodsList'>
+                            {/* <p>ID: {randomWOD.id}</p> */}
+                            <p className='legacyWodsListName'>{randomWOD.name}</p>
+                            {/* <p>Exercises:</p> */}
+                            <tr >
+                                {randomWOD.exercises.map((exercise, index) => (
+                                <tr className='legacyWodSingleRow' key={index}>{exercise}</tr>
+                                ))}
+                            </tr>
+                            {randomWOD.description && <p className='lWLDescription'>{randomWOD.description} </p>
+                            }
+                        </div>
+                    )}
+            </div>
 
             <div className="login">
                 <div className='loginCard'>
@@ -69,25 +87,6 @@ export default function LoginComponent() {
                     </div>
 
                 </div>
-            </div>
-
-            <div className="legacyWods">
-                    <h1>WODs Tradicionales</h1>
-                    <button className='legacyWodsButton' onClick={getRandomWOD}>Random WOD</button>
-                    {randomWOD && (
-                        <div className='legacyWodsList'>
-                            {/* <p>ID: {randomWOD.id}</p> */}
-                            <p className='legacyWodsListName'>{randomWOD.name}</p>
-                            {/* <p>Exercises:</p> */}
-                            <tr >
-                                {randomWOD.exercises.map((exercise, index) => (
-                                <tr className='legacyWodSingleRow' key={index}>{exercise}</tr>
-                                ))}
-                            </tr>
-                            {randomWOD.description && <p className='lWLDescription'>{randomWOD.description} </p>
-                            }
-                        </div>
-                    )}
             </div>
         </div>
     )

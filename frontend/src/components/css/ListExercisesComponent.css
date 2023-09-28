@@ -1,19 +1,23 @@
 .ExercisesTitle {
-    width: 900px;
+    /* width: 900px; */
+    width: 50vmax;
 }
 
 .TypeTitle {
-    width: 700px;
+    /* width: 700px; */
+    width: 50vmax;
 }
 
+
 .containerExerciseList {
-    margin-top: -15px;
+    margin-top: -0.5vmax;
 }
 
 .tableTitles {
     background-color: rgb(150, 30, 30);
-    margin-bottom: 5px;
-    height: 35px;
+    /* margin-bottom: 5px; */
+    /* height: 35px; */
+    height: 1.8vmax;
 }
 
 
@@ -23,28 +27,35 @@
 
 
 .searchExercisesBar {
-    width: 450px;
-    height: 33px;
+    /* width: 450px; */
+    width: 25vmax;
+    /* height: 33px; */
+    height: 1.7vmax;
     background-color: rgba(55, 55, 55, 0.77);
     border: 2px solid rgb(150, 30, 30);
     outline: none;
     /* padding-left: 10px ; */
     color: white;
-    margin-bottom: 10px;
+    margin-bottom: 1vmax;
+    font-size: 0.9vmax;
 }
 
 
 .tablaEjercicios {
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.35);
     margin: auto;
-    margin-bottom: 20px;
-    width: 700px;
+    margin-bottom: 1vmax;
+    /* width: 700px; */
+    width: 40vmax;
     background-color: rgb(55,55,55);
+    font-size: 1.2vmax;
 }
 
 .buttonDelete {
-    padding-left: 10px;
-    padding-right: 10px;
+    /* padding-left: 10px; */
+    padding-left: 0.6vmax;
+    /* padding-right: 10px; */
+    padding-right: 0.6vmax;
 }
 
 .buttonModify {
@@ -52,6 +63,7 @@
     border: 2px solid rgb(29, 168, 122);
     border-radius: 0px;
     background: #2c2c2c;
+    font-size: 0.8vmax;
 }
 
 .buttonModify:hover {

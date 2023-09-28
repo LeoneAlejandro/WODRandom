@@ -75,7 +75,7 @@ export default function SavedWodsComponent() {
                         <thead>
                             <tr className="savedWodsTableHeader">
                                 <th className="selectedExTitle">Ejercicio</th>
-                                <th >Tipo</th>
+                                <th className="selectedTyTitle">Tipo</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -96,7 +96,7 @@ export default function SavedWodsComponent() {
             { selectedWod &&
                 <div>
                     <button className="buttonUpdateWod" onClick={updateWod}>Modificar</button>
-                    <button className="" onClick={deleteWod}>Borrar</button>
+                    <button className="buttonDeleteWod" onClick={deleteWod}>Borrar</button>
                 </div>
             }
 

@@ -1,36 +1,42 @@
-select.form-selection {
+.form-selection {
     margin: auto;
     background-color: #2c2c2c;;
-    /* background-color: rgb(16, 16, 16); */
-    width: 500px;
-    height: 40px;
+    width: 28vmax;
+    height: 2.2vmax;
     color: white;
     border: 2px solid rgb(153, 27, 27);
     box-shadow: none;
     text-indent: 5px;  
+    font-size: 0.9vmax;
 }
 
-select.form-selection:focus {
+.form-selection:focus {
     outline: none;
 }
 
-div.wodList {
-    height: 50px;
+.wodList {
+    height: 3vmax;
 }
 
 .selectedExTitle {
-    width: 280px;
-    height: 35px;
+    width: 15vmax;
+    height: 1.9vmax;
+    font-size: 1vmax;
 }
 
+.selectedTyTitle {
+    font-size: 1vmax;
+}
+
+
 .tableSavedWods {
-    width: 500px;
+    width: 27vmax;
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.35);
+    margin: auto;
 }
 
 .savedWodsTableRows {
-    /* border-bottom: 1px solid rgb(71, 71, 71); */
-    height: 30px;
+    height: 1.6vmax;
 }
 
 .savedWodsTableRows:hover {
@@ -42,12 +48,16 @@ div.wodList {
 }
 
 .selected-wod {
-    padding-top: 10px;
-    padding-bottom: 20px;
-    width: 500px;
-    margin: auto;
+    padding-top: 1.5vmax;
+    padding-bottom: 2vmax;
 }
 
 .buttonUpdateWod {
-    margin-right: 20px;
+    margin-right: 2vmax;
+    font-size: 0.9vmax;
+}
+
+.buttonDeleteWod {
+    margin-right: 2vmax;
+    font-size: 0.9vmax;
 }

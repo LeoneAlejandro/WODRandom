@@ -68,3 +68,9 @@ a.nav-link-log:hover {
     /* margin-bottom: 30px; */
     width: 100vmax;
 }
+
+.headerContainer {
+    /* background-color: blue; */
+    padding-left: 8vmax;
+    padding-right: 8vmax;
+}

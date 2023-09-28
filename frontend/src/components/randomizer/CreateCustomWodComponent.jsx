@@ -77,7 +77,7 @@ function CreateCustomWodComponent() {
  
   return (
     <div>
-      <h2>Crea tu custom WOD</h2>
+      <h2 className='CustomWodh2'>Crea tu custom WOD</h2>
       <ExerciseSelectorPopup username={username} onSelectExercise={handleSelectExercise} />
       <div className='create-custom-wod-table'>
         { selectedExerciseIds.length > 0 &&
@@ -100,7 +100,7 @@ function CreateCustomWodComponent() {
         }
         <div className='nameAndSave'>
         <input className="wodName" required="required" type="text" value={wodName} onChange={(e) => setWodName(e.target.value)} placeholder="Nombre de Wod"/>
-        <button className="buton" onClick={handleSaveWod} disabled={!wodName}>Guardar WOD</button>
+        <button className="saveCustomWodButton" onClick={handleSaveWod} disabled={!wodName}>Guardar WOD</button>
         </div>
     </div>
   </div>

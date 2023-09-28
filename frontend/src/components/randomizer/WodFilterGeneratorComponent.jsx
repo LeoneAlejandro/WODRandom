@@ -122,8 +122,8 @@ export default function WodFilterGeneratorComponent() {
                             <thead >
                                 <tr className="exerciseTitle">
                                     <th className="thExerciseWFGC">Ejercicio</th>
-                                    <th >Tipo</th>
-                                    <th >Cambiar</th>
+                                    <th className="thSecondaryWFGC">Tipo</th>
+                                    <th className="thSecondaryWFGC">Cambiar</th>
                                 </tr>
                             </thead>
                             <tbody>

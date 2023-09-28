@@ -1,13 +1,13 @@
-div.popup-content {
+.popup-content {
     margin-bottom: 20px;
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.35);
     background-color: rgb(55,55,55);
 }
 
-div.popup {
-    padding-top: 5rem;
+.popup {
+    padding-top: 5vmax;
     margin: auto;
-    width: 500px;
+    width: 30vmax;
 }
 
 .selectMultipleExText{
@@ -23,7 +23,7 @@ div.popup {
 }
 
 
-h2.title-esp {
+.title-esp {
     background-color: rgb(150, 30, 30);
     padding-top: 5px;
     padding-bottom: 10px;
@@ -36,15 +36,17 @@ h2.title-esp {
     outline: none;
     padding: 0px 0px 0px 10px;
     margin-top: 2px;
+    margin-bottom: 8px;
     color: white;
+    height: 1.5vmax;
 }
 
-button.select-exercise-esp {
+.select-exercise-esp {
     margin-bottom: 20px;
 }
 
 
-ul.list-exercises {
+.list-exercises {
     list-style: none;
     padding: 0;
     padding-bottom: 5px;

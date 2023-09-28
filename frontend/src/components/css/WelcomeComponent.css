@@ -23,18 +23,16 @@
   
 .legacyWodsContainer {
   padding: 1vmax 5vmax 0 2vmax;
-  width: 30vmax;
+  width: 35vmax;
 }
 
 .legacyWodsWelcomeButton {
-  margin: 10px 5px 5px 5px;
-  width: auto;
-  height: auto;
-  min-width: 12vmax;
+  margin: 1vmax 1vmax 0.5vmax 1vmax;
+  padding: 0;
+  width: 11vmax;
+  height: 2.1vmax;
   font-size: 0.9vmax;
   z-index: 2;
-  position: relative;
-
 }
 
 .legacyWodsList {
@@ -49,7 +47,8 @@
   padding-bottom: 1.5vmax;
   background-color: rgb(49, 48, 48);
   height: auto;
-  min-height: 60vh;
+  min-height: 29vmax;
+  width: 25vmax;
   border: 2px solid rgb(153, 27, 27);
   border-radius: 2%;
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.35);
@@ -101,7 +100,6 @@ z-index: 0;
 }
 
 .legacyWodTitle {
-  /* font-weight: bold; */
   font-size: 2.3vmax;
   z-index: 2;
   position: relative;
@@ -129,7 +127,6 @@ z-index: 0;
     border: 0.2vmax solid var(--border);
     cursor: pointer;
     position: relative;
-    /* width: 40%; */
     width: 27vmax;
     height: 13vmax;
     margin: 1vmax;
@@ -163,7 +160,6 @@ z-index: 0;
   left: 0px;
   pointer-events: none;
   position: absolute;
-  /* top: 0px; */
   transition: background-position 350ms ease, transform 350ms ease;
   width: 100%;
   z-index: 1;
