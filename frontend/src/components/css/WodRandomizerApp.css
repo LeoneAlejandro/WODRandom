@@ -42,7 +42,8 @@ button:hover {
 
 .inputbox {
   margin: auto;
-  padding: 0,5vmax;
+  margin-left: 5vmax;
+  /* padding: 0,5vmax; */
   position: relative;
   width: 10vmax;
 }
@@ -56,16 +57,17 @@ button:hover {
   box-shadow: none;
   border: none;
   color: white;
-  font-size: 1em;
+  font-size: 0.9vmax;
   letter-spacing: 0.05em;
   transition: 0.5s;
   z-index: 10;
 }
 
 .inputbox span {
+  /* width: 20vmax; */
   position: absolute;
   left: 0;
-  padding: 1vmax 0.1vmax 2vmax;
+  padding: 0.9vmax 0.1vmax 2vmax;
   font-size: 0.9vmax;
   color: white;
   letter-spacing: 00.05em;
@@ -76,7 +78,7 @@ button:hover {
 .inputbox input:valid ~span,
 .inputbox input:focus ~span {
   color: white;
-  transform: translateX(-100px) translateY(0px);
+  transform: translateX(-5.5vmax) translateY(0);
   font-size: 0,75em;
 }
 
@@ -92,6 +94,7 @@ button:hover {
   transition: 0.5s;
   pointer-events: none;
   z-index: 9;
+  /* font-size: 1vmax; */
 }
 
 .inputbox input:valid ~i,

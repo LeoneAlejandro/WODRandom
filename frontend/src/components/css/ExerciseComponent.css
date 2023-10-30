@@ -17,9 +17,10 @@ input.form-control.exercise:focus {
     color: white;
     border: 2px solid rgb(153, 27, 27);
     width: 4.5vmax;
-    height: 2.2vmax;
+    /* height: 2vmax; */
     outline: none;
     text-indent: 5px;
+
 }
 
 select.selectType:focus {
@@ -31,3 +32,11 @@ select.selectType:focus {
     width: 37vmax;
 }
 
+.button-success {
+    font-size: 0.8vmax;
+}
+
+.addExTitle {
+    font-size: 2.1vmax;
+    padding-bottom: 1vmax;
+}

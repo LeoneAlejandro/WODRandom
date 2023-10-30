@@ -12,12 +12,14 @@
 
 .selectMultipleExText{
     margin: 0;
+    font-size: 0.8vmax;
 }
 
 .background {
     position: absolute;
     width: 100%;
-    min-height: 100svh;
+    /* min-height: 100svh; */
+    height: 100vh;
     top: 0px;
     background-color: rgba(55, 55, 55, 0.77);
 }
@@ -28,6 +30,7 @@
     padding-top: 5px;
     padding-bottom: 10px;
     margin: 0;
+    font-size: 1.6vmax;
 }
 
 .searchBar {
@@ -39,6 +42,8 @@
     margin-bottom: 8px;
     color: white;
     height: 1.5vmax;
+    font-size: 0.8vmax;
+    width: 15vmax;
 }
 
 .select-exercise-esp {
@@ -60,4 +65,12 @@ li.exercises:hover {
 
 .exercises:nth-of-type(2n+1) {
     background-color: rgb(66, 66, 66);
+}
+
+.exercises {
+    font-size: 0.9vmax;
+}
+
+.closePopup {
+    font-size: 0.9vmax;
 }

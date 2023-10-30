@@ -32,7 +32,7 @@
   width: 11vmax;
   height: 2.1vmax;
   font-size: 0.9vmax;
-  z-index: 2;
+  z-index: 1;
 }
 
 .legacyWodsList {
@@ -57,10 +57,23 @@
   overflow: hidden;
   position: relative;
 
+
+  /* background-image: radial-gradient(
+    rgba(255, 255, 255, 0.2) 8%, 
+    transparent 8%
+  );
+  background-position: 0% 0%;
+  background-size: 1vmax 1vmax;
+  height: calc(100%);
+  padding: 20px;
+  position: relative;
+  transition: background-position 350ms ease; */
+  /* width: calc(100%); */
+  /* z-index: 2; */
 }
 
-
-/* .legacyWodCard:hover:before {
+/* 
+.legacyWodCard:hover:before {
   background-position: 100% 100%;
   transform: scale(1.08, 2);
   z-index: 0;
@@ -85,7 +98,7 @@ pointer-events: none;
 position: absolute;
 transition: background-position 350ms ease, transform 350ms ease;
 width: 100%;
-z-index: 0;
+z-index: 2;
 } */
 
 
@@ -95,7 +108,7 @@ z-index: 0;
   font-size: 1.1vmax;
   margin: auto;
   z-index: 1;
-  position: relative;
+  /* position: relative; */
 
 }
 
@@ -124,20 +137,25 @@ z-index: 0;
 }
 
 .menuCard {
-    border: 0.2vmax solid var(--border);
-    cursor: pointer;
-    position: relative;
-    width: 27vmax;
-    height: 13vmax;
-    margin: 1vmax;
-    display: inline-block;
-    box-shadow: 0 0 20px rgba(0, 0, 0, 0.55);
-    overflow: hidden;
-  }
+  border: 0.2vmax solid var(--border);
+  cursor: pointer;
+  position: relative;
+  width: 27vmax;
+  height: 13vmax;
+  margin: 1vmax;
+  display: inline-block;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.55);
+  overflow: hidden;
+  transition: 0.3s;
+}
+
+.menuCard:hover {
+  transform: translate(0, -5px);
+}
   
 .menuCard:hover:before {
   background-position: 100% 100%;
-  transform: scale(1.08, 1.90);
+  transform: scale(1.08, 5);
 }
 
 .menuCard:hover > .menuCard-content {
@@ -211,6 +229,7 @@ margin-top: 1vmin;
     transition: transform 300ms linear;
 }
 
-tr.legacyWodSingleRow:nth-of-type(2n) {
-  background-color: transparent;
+
+.legacyWodSingleRow {
+  list-style-type: none;
 }

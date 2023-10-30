@@ -2,39 +2,34 @@ nav.navbar.navbar-expand{
     padding: 0;
 }
 
-a.navbarBrand {
-    padding-right: 3vmax;
-    /* padding-left: 3vmax; */
+.navbarBrand {
     color: white;
-    /* left: 0%; */
-    /* bottom: 0px; */
     font-weight: bold;
     font-size: 2.2vmax;
     text-decoration: none;
-    /* transform: translate(0%, -9%); */
-    /* position: fixed; */
 }
 
-a.navbarBrand:active {
-    color: white;
-}
-
-a.navbarBrand:hover {
-    color: rgb(153, 27, 27);
+.navbarBrand:hover {
+    background-image: 
+        linear-gradient(130deg, #ff006a, #9f00fc);
+    background-clip: text;
+    color: transparent;
     transition: 500ms;
+    background-position: 0 100%;
 }
 
 a.nav-link-header {
     color: white;
     font-size: 1.25vmax;
-    /* font-size: 150%; */
     padding: 0.4vmax;
-    /* padding: 10px; */
-    text-decoration: none ;
+    text-decoration: none ;   
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 a.nav-link-header:hover {
-    /* color: rgb(153, 27, 27); */
     color: white;
     background-color: rgb(71,71,71);
     border-radius: 5%;
@@ -43,34 +38,34 @@ a.nav-link-header:hover {
 a.nav-link-log {
     margin: auto;
     color: white;
-    /* font-size: 200%; */
     font-size: 1.7vmax;
-    /* padding: 10px; */
     text-decoration: none ;
-    transition: 500ms;
+    font-weight: bold;
 }
 
 a.nav-link-log:hover {
     color: rgb(153, 27, 27);
+    background-image: 
+        linear-gradient(130deg, #ff006a, #9f00fc);
+    background-clip: text;
+    color: transparent;
+    transition: 500ms;
 }
 
 
 .collapse.navbar-collapse {
     transform: translate(0%, 10%);
+    padding-left: 2vmax;
 }
 
 .headerRandomizer {
-    padding-bottom: 0.5vmax;
-    /* padding-bottom: 8px; */
-    /* border-bottom: 1px solid white; */
+    padding-bottom: 0.3vmax;
     box-shadow: 0 0 20px rgba(21, 10, 18, 0.55);
     margin-bottom: 1.5vmax;
-    /* margin-bottom: 30px; */
     width: 100vmax;
 }
 
 .headerContainer {
-    /* background-color: blue; */
     padding-left: 8vmax;
     padding-right: 8vmax;
 }

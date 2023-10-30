@@ -24,6 +24,11 @@
 
 .select-exercise-esp {
     font-size: 0.9vmax;
+    margin-bottom: 1vmax;
+}
+
+.create-custom-wod-table {
+    /* height: 20vmax; */
 }
 
 
@@ -81,3 +86,7 @@
     margin: auto;
     padding-left: 2px;
 } */
+
+.customWod {
+    width: 100%;
+}

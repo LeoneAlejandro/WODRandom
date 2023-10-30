@@ -72,11 +72,11 @@ export default function WelcomeComponent() {
                     {randomWOD && (
                         <div className='legacyWodsList'>
                             <p className='legacyWodsListTitle'>{randomWOD.name}</p>
-                            <tr className='legacyWodRow'>
+                            {/* <tr className='legacyWodRow'> */}
                                 {randomWOD.exercises.map((exercise, index) => (
-                                <tr className='legacyWodSingleRow' key={index}>{exercise}</tr>
+                                <li className='legacyWodSingleRow' key={index}>{exercise}</li>
                                 ))}
-                            </tr>
+                            {/* </tr> */}
                                 {randomWOD.description && <p className='lWWLDescription'>{randomWOD.description} </p>
                             }
                         </div>

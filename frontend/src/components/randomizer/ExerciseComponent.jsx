@@ -70,7 +70,7 @@ export default function ExerciseComponent() {
 
     return(
         <div className="agregar-ejercicio">
-            <h1>Agrega un ejercicio</h1>
+            <h1 className="addExTitle">Agrega un ejercicio</h1>
             <div>
                 <Formik initialValues={{ exerciseName: exerciseName, exerciseType: exerciseType }} 
                     enableReinitialize={true} 

@@ -76,7 +76,7 @@ function CreateCustomWodComponent() {
   }
  
   return (
-    <div>
+    <div className='customWod'>
       <h2 className='CustomWodh2'>Crea tu custom WOD</h2>
       <ExerciseSelectorPopup username={username} onSelectExercise={handleSelectExercise} />
       <div className='create-custom-wod-table'>

@@ -12,24 +12,22 @@
 .login {
   /* width: 45%; */
   width: 31vmax;
-  float: right;
+  /* float: right; */
   /* padding: 20px; */
   /* padding-top: 6%; */
   padding-top: 4vmax;
   /* border: 2px solid blue;  */
   /* height: 600px; */
   /* height: 2vmax; */
-  display: inline-block;
+  /* display: inline-block; */
 }
 
 
 
 .legacyWods {
-  display: inline-block;
-  /* padding-top: 50px; */
+  /* display: inline-block; */
   padding-top: 3vmax;
-  padding-left: 0;
-  /* width: 45%; */
+  /* padding-left: 0; */
   width: 33vmax;
   /* background-color: blue; */
   /* padding: 20px; */
@@ -50,10 +48,6 @@
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.35);
 }
 
-.legacyWodsList {
-  display: inline;
-}
-
 .legacyWodsListName {
   padding: 0.8vmax 0vmax 0.6vmax;
   font-weight: bold;
@@ -62,8 +56,8 @@
 }
 
 .legacyWodsButton {
-  /* margin-top: 20px; */
-  margin-top: 1vmax;
+  margin-top: 0.7vmax;
+  font-size: 1vmax;
 }
 
 .lWLDescription {
@@ -72,6 +66,12 @@
   font-weight: bold;
 }
 
-tr.legacyWodSingleRow:nth-of-type(2n) {
-  background-color: transparent;
+.randomWodItem {
+  list-style-type: none;
+  font-size: 1vmax;
+}
+
+.loginh1 {
+  font-size: 2.1vmax; 
+  /* padding-bottom: 1vmax; */
 }

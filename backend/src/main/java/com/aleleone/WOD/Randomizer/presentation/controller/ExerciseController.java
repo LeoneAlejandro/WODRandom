@@ -23,8 +23,8 @@ public class ExerciseController {
     private final ExerciseService exerciseService;
     
     public ExerciseController(ExerciseService exerciseService) {
-	super();
-	this.exerciseService = exerciseService;
+		super();
+		this.exerciseService = exerciseService;
     }
 
 	@GetMapping("/users/{username}/exercises")
