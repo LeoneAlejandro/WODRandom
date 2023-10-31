@@ -1,5 +1,7 @@
 package com.aleleone.WOD.Randomizer.domain.model;
 
+import static jakarta.persistence.GenerationType.IDENTITY;
+
 import java.util.Collection;
 import java.util.Collections;
 
@@ -7,6 +9,7 @@ import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.EnumType;
 import jakarta.persistence.Enumerated;
@@ -14,40 +17,38 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.SequenceGenerator;
+import jakarta.persistence.Table;
 
 @Entity
+@Table(name = "users")
 public class AppUser implements UserDetails {
 	
 	@Id
-	@SequenceGenerator(
-			name = "student_sequence",
-			sequenceName = "student_sequence",
-			allocationSize = 1
-			)
-	@GeneratedValue(
-			strategy = GenerationType.SEQUENCE,
-			generator = "student_sequence")
+    @GeneratedValue(strategy = IDENTITY)
 	private Long id;
-	private String name;
-	private String username;
+	private String firstName;
+	private String lastName;
 	private String email;
 	private String password;
 	@Enumerated(EnumType.STRING)
+	@Column(name = "user_role", nullable = false)
 	private AppUserRole appUserRole;
-	private Boolean locked;
-	private Boolean enabled;
+	private Boolean locked = false;
+	private Boolean enabled = false;
 
 
-	public AppUser(String name, String username, String email, String password, AppUserRole appUserRole, Boolean locked,
-			Boolean enabled) {
+    public AppUser() {
+        // Default, no-argument constructor
+    }
+
+	public AppUser(String firstName, String lastName, String email, String password,
+			AppUserRole appUserRole) {
 		super();
-		this.name = name;
-		this.username = username;
+		this.firstName = firstName;
+		this.lastName = lastName;
 		this.email = email;
 		this.password = password;
 		this.appUserRole = appUserRole;
-		this.locked = locked;
-		this.enabled = enabled;
 	}
 
 	@Override
@@ -59,11 +60,6 @@ public class AppUser implements UserDetails {
 	@Override
 	public String getPassword() {
 		return password;
-	}
-
-	@Override
-	public String getUsername() {
-		return username;
 	}
 
 	@Override
@@ -88,7 +84,6 @@ public class AppUser implements UserDetails {
 
 	
 	//Getters & Setters
-	
 	public Long getId() {
 		return id;
 	}
@@ -97,16 +92,20 @@ public class AppUser implements UserDetails {
 		this.id = id;
 	}
 
-	public String getName() {
-		return name;
+	public String getFirstName() {
+		return firstName;
 	}
 
-	public void setName(String name) {
-		this.name = name;
+	public void setFirstName(String firstName) {
+		this.firstName = firstName;
 	}
 
-	public String getEmail() {
-		return email;
+	public String getLastName() {
+		return lastName;
+	}
+
+	public void setLastName(String lastName) {
+		this.lastName = lastName;
 	}
 
 	public void setEmail(String email) {
@@ -137,19 +136,22 @@ public class AppUser implements UserDetails {
 		this.enabled = enabled;
 	}
 
-	public void setUsername(String username) {
-		this.username = username;
-	}
-
 	public void setPassword(String password) {
 		this.password = password;
 	}
 	
-	
 	public enum AppUserRole {
-
 		USER,
 		ADMIN
+	}
+
+	@Override
+	public String getUsername() {
+		return email;
+	}
+	
+	public String getEmail() {
+		return email;
 	}
 	
 }

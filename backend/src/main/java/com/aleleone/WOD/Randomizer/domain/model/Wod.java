@@ -1,7 +1,5 @@
 package com.aleleone.WOD.Randomizer.domain.model;
 
-
-
 //									┌──────────────────┐
 //									│      wod         │
 //									├──────────────────┤
@@ -19,7 +17,6 @@ package com.aleleone.WOD.Randomizer.domain.model;
 //	│  user_name         │n       1│ wod_id            │
 //	│  exercise_name     │         │ exercise_id       │
 //	└────────────────────┘         └───────────────────┘
-
 
 import static jakarta.persistence.GenerationType.IDENTITY;
 

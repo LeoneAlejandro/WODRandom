@@ -5,4 +5,7 @@ import com.aleleone.WOD.Randomizer.presentation.RegistrationRequest;
 public interface RegistrationService {
 
 	public String register(RegistrationRequest request);
+	
+	public String confirmToken(String token);
+	
 }
