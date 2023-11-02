@@ -1,5 +1,7 @@
 package com.aleleone.WOD.Randomizer.presentation.controller;
 
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -21,13 +23,23 @@ public class RegistrationController {
 	}
 	
 	@PostMapping
-	public String register(@RequestBody RegistrationRequest request) {
-		return registrationService.register(request);
+	public ResponseEntity<String> register(@RequestBody RegistrationRequest request) {
+		try {
+			String token = registrationService.register(request);
+			return ResponseEntity.ok(token);
+		} catch (IllegalStateException e) {
+            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(e.getMessage());
+		}
 	}
 	
 	@GetMapping(path = "confirm")
-	public String confirm(@RequestParam("token") String token) {
-		return registrationService.confirmToken(token);
+	public ResponseEntity<String> confirm(@RequestParam("token") String token) {
+        try {
+            registrationService.confirmToken(token);
+            return ResponseEntity.ok("Confirmed");
+        } catch (IllegalStateException e) {
+            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(e.getMessage());
+        }
 	}
 	
 }

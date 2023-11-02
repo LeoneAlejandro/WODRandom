@@ -45,32 +45,23 @@ import com.nimbusds.jose.proc.SecurityContext;
 public class JwtSecurityConfig {
 
     @Bean
-    public SecurityFilterChain securityFilterChain(HttpSecurity httpSecurity, HandlerMappingIntrospector introspector) throws Exception {
+    public SecurityFilterChain securityFilterChain(HttpSecurity httpSecurity) throws Exception {
+    	
+    	return httpSecurity
+		        .csrf(AbstractHttpConfigurer::disable)
+		        .sessionManagement(session -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
+		        .oauth2ResourceServer(OAuth2ResourceServerConfigurer::jwt)
+		        .httpBasic(Customizer.withDefaults())
+		        .headers(header -> {header.frameOptions().sameOrigin();})
+		        .authorizeHttpRequests(auth -> auth
+		        		.requestMatchers("/registration/**").permitAll()
+		        		.requestMatchers("/authenticate").permitAll()
+		        		.requestMatchers(HttpMethod.OPTIONS,"/**").permitAll()
+		        		.anyRequest().authenticated()
+//		        		.anyRequest().permitAll()
+		        		)
+		        .build();
         
-        return httpSecurity
-                .authorizeHttpRequests(auth -> auth
-                    .requestMatchers("/authenticate").permitAll()
-                    .requestMatchers("/registration").permitAll()
-//                    .requestMatchers(toH2Console()).permitAll()
-//                    .requestMatchers("/h2-console/**").permitAll()
-//                    .requestMatchers(AntPathRequestMatcher.antMatcher("/h2-console/**")).permitAll()
-                    .requestMatchers(HttpMethod.OPTIONS,"/**")
-                    .permitAll()
-                    .anyRequest()
-                    .authenticated()
-//                    .permitAll()
-                    )
-                .csrf(AbstractHttpConfigurer::disable)
-//                .csrf().ignoringRequestMatchers(toH2Console())
-                .sessionManagement(session -> session.
-                    sessionCreationPolicy(SessionCreationPolicy.STATELESS))
-                .oauth2ResourceServer(
-                        OAuth2ResourceServerConfigurer::jwt)
-                .httpBasic(
-                        Customizer.withDefaults())
-                .headers(header -> {header.
-                    frameOptions().sameOrigin();})
-                .build();
     }
 
     @Bean

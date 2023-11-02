@@ -40,7 +40,9 @@ public class AppUserServiceImpl implements AppUserService, UserDetailsService {
 	
 	public String singUpUser(AppUser appUser) {
 		boolean userExists = appUserRepository.findByEmail(appUser.getEmail()).isPresent();
+		
 		if (userExists) {
+			//TODO Chequear si el mail existe, y si no se confirmó el token.
 			throw new IllegalStateException("Email already taken");
 			
 		}
@@ -60,7 +62,7 @@ public class AppUserServiceImpl implements AppUserService, UserDetailsService {
 		
 		confirmationTokenService.saveConfirmationToken(confirmationToken);
 		
-		//TODO SEND EMAIL
+		//TODO Mandar mail diciendo que el token fue confirmado ?
 		
 		return token;
 	}
