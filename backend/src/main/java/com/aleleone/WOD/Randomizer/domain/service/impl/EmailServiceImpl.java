@@ -15,11 +15,12 @@ import jakarta.mail.internet.MimeMessage;
 
 @Service
 public class EmailServiceImpl implements EmailSender {
-
+	
+	
 	private final static Logger LOGGER = LoggerFactory.getLogger(EmailServiceImpl.class);
+	@Autowired
 	private final JavaMailSender mailSender;
 	
-	@Autowired
 	public EmailServiceImpl(JavaMailSender mailSender) {
 		this.mailSender = mailSender;
 	}
@@ -30,12 +31,12 @@ public class EmailServiceImpl implements EmailSender {
 
 		try {
 			MimeMessage mimeMessage = mailSender.createMimeMessage();
-			MimeMessageHelper helper = new MimeMessageHelper(mimeMessage, "uft-8");
+			MimeMessageHelper helper = new MimeMessageHelper(mimeMessage, "UTF-8");
 			helper.setText(email, true);
 			helper.setTo(to);
 			helper.setSubject("Confirm your email");
 			helper.setFrom("ale.leone09@gmail.com");
-//			mailSender.send(mimeMessage);
+			mailSender.send(mimeMessage);
 			//TODO Setear el email sender
 			return "email sent (?)";
 		} catch (MessagingException e) {

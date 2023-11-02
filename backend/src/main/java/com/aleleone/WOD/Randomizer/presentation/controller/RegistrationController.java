@@ -27,7 +27,7 @@ public class RegistrationController {
 		try {
 			String token = registrationService.register(request);
 			return ResponseEntity.ok(token);
-		} catch (IllegalStateException e) {
+		} catch (Exception e) {
             return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(e.getMessage());
 		}
 	}
