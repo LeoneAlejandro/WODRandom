@@ -11,6 +11,7 @@ import org.springframework.stereotype.Service;
 
 import com.aleleone.WOD.Randomizer.datasource.repository.ExerciseRepository;
 import com.aleleone.WOD.Randomizer.datasource.repository.WodRepository;
+import com.aleleone.WOD.Randomizer.domain.model.AppUser;
 import com.aleleone.WOD.Randomizer.domain.model.Exercise;
 import com.aleleone.WOD.Randomizer.domain.model.Exercise.ExerciseType;
 import com.aleleone.WOD.Randomizer.domain.model.Wod;
@@ -55,12 +56,12 @@ public class WodServiceImpl implements WodService {
 	}
 
 	@Override
-	public List<Exercise> generateWod(String username, CreationWodRequest creationWodRequest) {
+	public List<Exercise> generateWod(AppUser user, CreationWodRequest creationWodRequest) {
 		int exAmountFuerza = creationWodRequest.getExAmountFuerza();
 		int exAmountCardio = creationWodRequest.getExAmountCardio();
 		int exAmountOly = creationWodRequest.getExAmountOly();
 
-		List<Exercise> allExercises = exerciseRepository.findByUserName(username);
+		List<Exercise> allExercises = exerciseRepository.findByUser(user);
 
 		shuffle(allExercises);
 

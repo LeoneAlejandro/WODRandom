@@ -57,8 +57,8 @@ public class JwtSecurityConfig {
 		        		.requestMatchers("/registration/**").permitAll()
 		        		.requestMatchers("/authenticate").permitAll()
 		        		.requestMatchers(HttpMethod.OPTIONS,"/**").permitAll()
-		        		.anyRequest().authenticated()
-//		        		.anyRequest().permitAll()
+//		        		.anyRequest().authenticated()
+		        		.anyRequest().permitAll()
 		        		)
 		        .build();
         

@@ -27,7 +27,7 @@ public class EmailServiceImpl implements EmailSender {
 	
 	@Override
 	@Async
-	public String send(String to, String email) {
+	public void send(String to, String email) {
 
 		try {
 			MimeMessage mimeMessage = mailSender.createMimeMessage();
@@ -35,10 +35,10 @@ public class EmailServiceImpl implements EmailSender {
 			helper.setText(email, true);
 			helper.setTo(to);
 			helper.setSubject("Confirm your email");
-			helper.setFrom("ale.leone09@gmail.com");
+			//			helper.setFrom("ale.leone09@gmail.com");
 			mailSender.send(mimeMessage);
 			//TODO Setear el email sender
-			return "email sent (?)";
+//			return true;
 		} catch (MessagingException e) {
 			LOGGER.error("failed to send email", e);
 			throw new IllegalStateException("failed to send email");

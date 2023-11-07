@@ -4,6 +4,7 @@ import static jakarta.persistence.GenerationType.IDENTITY;
 
 import java.util.Collection;
 import java.util.Collections;
+import java.util.List;
 
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
@@ -16,6 +17,7 @@ import jakarta.persistence.Enumerated;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.OneToMany;
 import jakarta.persistence.SequenceGenerator;
 import jakarta.persistence.Table;
 
@@ -35,6 +37,8 @@ public class AppUser implements UserDetails {
 	private AppUserRole appUserRole;
 	private Boolean locked = false;
 	private Boolean enabled = false;
+    @OneToMany(mappedBy = "user") // One user can have many exercises
+    private List<Exercise> exercises;
 
 
     public AppUser() {

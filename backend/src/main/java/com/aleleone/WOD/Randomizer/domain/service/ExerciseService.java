@@ -5,15 +5,15 @@ import java.util.List;
 import com.aleleone.WOD.Randomizer.domain.model.Exercise;
 
 public interface ExerciseService {
-    List<Exercise> find(String username);
+    List<Exercise> find(Long userId);
 
-    Exercise find(String username, Long id);
+    Exercise find(Long userId, Long exerciseId);
 
-    Exercise create(String username, Exercise exercise);
+    Exercise create(Long id, Exercise exercise);
 
-    void delete(String username, Long id);
+    void delete(Long userId, Long exerciseId);
 
-    Exercise update(String username, Long id, Exercise exercise);
+    Exercise update(Long userId, Long exerciseId, Exercise exercise);
 
-    Exercise findByType(String username, Exercise exercise);
+    Exercise findByType(Long userId, Long exerciseId);
 }

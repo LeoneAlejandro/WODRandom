@@ -27,38 +27,43 @@ public class ExerciseController {
 		this.exerciseService = exerciseService;
     }
 
-	@GetMapping("/users/{username}/exercises")
-    public List<Exercise> getExercises(@PathVariable String username) {
-        return exerciseService.find(username);
+	@GetMapping("/users/{userId}/exercises")
+    public List<Exercise> getExercises(@PathVariable Long userId) {
+        return exerciseService.find(userId);
     }
 
-    @GetMapping("/users/{username}/exercises/{id}")
-    public Exercise getExercise(@PathVariable String username, @PathVariable Long id) {
-        return exerciseService.find(username, id);
-    }
-
-
-    @PostMapping("/users/{username}/exercises")
-    public Exercise addExerciseById(@PathVariable String username, @RequestBody Exercise exercise) {
-        return exerciseService.create(username, exercise);
+    @GetMapping("/users/{userId}/exercises/{exerciseId}")
+    public Exercise getExercise(@PathVariable Long userId, @PathVariable Long exerciseId) {
+        return exerciseService.find(userId, exerciseId);
     }
 
 
-    @DeleteMapping("/users/{username}/exercises/{id}")
-    public ResponseEntity<Void> deleteExercise(@PathVariable String username, @PathVariable Long id) {
-        exerciseService.delete(username, id);
+    @PostMapping("/users/{userId}/exercises")
+    public Exercise addExerciseById(@PathVariable Long userId, @RequestBody Exercise exercise) {
+        return exerciseService.create(userId, exercise);
+    }
+
+
+    @DeleteMapping("/users/{userId}/exercises/{exerciseId}")
+    public ResponseEntity<Void> deleteExercise(@PathVariable Long userId, @PathVariable Long exerciseId) {
+        exerciseService.delete(userId, exerciseId);
         return noContent().build();
     }
 
 
-    @PutMapping("/users/{username}/exercises/{id}")
-    public Exercise updateExercise(@PathVariable String username, @PathVariable Long id, @RequestBody Exercise exercise) throws UsernameNotFoundException {
-        return exerciseService.update(username, id, exercise);
+    @PutMapping("/users/{userId}/exercises/{exerciseId}")
+    public Exercise updateExercise(@PathVariable Long userId, @PathVariable Long exerciseId, @RequestBody Exercise exercise) throws UsernameNotFoundException {
+        return exerciseService.update(userId, exerciseId, exercise);
     }
     
-    @PostMapping("/users/{username}/exercises/type")
-    public Exercise getExerciseByType(@PathVariable String username, @RequestBody Exercise exercise) throws UsernameNotFoundException {
-        return exerciseService.findByType(username, exercise);
+    @PostMapping("/users/{userId}/exercises/type/{exerciseId}")
+    public Exercise getExerciseByType(@PathVariable Long userId, @PathVariable Long exerciseId) throws UsernameNotFoundException {
+        return exerciseService.findByType(userId, exerciseId);
     }
+   
+//    @PostMapping("/users/{userId}/exercises/type")
+//    public Exercise getExerciseByType(@PathVariable Long userId, @RequestBody Exercise exercise) throws UsernameNotFoundException {
+//        return exerciseService.findByType(userId, exercise);
+//    }
 
 }

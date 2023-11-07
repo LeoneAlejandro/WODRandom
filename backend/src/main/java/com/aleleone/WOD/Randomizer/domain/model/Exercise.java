@@ -9,7 +9,9 @@ import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToMany;
+import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 
 @Entity
@@ -20,12 +22,16 @@ public class Exercise {
     @GeneratedValue(strategy = IDENTITY)
     private Long id;
 
-    @Column(name = "user_name", nullable = false)
-    private String userName;
+//    @Column(name = "user_name", nullable = false)
+//    private String userName;
     @Column(name = "exercise_name", nullable = false)
     private String exerciseName;
     @Column(name = "exercise_type", nullable = false)
     private ExerciseType exerciseType;
+    
+    @ManyToOne // Many exercises can belong to one user
+    @JoinColumn(name = "user_id") // Define the foreign key column
+    private AppUser user; // Reference to the user
 
     @ManyToMany(mappedBy = "exercises")
     List<Wod> savedWods;
@@ -34,18 +40,18 @@ public class Exercise {
     }
 
 
-    public Exercise(Long id, String userName, String exerciseName, ExerciseType exerciseType) {
+    public Exercise(Long id, AppUser user, String exerciseName, ExerciseType exerciseType) {
         super();
         this.id = id;
-        this.userName = userName;
+        this.user = user;
         this.exerciseName = exerciseName;
         this.exerciseType = exerciseType;
     }
 
-    public static Exercise createExercise(String userName, String exerciseName, ExerciseType exerciseType) {
+    public static Exercise createExercise(AppUser user, String exerciseName, ExerciseType exerciseType) {
     	Exercise exercise = new Exercise();
     	
-    	exercise.setUserName(userName);
+    	exercise.setUser(user);
     	exercise.setExerciseName(exerciseName);
     	exercise.setExerciseType(exerciseType);
     	
@@ -78,12 +84,12 @@ public class Exercise {
         this.exerciseType = exerciseType;
     }
 
-    public String getUserName() {
-        return userName;
+    public AppUser getUser() {
+        return user;
     }
 
-    public void setUserName(String userName) {
-        this.userName = userName;
+    public void setUser(AppUser user) {
+        this.user= user;
 
     }
 
@@ -91,7 +97,7 @@ public class Exercise {
     public String toString() {
         return "Exercise{" +
                 "id=" + id +
-                ", userName='" + userName + '\'' +
+                ", userName='" + user+ '\'' +
                 ", exerciseName='" + exerciseName + '\'' +
                 ", exerciseType=" + exerciseType +
                 '}';
