@@ -1,6 +1,7 @@
 package com.aleleone.WOD.Randomizer.domain.service.impl;
 
 import java.time.LocalDateTime;
+import java.util.Optional;
 import java.util.UUID;
 
 import org.springframework.security.core.userdetails.UserDetails;
@@ -18,7 +19,7 @@ import com.aleleone.WOD.Randomizer.presentation.ConfirmationToken;
 @Service
 public class AppUserServiceImpl implements AppUserService, UserDetailsService {
 
-	private final static String USER_NOT_FOUND_MSG= "User with email %s not found";
+	private final static String USER_NOT_FOUND_MSG = "User with email %s not found";
 	private final static int TOKEN_EXPIRATION_MINUTES = 15;
 
 	private final AppUserRepository appUserRepository;
@@ -34,8 +35,17 @@ public class AppUserServiceImpl implements AppUserService, UserDetailsService {
 	
 	
 	public UserDetails loadUserByUsername(String email) throws UsernameNotFoundException {
-		return appUserRepository.findByEmail(email)
-				.orElseThrow(()-> new UsernameNotFoundException(String.format(USER_NOT_FOUND_MSG, email)));
+		AppUser user = appUserRepository.findByEmail(email)
+	            .orElseThrow(() -> new UsernameNotFoundException(USER_NOT_FOUND_MSG + email));
+
+        return org.springframework.security.core.userdetails.User.builder()
+                .username(user.getEmail())
+                .password(user.getPassword())
+                // Can add roles here if needed
+                .build();
+        
+//		return appUserRepository.findByEmail(email)
+//				.orElseThrow(()-> new UsernameNotFoundException(String.format(USER_NOT_FOUND_MSG, email)));
 	}
 	
 	public String singUpUser(AppUser appUser) {

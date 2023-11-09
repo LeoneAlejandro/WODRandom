@@ -2,7 +2,6 @@ package com.aleleone.WOD.Randomizer.domain.service;
 
 import java.util.List;
 
-import com.aleleone.WOD.Randomizer.domain.model.AppUser;
 import com.aleleone.WOD.Randomizer.domain.model.Exercise;
 import com.aleleone.WOD.Randomizer.domain.model.Wod;
 import com.aleleone.WOD.Randomizer.presentation.CreationExcerciseWodRequest;
@@ -10,15 +9,15 @@ import com.aleleone.WOD.Randomizer.presentation.CreationWodRequest;
 
 
 public interface WodService {
-    List<Exercise> generateWod(AppUser user, CreationWodRequest creationWodRequest);
+    List<Exercise> generateWod(Long userId, CreationWodRequest creationWodRequest);
     
-	List<Wod> find(String username);
+	List<Wod> find(Long userId);
 
-	Wod find(String username, Long id);
+	Wod find(Long userId, Long wodId);
 
-	Wod create(String username, CreationExcerciseWodRequest requestBodyDetails);
+	Wod create(Long userId, CreationExcerciseWodRequest requestBodyDetails);
 
-	void delete(String username, Long id);
+	void delete(Long userId, Long wodId);
 	
-	Wod update(String username, Long id, CreationExcerciseWodRequest requestBodyDetails);
+	Wod update(Long userId, Long wodId, CreationExcerciseWodRequest requestBodyDetails);
 }

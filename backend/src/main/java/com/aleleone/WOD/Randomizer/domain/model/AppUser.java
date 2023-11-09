@@ -2,6 +2,7 @@ package com.aleleone.WOD.Randomizer.domain.model;
 
 import static jakarta.persistence.GenerationType.IDENTITY;
 
+import java.io.Serializable;
 import java.util.Collection;
 import java.util.Collections;
 import java.util.List;
@@ -18,15 +19,16 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.OneToMany;
-import jakarta.persistence.SequenceGenerator;
 import jakarta.persistence.Table;
 
 @Entity
 @Table(name = "users")
-public class AppUser implements UserDetails {
+public class AppUser implements UserDetails, Serializable {
+	
+	private static final long serialVersionUID = 1L;
 	
 	@Id
-    @GeneratedValue(strategy = IDENTITY)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	private String firstName;
 	private String lastName;
@@ -39,6 +41,8 @@ public class AppUser implements UserDetails {
 	private Boolean enabled = false;
     @OneToMany(mappedBy = "user") // One user can have many exercises
     private List<Exercise> exercises;
+    @OneToMany(mappedBy = "user") // One user can have many Wods
+    private List<Wod> wods;
 
 
     public AppUser() {

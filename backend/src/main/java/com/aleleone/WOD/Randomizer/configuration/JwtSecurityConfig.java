@@ -7,6 +7,7 @@ import java.security.interfaces.RSAPrivateKey;
 import java.security.interfaces.RSAPublicKey;
 import java.util.UUID;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.http.HttpMethod;
@@ -29,10 +30,12 @@ import org.springframework.security.oauth2.jwt.NimbusJwtDecoder;
 import org.springframework.security.oauth2.jwt.NimbusJwtEncoder;
 import org.springframework.security.provisioning.InMemoryUserDetailsManager;
 import org.springframework.security.web.SecurityFilterChain;
+import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
 import org.springframework.web.servlet.handler.HandlerMappingIntrospector;
 import static org.springframework.boot.autoconfigure.security.servlet.PathRequest.toH2Console;
 
+import com.aleleone.WOD.Randomizer.domain.service.AppUserService;
 import com.nimbusds.jose.JOSEException;
 import com.nimbusds.jose.jwk.JWKSet;
 import com.nimbusds.jose.jwk.RSAKey;
@@ -43,27 +46,56 @@ import com.nimbusds.jose.proc.SecurityContext;
 @EnableWebSecurity
 @EnableMethodSecurity
 public class JwtSecurityConfig {
+	
+	
+    @Autowired
+    private UserDetailsService userDetailsService;
 
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity httpSecurity) throws Exception {
-    	
-    	return httpSecurity
-		        .csrf(AbstractHttpConfigurer::disable)
-		        .sessionManagement(session -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
-		        .oauth2ResourceServer(OAuth2ResourceServerConfigurer::jwt)
-		        .httpBasic(Customizer.withDefaults())
-		        .headers(header -> {header.frameOptions().sameOrigin();})
-		        .authorizeHttpRequests(auth -> auth
-		        		.requestMatchers("/registration/**").permitAll()
-		        		.requestMatchers("/authenticate").permitAll()
-		        		.requestMatchers(HttpMethod.OPTIONS,"/**").permitAll()
-//		        		.anyRequest().authenticated()
-		        		.anyRequest().permitAll()
-		        		)
-		        .build();
-        
+        httpSecurity
+            .csrf(AbstractHttpConfigurer::disable)
+            .sessionManagement(session -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
+            .oauth2ResourceServer(OAuth2ResourceServerConfigurer::jwt)
+            .httpBasic(Customizer.withDefaults())
+            .headers(header -> header.frameOptions().sameOrigin())
+            .authorizeHttpRequests(auth -> auth
+	        		.requestMatchers("/registration/**").permitAll()
+	        		.requestMatchers("/authenticate").permitAll()
+	        		.requestMatchers(HttpMethod.OPTIONS,"/**").permitAll()
+//	        		.anyRequest().authenticated()
+	        		.anyRequest().permitAll()
+            );
+
+        return httpSecurity.build();
     }
 
+//	
+//	@Autowired
+//	private UserDetailsService userDetailsService;
+//	private AppUserService appUserService;
+//
+//    @Bean
+//    public SecurityFilterChain securityFilterChain(HttpSecurity httpSecurity) throws Exception {
+//    	   	
+//    	return httpSecurity
+//    			.userDetailsService(userDetailsService)
+//		        .csrf(AbstractHttpConfigurer::disable)
+//		        .sessionManagement(session -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
+//		        .oauth2ResourceServer(OAuth2ResourceServerConfigurer::jwt)
+//		        .httpBasic(Customizer.withDefaults())
+//		        .headers(header -> {header.frameOptions().sameOrigin();})
+//		        .authorizeHttpRequests(auth -> auth
+//		        		.requestMatchers("/registration/**").permitAll()
+//		        		.requestMatchers("/authenticate").permitAll()
+//		        		.requestMatchers(HttpMethod.OPTIONS,"/**").permitAll()
+////		        		.anyRequest().authenticated()
+//		        		.anyRequest().permitAll()
+//		        		)
+//		        .build();
+//        
+//    }
+//
     @Bean
     public AuthenticationManager authenticationManager(
             UserDetailsService userDetailsService) {
@@ -72,22 +104,22 @@ public class JwtSecurityConfig {
         return new ProviderManager(authenticationProvider);
     }
 
-    @Bean
-    public UserDetailsService userDetailsService() {
-        UserDetails user = User.withUsername("Ale")
-                                .password("{noop}123")
-                                .authorities("read")
-                                .roles("USER")
-                                .build();
-        
-        UserDetails user2 = User.withUsername("User")
-				                .password("{noop}123")
-				                .authorities("read")
-				                .roles("USER")
-				                .build();
-
-        return new InMemoryUserDetailsManager(user, user2);
-    }
+//    @Bean
+//    public UserDetailsService userDetailsService() {
+//        UserDetails user = User.withUsername("Ale")
+//                                .password("{noop}123")
+//                                .authorities("read")
+//                                .roles("USER")
+//                                .build();
+//        
+//        UserDetails user2 = User.withUsername("User")
+//				                .password("{noop}123")
+//				                .authorities("read")
+//				                .roles("USER")
+//				                .build();
+//
+//        return new InMemoryUserDetailsManager(user, user2);
+//    }
 
     @Bean
     public JWKSource<SecurityContext> jwkSource() {
@@ -107,7 +139,7 @@ public class JwtSecurityConfig {
                 .withPublicKey(rsaKey().toRSAPublicKey())
                 .build();
     }
-    
+   
     @Bean
     public RSAKey rsaKey() {
         

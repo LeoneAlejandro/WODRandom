@@ -5,10 +5,12 @@ import static java.util.Collections.shuffle;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 import java.util.stream.Collectors;
 
 import org.springframework.stereotype.Service;
 
+import com.aleleone.WOD.Randomizer.datasource.repository.AppUserRepository;
 import com.aleleone.WOD.Randomizer.datasource.repository.ExerciseRepository;
 import com.aleleone.WOD.Randomizer.datasource.repository.WodRepository;
 import com.aleleone.WOD.Randomizer.domain.model.AppUser;
@@ -26,26 +28,38 @@ import jakarta.transaction.Transactional;
 public class WodServiceImpl implements WodService {
 
     private final ExerciseRepository exerciseRepository;
-    
     private final WodRepository wodRepository;
+    private final AppUserRepository appUserRepository;
     
-    public WodServiceImpl(ExerciseRepository exerciseRepository, WodRepository wodRepository) {
+    public WodServiceImpl(ExerciseRepository exerciseRepository, WodRepository wodRepository, AppUserRepository appUserRepository) {
     	super();
     	this.exerciseRepository = exerciseRepository;
     	this.wodRepository = wodRepository;
+    	this.appUserRepository = appUserRepository;
     }
     
-	private Wod createWodFromRequest(String username, CreationExcerciseWodRequest requestBodyDetails) {
+    public AppUser returnUser(Long userId) {
+        Optional<AppUser> userOptional = appUserRepository.findById(userId);
+        if(!userOptional.isPresent()) {
+        	throw new EntityNotFoundException(format("User with id %d doesn't exists", userId));
+        }
+        
+        return userOptional.get();
+    }
+    
+    
+	private Wod createWodFromRequest(Long userId, CreationExcerciseWodRequest requestBodyDetails) {
+		AppUser user = returnUser(userId);
 		String wodName = requestBodyDetails.getWodName();
 		List<Long> listOfIds = requestBodyDetails.getExercisesId();
 		List<Exercise> listOfExercises = new ArrayList<Exercise>();
 
-		for (Long id : listOfIds) {
-			Exercise exercise = exerciseRepository.findById(id).orElseThrow(() -> new EntityNotFoundException(
-					format("Ejercicio con id: %d para el usuario %s no existe", id, username)));
+		for (Long exerciseId : listOfIds) {
+			Exercise exercise = exerciseRepository.findById(exerciseId).orElseThrow(() -> new EntityNotFoundException(
+					format("Ejercicio con id: %d para el usuario %s no existe", exerciseId, user)));
 			listOfExercises.add(exercise);
 		}
-		return Wod.createWod(wodName, username, listOfExercises);
+		return Wod.createWod(wodName, user, listOfExercises);
 	}
 
 
@@ -55,12 +69,16 @@ public class WodServiceImpl implements WodService {
 				.collect(Collectors.toList());
 	}
 
+	
+//	API	METHODS
+	
 	@Override
-	public List<Exercise> generateWod(AppUser user, CreationWodRequest creationWodRequest) {
+	public List<Exercise> generateWod(Long userId, CreationWodRequest creationWodRequest) {
 		int exAmountFuerza = creationWodRequest.getExAmountFuerza();
 		int exAmountCardio = creationWodRequest.getExAmountCardio();
 		int exAmountOly = creationWodRequest.getExAmountOly();
-
+		
+		AppUser user = returnUser(userId);
 		List<Exercise> allExercises = exerciseRepository.findByUser(user);
 
 		shuffle(allExercises);
@@ -93,29 +111,30 @@ public class WodServiceImpl implements WodService {
 
 		return wodGenerado;
 	}
-	
-		
+			
 	@Override
-	public List<Wod> find(String username) {
-		return wodRepository.findByUserName(username);
+	public List<Wod> find(Long userId) {
+//		AppUser user = returnUser(userId);
+		return wodRepository.findByUserId(userId);
 	}
 
 	
 	@Override
-	public Wod find(String username, Long id) {
-        List<Wod> wods = wodRepository.findByUserName(username);
+	public Wod find(Long userId, Long wodId) {
+        List<Wod> wods = wodRepository.findByUserId(userId);
         return wods.stream()
-                .filter(e -> e.getId().equals(id))
+                .filter(e -> e.getId().equals(wodId))
                 .findFirst().orElseThrow(
-                        () -> new EntityNotFoundException(format("Wod con id: %d para el usuario %s no existe", id, username))
+                        () -> new EntityNotFoundException(format("Wod con id: %d para el usuario %s no existe", wodId, userId))
                 );
 	}
 	
 	
 	@Override
 	@Transactional
-	public Wod create(String username, CreationExcerciseWodRequest requestBodyDetails) {
-		Wod savedWod = createWodFromRequest(username, requestBodyDetails);
+	public Wod create(Long userId, CreationExcerciseWodRequest requestBodyDetails) {
+//		AppUser user = returnUser(userId);
+		Wod savedWod = createWodFromRequest(userId, requestBodyDetails);
 		wodRepository.save(savedWod);
 		
 		return savedWod;
@@ -123,21 +142,21 @@ public class WodServiceImpl implements WodService {
 	
 	
 	@Override
-	public Wod update(String username, Long id, CreationExcerciseWodRequest requestBodyDetails) {
-		Wod findWod = find(username, id);
+	public Wod update(Long userId, Long wodId, CreationExcerciseWodRequest requestBodyDetails) {
+		Wod findWod = find(userId, wodId);
 		if (findWod != null) {
-			Wod updatedWod = createWodFromRequest(username, requestBodyDetails);
-			updatedWod.setId(id);
+			Wod updatedWod = createWodFromRequest(userId, requestBodyDetails);
+			updatedWod.setId(wodId);
 			wodRepository.save(updatedWod);
 
 			return updatedWod;
 		}
-		throw new EntityNotFoundException(format("Wod con id: %d para el usuario %s no existe", id, username));
+		throw new EntityNotFoundException(format("Wod con id: %d para el usuario %s no existe", wodId, userId));
 	}
 	
 	
 	@Override
-	public void delete(String username, Long id) {
-		wodRepository.deleteById(id);
+	public void delete(Long userId, Long wodId) {
+		wodRepository.deleteById(wodId);
 	}
 }

@@ -1,5 +1,5 @@
 package  com.aleleone.WOD.Randomizer.presentation;
 
-public record JwtTokenRequest(String username, String password) {}
+public record JwtTokenRequest(String email, String password) {}
 
 

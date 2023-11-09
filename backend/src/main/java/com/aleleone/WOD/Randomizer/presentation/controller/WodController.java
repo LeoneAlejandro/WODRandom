@@ -29,34 +29,34 @@ public class WodController {
 		this.wodService = wodService;
 	}
 
-	@PostMapping("/users/{username}/generatewod")
-    public List<Exercise> createWod(@PathVariable String username, @RequestBody CreationWodRequest wod) {
-        return wodService.generateWod(username, wod);
+	@PostMapping("/users/{userId}/generatewod")
+    public List<Exercise> createWod(@PathVariable Long userId, @RequestBody CreationWodRequest wod) {
+        return wodService.generateWod(userId, wod);
     }
 	
-	@GetMapping("/users/{username}/wods")
-    public List<Wod> getWods(@PathVariable String username) {
-        return wodService.find(username);
+	@GetMapping("/users/{userId}/wods")
+    public List<Wod> getWods(@PathVariable Long userId) {
+        return wodService.find(userId);
     }
 	
-    @GetMapping("/users/{username}/wods/{id}")
-    public Wod getWod(@PathVariable String username, @PathVariable Long id) {
-        return wodService.find(username, id);
+    @GetMapping("/users/{userId}/wods/{wodId}")
+    public Wod getWod(@PathVariable Long userId, @PathVariable Long wodId) {
+        return wodService.find(userId, wodId);
     }
 	
-    @PostMapping("users/{username}/wods")
-    public Wod addWod(@PathVariable String username, @RequestBody CreationExcerciseWodRequest creationExcerciseWodRequest) {
-    	return wodService.create(username, creationExcerciseWodRequest);
+    @PostMapping("users/{userId}/wods")
+    public Wod addWod(@PathVariable Long userId, @RequestBody CreationExcerciseWodRequest creationExcerciseWodRequest) {
+    	return wodService.create(userId, creationExcerciseWodRequest);
     }
     
-    @PutMapping("users/{username}/wods/{id}")
-    public Wod updateWod(@PathVariable String username,@PathVariable Long id, @RequestBody CreationExcerciseWodRequest creationExcerciseWodRequest) {
-    	return wodService.update(username, id, creationExcerciseWodRequest);
+    @PutMapping("users/{userId}/wods/{wodId}")
+    public Wod updateWod(@PathVariable Long userId,@PathVariable Long wodId, @RequestBody CreationExcerciseWodRequest creationExcerciseWodRequest) {
+    	return wodService.update(userId, wodId, creationExcerciseWodRequest);
     }
     
-    @DeleteMapping("users/{username}/wods/{id}")
-    public ResponseEntity<Void> deleteWod(@PathVariable String username, @PathVariable Long id) {
-    	wodService.delete(username, id);
+    @DeleteMapping("users/{userId}/wods/{wodId}")
+    public ResponseEntity<Void> deleteWod(@PathVariable Long userId, @PathVariable Long wodId) {
+    	wodService.delete(userId, wodId);
     	return noContent().build();
     }
 }

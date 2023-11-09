@@ -6,7 +6,7 @@ import '../css/LoginComponent.css'
 
 export default function LoginComponent() {
 
-    const [username, setUsername] = useState('')
+    const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
     const [showErrorMessage, setShowErrorMessage] = useState(false)
 
@@ -15,7 +15,7 @@ export default function LoginComponent() {
     const authContext = useAuth();
 
     function handleUsernameChange(event) {
-        setUsername(event.target.value)
+        setEmail(event.target.value)
     }
 
     function handlePasswordChange(event) {
@@ -23,7 +23,7 @@ export default function LoginComponent() {
     }
 
     async function handleSubmit(){
-        if(await authContext.login(username, password)) {
+        if(await authContext.login(email, password)) {
             navigate(`/welcome`)
         } else {
             setShowErrorMessage(true)
@@ -70,7 +70,7 @@ export default function LoginComponent() {
                     
                     {/* <div className="loginForm"> */}
                         <div className="inputbox">
-                            <input required="required" type="text" value={username} onChange={handleUsernameChange}/>
+                            <input required="required" type="text" value={email} onChange={handleUsernameChange}/>
                             <span>Usuario</span>
                             <i></i>
                         </div>

@@ -30,7 +30,7 @@ public class JwtAuthenticationController {
         
         var authenticationToken = 
                 new UsernamePasswordAuthenticationToken(
-                        jwtTokenRequest.username(), 
+                        jwtTokenRequest.email(), 
                         jwtTokenRequest.password());
         
         var authentication = 

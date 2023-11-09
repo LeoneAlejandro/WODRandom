@@ -29,6 +29,7 @@ import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.JoinTable;
 import jakarta.persistence.ManyToMany;
+import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 
 @Entity
@@ -41,8 +42,12 @@ public class Wod {
     
     @Column(name = "wod_name", nullable = false)
     private String wodName;
-    @Column(name = "user_name", nullable = false)
-    private String userName;
+//    @Column(name = "user_name", nullable = false)
+//    private String userName;
+    
+    @ManyToOne // Many Wods can belong to one AppUser
+    @JoinColumn(name = "user_id") // Define the foreign key column
+    private AppUser user; // Reference to the AppUser
     
     @ManyToMany
     @JoinTable(
@@ -55,59 +60,51 @@ public class Wod {
     List<Exercise> exercises;
     
 
-    public static Wod createWod(String wodName, String userName, List<Exercise> exercises) {
+    public static Wod createWod(String wodName, AppUser user, List<Exercise> exercises) {
     	Wod wod = new Wod();
     	
     	wod.setExercises(exercises);
-    	wod.setUserName(userName);
+    	wod.setUser(user);
     	wod.setWodName(wodName);
     	
     	return wod;
     }
     
-    public static Wod createWod(Long id, String wodName, String userName, List<Exercise> exercises) {
+    public static Wod createWod(Long id, String wodName, AppUser user, List<Exercise> exercises) {
     	Wod wod = new Wod();
     	
     	wod.setId(id);
     	wod.setExercises(exercises);
-    	wod.setUserName(userName);
+    	wod.setUser(user);
     	wod.setWodName(wodName);
     	
     	return wod;
     }
-    
 
 	public Long getId() {
 		return id;
 	}
 
-
 	public void setId(Long id) {
 		this.id = id;
 	}
-
 
 	public String getWodName() {
 		return wodName;
 	}
 
-
 	public void setWodName(String wodName) {
 		this.wodName = wodName;
 	}
 
-
-	public String getUserName() {
-		return userName;
+	public AppUser getUser() {
+		return user;
 	}
 
-
-	public void setUserName(String userName) {
-		this.userName = userName;
+	public void setUser(AppUser user) {
+		this.user = user;
 	}
 
-	
-	
 	public List<Exercise> getExercises() {
 		return exercises;
 	}
@@ -118,8 +115,7 @@ public class Wod {
 
 	@Override
 	public String toString() {
-		return "SavedWod [id=" + id + ", wodName=" + wodName + ", userName=" + userName
-				+ "]";
+		return "Wod [id=" + id + ", wodName=" + wodName + ", user=" + user + ", exercises=" + exercises + "]";
 	}
     
 }

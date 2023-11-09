@@ -8,4 +8,4 @@ import { apiClient } from "../api/ApiClient"
 //     })
 
 export const executeJwtAuthenticationService 
-    = (username, password) => apiClient.post(`/authenticate`, { username, password })
+    = (email, password) => apiClient.post(`/authenticate`, { username: email, password })

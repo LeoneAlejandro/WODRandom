@@ -8,7 +8,6 @@ import com.aleleone.WOD.Randomizer.domain.model.Wod;
 
 public interface WodRepository extends JpaRepository<Wod, Long>{
 
-	List<Wod> findByUserName(String username);
-
+	List<Wod> findByUserId(Long userId);
 	
 }
