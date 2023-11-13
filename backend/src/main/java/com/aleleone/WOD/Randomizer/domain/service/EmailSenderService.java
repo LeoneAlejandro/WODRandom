@@ -1,5 +1,5 @@
 package com.aleleone.WOD.Randomizer.domain.service;
 
-public interface EmailSender {
+public interface EmailSenderService {
 	void send(String to, String email);
 }

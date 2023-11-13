@@ -8,20 +8,20 @@ import org.springframework.mail.javamail.MimeMessageHelper;
 import org.springframework.scheduling.annotation.Async;
 import org.springframework.stereotype.Service;
 
-import com.aleleone.WOD.Randomizer.domain.service.EmailSender;
+import com.aleleone.WOD.Randomizer.domain.service.EmailSenderService;
 
 import jakarta.mail.MessagingException;
 import jakarta.mail.internet.MimeMessage;
 
 @Service
-public class EmailServiceImpl implements EmailSender {
+public class EmailSenderServiceImpl implements EmailSenderService {
 	
 	
-	private final static Logger LOGGER = LoggerFactory.getLogger(EmailServiceImpl.class);
+	private final static Logger LOGGER = LoggerFactory.getLogger(EmailSenderServiceImpl.class);
 	@Autowired
 	private final JavaMailSender mailSender;
 	
-	public EmailServiceImpl(JavaMailSender mailSender) {
+	public EmailSenderServiceImpl(JavaMailSender mailSender) {
 		this.mailSender = mailSender;
 	}
 	

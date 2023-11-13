@@ -13,7 +13,7 @@ import com.aleleone.WOD.Randomizer.domain.model.AppUser;
 import com.aleleone.WOD.Randomizer.domain.model.AppUser.AppUserRole;
 import com.aleleone.WOD.Randomizer.domain.service.AppUserService;
 import com.aleleone.WOD.Randomizer.domain.service.ConfirmationTokenService;
-import com.aleleone.WOD.Randomizer.domain.service.EmailSender;
+import com.aleleone.WOD.Randomizer.domain.service.EmailSenderService;
 import com.aleleone.WOD.Randomizer.domain.service.RegistrationService;
 import com.aleleone.WOD.Randomizer.presentation.ConfirmationToken;
 import com.aleleone.WOD.Randomizer.presentation.RegistrationRequest;
@@ -28,9 +28,9 @@ public class RegistrationServiceImpl implements RegistrationService {
 	private final EmailValidator emailValidator;
 	private final AppUserService appUserService;
 	private final ConfirmationTokenService confirmationTokenService;
-	private final EmailSender emailSender;
+	private final EmailSenderService emailSender;
 
-	public RegistrationServiceImpl(EmailValidator emailValidator, AppUserService appUserService, ConfirmationTokenService confirmationTokenService, EmailSender emailSender) {
+	public RegistrationServiceImpl(EmailValidator emailValidator, AppUserService appUserService, ConfirmationTokenService confirmationTokenService, EmailSenderService emailSender) {
 		this.emailValidator = emailValidator;
 		this.appUserService = appUserService;
 		this.confirmationTokenService = confirmationTokenService;
