@@ -29,13 +29,14 @@ public class RegistrationServiceImpl implements RegistrationService {
 	private final AppUserService appUserService;
 	private final ConfirmationTokenService confirmationTokenService;
 	private final EmailSender emailSender;
-	
+
 	public RegistrationServiceImpl(EmailValidator emailValidator, AppUserService appUserService, ConfirmationTokenService confirmationTokenService, EmailSender emailSender) {
 		this.emailValidator = emailValidator;
 		this.appUserService = appUserService;
 		this.confirmationTokenService = confirmationTokenService;
 		this.emailSender = emailSender;
 	}
+	   
 	
 	@Override
 	public String register(RegistrationRequest request) {
@@ -97,5 +98,5 @@ public class RegistrationServiceImpl implements RegistrationService {
         template = template.replace("{{link}}", link);
         return template;
     }
-	   
+
 }

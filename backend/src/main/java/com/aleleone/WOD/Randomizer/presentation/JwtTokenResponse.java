@@ -1,5 +1,5 @@
-package  com.aleleone.WOD.Randomizer.presentation;
-
-public record JwtTokenResponse(String token) {}
-
-
+//package  com.aleleone.WOD.Randomizer.presentation;
+//
+//public record JwtTokenResponse(String token) {}
+//
+//

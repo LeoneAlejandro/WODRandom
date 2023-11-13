@@ -8,6 +8,7 @@ import java.util.Optional;
 import java.util.Random;
 
 import org.springframework.stereotype.Service;
+import org.modelmapper.ModelMapper;
 
 import com.aleleone.WOD.Randomizer.datasource.repository.AppUserRepository;
 import com.aleleone.WOD.Randomizer.datasource.repository.ExerciseRepository;
@@ -24,10 +25,12 @@ public class ExerciseServiceImpl implements ExerciseService {
 	
     private final ExerciseRepository exerciseRepository;
     private final AppUserRepository appUserRepository;
+//    private final ModelMapper modelMapper;
     
     public ExerciseServiceImpl(ExerciseRepository exerciseRepository, AppUserRepository appUserRepository) {
     	this.exerciseRepository = exerciseRepository;
     	this.appUserRepository = appUserRepository;
+//    	this.modelMapper = modelMapper;
     }
     
     

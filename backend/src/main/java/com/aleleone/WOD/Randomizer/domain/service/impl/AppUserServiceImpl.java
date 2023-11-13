@@ -1,7 +1,6 @@
 package com.aleleone.WOD.Randomizer.domain.service.impl;
 
 import java.time.LocalDateTime;
-import java.util.Optional;
 import java.util.UUID;
 
 import org.springframework.security.core.userdetails.UserDetails;
