@@ -20,10 +20,8 @@ import com.aleleone.WOD.Randomizer.presentation.RegistrationRequest;
 public class RegistrationController {
 	
 	private final RegistrationService registrationService;
-	private final AuthenticationService authenticationService;
 	
-	public RegistrationController(RegistrationService registrationService, AuthenticationService authenticationService) {
-		this.authenticationService = authenticationService;
+	public RegistrationController(RegistrationService registrationService) {
 		this.registrationService = registrationService;
 	}
 	

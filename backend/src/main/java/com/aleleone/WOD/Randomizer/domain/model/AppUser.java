@@ -1,7 +1,5 @@
 package com.aleleone.WOD.Randomizer.domain.model;
 
-import static jakarta.persistence.GenerationType.IDENTITY;
-
 import java.io.Serializable;
 import java.util.Collection;
 import java.util.Collections;
@@ -39,8 +37,10 @@ public class AppUser implements UserDetails, Serializable {
 	private AppUserRole appUserRole;
 	private Boolean locked = false;
 	private Boolean enabled = false;
+	
     @OneToMany(mappedBy = "user") // One user can have many exercises
     private List<Exercise> exercises;
+    
     @OneToMany(mappedBy = "user") // One user can have many Wods
     private List<Wod> wods;
 

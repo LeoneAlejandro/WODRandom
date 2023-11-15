@@ -35,7 +35,6 @@ public class EmailSenderServiceImpl implements EmailSenderService {
 			helper.setText(email, true);
 			helper.setTo(to);
 			helper.setSubject("Confirm your email");
-			//			helper.setFrom("ale.leone09@gmail.com");
 			mailSender.send(mimeMessage);
 			//TODO Setear el email sender
 //			return true;

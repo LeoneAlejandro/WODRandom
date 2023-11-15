@@ -22,6 +22,8 @@ import static jakarta.persistence.GenerationType.IDENTITY;
 
 import java.util.List;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -42,18 +44,15 @@ public class Wod {
     
     @Column(name = "wod_name", nullable = false)
     private String wodName;
-//    @Column(name = "user_name", nullable = false)
-//    private String userName;
     
     @ManyToOne // Many Wods can belong to one AppUser
     @JoinColumn(name = "user_id") // Define the foreign key column
+    @JsonIgnore
     private AppUser user; // Reference to the AppUser
     
     @ManyToMany
     @JoinTable(
 		name = "saved_wods",
-//		joinColumns = @JoinColumn(name = "exercise_id"),
-//		inverseJoinColumns = @JoinColumn(name = "wod_id")
         joinColumns = @JoinColumn(name = "wod_id"),
         inverseJoinColumns = @JoinColumn(name = "exercise_id")
 		)

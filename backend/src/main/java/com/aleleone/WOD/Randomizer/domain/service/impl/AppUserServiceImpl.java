@@ -13,6 +13,7 @@ import com.aleleone.WOD.Randomizer.datasource.repository.AppUserRepository;
 import com.aleleone.WOD.Randomizer.domain.model.AppUser;
 import com.aleleone.WOD.Randomizer.domain.service.AppUserService;
 import com.aleleone.WOD.Randomizer.domain.service.ConfirmationTokenService;
+import com.aleleone.WOD.Randomizer.presentation.ChangePasswordRequest;
 import com.aleleone.WOD.Randomizer.presentation.ConfirmationToken;
 
 @Service

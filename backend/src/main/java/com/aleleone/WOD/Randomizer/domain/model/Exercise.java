@@ -5,6 +5,7 @@ import static jakarta.persistence.GenerationType.IDENTITY;
 
 import java.util.List;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 import jakarta.persistence.Column;
@@ -24,8 +25,6 @@ public class Exercise {
     @GeneratedValue(strategy = IDENTITY)
     private Long id;
 
-//    @Column(name = "user_name", nullable = false)
-//    private String userName;
     @Column(name = "exercise_name", nullable = false)
     private String exerciseName;
     @Column(name = "exercise_type", nullable = false)
@@ -33,11 +32,10 @@ public class Exercise {
     
     @ManyToOne // Many exercises can belong to one user
     @JoinColumn(name = "user_id") // Define the foreign key column
-    @JsonIgnoreProperties("exercises")
+    @JsonIgnore
     private AppUser user; // Reference to the user
 
     @ManyToMany(mappedBy = "exercises")
-    @JsonIgnoreProperties("exercises")
     List<Wod> savedWods;
 
     public Exercise() {
