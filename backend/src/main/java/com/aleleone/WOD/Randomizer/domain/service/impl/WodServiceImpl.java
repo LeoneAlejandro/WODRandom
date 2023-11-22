@@ -49,17 +49,17 @@ public class WodServiceImpl implements WodService {
     
     
 	private Wod createWodFromRequest(Long userId, CreationExcerciseWodRequest requestBodyDetails) {
-		AppUser user = returnUser(userId);
+		AppUser referenceById = appUserRepository.getReferenceById(userId);
 		String wodName = requestBodyDetails.getWodName();
 		List<Long> listOfIds = requestBodyDetails.getExercisesId();
 		List<Exercise> listOfExercises = new ArrayList<Exercise>();
 
 		for (Long exerciseId : listOfIds) {
 			Exercise exercise = exerciseRepository.findById(exerciseId).orElseThrow(() -> new EntityNotFoundException(
-					format("Ejercicio con id: %d para el usuario %s no existe", exerciseId, user)));
+					format("Ejercicio con id: %d para el usuario %s no existe", exerciseId, userId)));
 			listOfExercises.add(exercise);
 		}
-		return Wod.createWod(wodName, user, listOfExercises);
+		return Wod.createWod(wodName, referenceById, listOfExercises);
 	}
 
 
@@ -78,8 +78,8 @@ public class WodServiceImpl implements WodService {
 		int exAmountCardio = creationWodRequest.getExAmountCardio();
 		int exAmountOly = creationWodRequest.getExAmountOly();
 		
-		AppUser user = returnUser(userId);
-		List<Exercise> allExercises = exerciseRepository.findByUser(user);
+//		AppUser user = returnUser(userId);
+		List<Exercise> allExercises = exerciseRepository.findByUserId(userId);
 
 		shuffle(allExercises);
 
@@ -114,7 +114,6 @@ public class WodServiceImpl implements WodService {
 			
 	@Override
 	public List<Wod> find(Long userId) {
-//		AppUser user = returnUser(userId);
 		return wodRepository.findByUserId(userId);
 	}
 
@@ -133,7 +132,6 @@ public class WodServiceImpl implements WodService {
 	@Override
 	@Transactional
 	public Wod create(Long userId, CreationExcerciseWodRequest requestBodyDetails) {
-//		AppUser user = returnUser(userId);
 		Wod savedWod = createWodFromRequest(userId, requestBodyDetails);
 		wodRepository.save(savedWod);
 		

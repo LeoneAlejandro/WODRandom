@@ -26,6 +26,7 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
@@ -45,7 +46,7 @@ public class Wod {
     @Column(name = "wod_name", nullable = false)
     private String wodName;
     
-    @ManyToOne // Many Wods can belong to one AppUser
+    @ManyToOne(fetch = FetchType.LAZY) // Many Wods can belong to one AppUser
     @JoinColumn(name = "user_id") // Define the foreign key column
     @JsonIgnore
     private AppUser user; // Reference to the AppUser

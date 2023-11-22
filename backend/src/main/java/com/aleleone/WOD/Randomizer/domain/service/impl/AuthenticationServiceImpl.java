@@ -6,10 +6,10 @@ import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
-import com.aleleone.WOD.Randomizer.configuration.JwtService;
 import com.aleleone.WOD.Randomizer.datasource.repository.AppUserRepository;
 import com.aleleone.WOD.Randomizer.domain.model.AppUser;
 import com.aleleone.WOD.Randomizer.domain.model.AppUserDTO;
+import com.aleleone.WOD.Randomizer.domain.security.impl.JwtServiceImpl;
 import com.aleleone.WOD.Randomizer.domain.service.AuthenticationService;
 import com.aleleone.WOD.Randomizer.presentation.AuthenticationRequest;
 import com.aleleone.WOD.Randomizer.presentation.AuthenticationResponse;
@@ -19,11 +19,11 @@ import com.aleleone.WOD.Randomizer.presentation.ChangePasswordRequest;
 public class AuthenticationServiceImpl implements AuthenticationService {
 
 	private final AppUserRepository appUserRepository;
-	private final JwtService jwtService;
+	private final JwtServiceImpl jwtService;
 	private final AuthenticationManager authenticationManager;
 	private final BCryptPasswordEncoder bCryptPasswordEncoder;
 	
-	public AuthenticationServiceImpl(AppUserRepository appUserRepository, JwtService jwtService, AuthenticationManager authenticationManager, BCryptPasswordEncoder bCryptPasswordEncoder) {
+	public AuthenticationServiceImpl(AppUserRepository appUserRepository, JwtServiceImpl jwtService, AuthenticationManager authenticationManager, BCryptPasswordEncoder bCryptPasswordEncoder) {
 		this.appUserRepository = appUserRepository;
 		this.jwtService = jwtService;
 		this.authenticationManager = authenticationManager;

@@ -10,6 +10,7 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
@@ -30,7 +31,7 @@ public class Exercise {
     @Column(name = "exercise_type", nullable = false)
     private ExerciseType exerciseType;
     
-    @ManyToOne // Many exercises can belong to one user
+    @ManyToOne(fetch = FetchType.LAZY) // Many exercises can belong to one user
     @JoinColumn(name = "user_id") // Define the foreign key column
     @JsonIgnore
     private AppUser user; // Reference to the user

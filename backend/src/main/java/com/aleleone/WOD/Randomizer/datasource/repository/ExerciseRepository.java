@@ -10,7 +10,7 @@ import com.aleleone.WOD.Randomizer.domain.model.Exercise;
 
 public interface ExerciseRepository extends JpaRepository<Exercise, Long>{
 
-	List<Exercise> findByUser(AppUser user);
+	List<Exercise> findByUserId(Long userId);
 	
 	Optional<Exercise> findById(Long id);
 }

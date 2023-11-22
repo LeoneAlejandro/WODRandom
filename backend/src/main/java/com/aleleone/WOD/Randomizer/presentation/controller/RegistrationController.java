@@ -44,10 +44,5 @@ public class RegistrationController {
             return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(e.getMessage());
         }
 	}
-	
-//	@PostMapping
-//	public ResponseEntity<AuthenticationResponse> authenticate(@RequestBody AuthenticationRequest request) {
-//		return ResponseEntity.ok(authenticationService.authenticate(request));
-//	}
-	
+		
 }

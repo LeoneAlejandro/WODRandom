@@ -45,8 +45,8 @@ public class ExerciseServiceImpl implements ExerciseService {
     
     @Override
     public List<Exercise> find(Long userId) {
-        AppUser user = returnUser(userId);
-        return exerciseRepository.findByUser(user);
+//        AppUser user = returnUser(userId);
+        return exerciseRepository.findByUserId(userId);
         
         
 //		Segudno sin extraer        
@@ -68,7 +68,7 @@ public class ExerciseServiceImpl implements ExerciseService {
     public Exercise find(Long userId, Long exerciseId) {
     	AppUser user = returnUser(userId);
     	
-        List<Exercise> exercises = exerciseRepository.findByUser(user);
+        List<Exercise> exercises = exerciseRepository.findByUserId(userId);
         return exercises.stream()
                 .filter(e -> e.getId().equals(exerciseId))
                 .findFirst().orElseThrow(
@@ -111,18 +111,17 @@ public class ExerciseServiceImpl implements ExerciseService {
 
 	@Override
 	public Exercise findByType(Long userId, Long exerciseId) {
-    	AppUser user = returnUser(userId);
+//    	AppUser user = returnUser(userId);
     			
-		List<Exercise> exercises = exerciseRepository.findByUser(user);
+		List<Exercise> exercises = exerciseRepository.findByUserId(userId);
 		List<Exercise> exercisesByType = new ArrayList<>();
 		
 		Exercise exercise = exercises.stream()
 			    .filter(ex -> ex.getId().equals(exerciseId))
 			    .findFirst().orElseThrow(
-                        () -> new EntityNotFoundException(format("Ejercicio con id: %d para el usuario %s no existe", exerciseId, user))
+                        () -> new EntityNotFoundException(format("Ejercicio con id: %d para el usuario %s no existe", exerciseId, userId))
                 );
 		
-//		Exercise exercise = find(userId, exerciseId);
 		ExerciseType exType = exercise.getExerciseType();
 		
 		for (Exercise ex : exercises) {

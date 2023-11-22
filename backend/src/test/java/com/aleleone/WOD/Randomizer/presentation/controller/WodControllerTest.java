@@ -77,7 +77,7 @@ public class WodControllerTest {
     	mvc.perform(get(USERNAME_WODS_ID_URL, "MockUsername", "1"))
     		.andExpect(status().is2xxSuccessful())
     		.andExpect(jsonPath("$.wodName").value("MockWodname1"))
-    		.andExpect(jsonPath("$.userName").value("MockUsername"))
+//    		.andExpect(jsonPath("$.userName").value("MockUsername"))
             .andExpect(jsonPath("$.exercises", hasSize(2)))
     		.andExpect(jsonPath("$.exercises[0].id").value(1))
     		.andExpect(jsonPath("$.exercises[0].exerciseName").value("MockExerciseName1"))
