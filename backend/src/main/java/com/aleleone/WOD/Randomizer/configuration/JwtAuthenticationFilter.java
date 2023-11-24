@@ -11,8 +11,6 @@ import org.springframework.stereotype.Component;
 import org.springframework.web.filter.OncePerRequestFilter;
 
 import com.aleleone.WOD.Randomizer.domain.security.JwtService;
-import com.aleleone.WOD.Randomizer.domain.security.impl.JwtServiceImpl;
-import com.aleleone.WOD.Randomizer.domain.service.impl.AppUserServiceImpl;
 
 import io.micrometer.common.lang.NonNull;
 import jakarta.servlet.FilterChain;

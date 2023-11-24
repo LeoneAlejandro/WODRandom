@@ -9,10 +9,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.aleleone.WOD.Randomizer.domain.service.AuthenticationService;
 import com.aleleone.WOD.Randomizer.domain.service.RegistrationService;
-import com.aleleone.WOD.Randomizer.presentation.AuthenticationRequest;
-import com.aleleone.WOD.Randomizer.presentation.AuthenticationResponse;
 import com.aleleone.WOD.Randomizer.presentation.RegistrationRequest;
 
 @RestController

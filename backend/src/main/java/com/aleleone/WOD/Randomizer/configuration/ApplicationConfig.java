@@ -11,7 +11,6 @@ import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
 import com.aleleone.WOD.Randomizer.datasource.repository.AppUserRepository;
-import com.aleleone.WOD.Randomizer.domain.service.impl.AppUserServiceImpl;
 
 @Configuration
 public class ApplicationConfig {

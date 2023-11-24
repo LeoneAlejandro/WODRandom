@@ -8,7 +8,6 @@ import java.util.Optional;
 import java.util.Random;
 
 import org.springframework.stereotype.Service;
-import org.modelmapper.ModelMapper;
 
 import com.aleleone.WOD.Randomizer.datasource.repository.AppUserRepository;
 import com.aleleone.WOD.Randomizer.datasource.repository.ExerciseRepository;
