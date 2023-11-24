@@ -13,13 +13,12 @@ import com.aleleone.WOD.Randomizer.datasource.repository.AppUserRepository;
 import com.aleleone.WOD.Randomizer.domain.model.AppUser;
 import com.aleleone.WOD.Randomizer.domain.service.AppUserService;
 import com.aleleone.WOD.Randomizer.domain.service.ConfirmationTokenService;
-import com.aleleone.WOD.Randomizer.presentation.ChangePasswordRequest;
 import com.aleleone.WOD.Randomizer.presentation.ConfirmationToken;
 
 @Service
-public class AppUserServiceImpl implements AppUserService, UserDetailsService {
+public class AppUserServiceImpl implements AppUserService {
 
-	private final static String USER_NOT_FOUND_MSG = "User with email %s not found";
+//	private final static String USER_NOT_FOUND_MSG = "User with email %s not found";
 	private final static int TOKEN_EXPIRATION_MINUTES = 15;
 
 	private final AppUserRepository appUserRepository;
@@ -34,19 +33,19 @@ public class AppUserServiceImpl implements AppUserService, UserDetailsService {
 	}
 	
 	
-	public UserDetails loadUserByUsername(String email) throws UsernameNotFoundException {
-		AppUser user = appUserRepository.findByEmail(email)
-	            .orElseThrow(() -> new UsernameNotFoundException(USER_NOT_FOUND_MSG + email));
-
-        return org.springframework.security.core.userdetails.User.builder()
-                .username(user.getEmail())
-                .password(user.getPassword())
-                // Can add roles here if needed
-                .build();
-        
+//	public UserDetails loadUserByUsername(String email) throws UsernameNotFoundException {
+////		AppUser user = appUserRepository.findByEmail(email)
+////	            .orElseThrow(() -> new UsernameNotFoundException(USER_NOT_FOUND_MSG + email));
+////
+////        return org.springframework.security.core.userdetails.User.builder()
+////                .username(user.getEmail())
+////                .password(user.getPassword())
+////                // Can add roles here if needed
+////                .build();
+//        
 //		return appUserRepository.findByEmail(email)
 //				.orElseThrow(()-> new UsernameNotFoundException(String.format(USER_NOT_FOUND_MSG, email)));
-	}
+//	}
 	
 	public String singUpUser(AppUser appUser) {
 		boolean userExists = appUserRepository.findByEmail(appUser.getEmail()).isPresent();
@@ -80,5 +79,4 @@ public class AppUserServiceImpl implements AppUserService, UserDetailsService {
 	public int enableAppUser(String email) {
         return appUserRepository.enableAppUser(email);
 	}
-
 }
