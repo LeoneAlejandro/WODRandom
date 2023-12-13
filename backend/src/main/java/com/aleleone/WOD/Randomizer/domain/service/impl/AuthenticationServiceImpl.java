@@ -2,6 +2,7 @@ package com.aleleone.WOD.Randomizer.domain.service.impl;
 
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
+import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
@@ -30,17 +31,19 @@ public class AuthenticationServiceImpl implements AuthenticationService {
 		this.bCryptPasswordEncoder = bCryptPasswordEncoder;
 	}
 	
+	
 	public AuthenticationResponse authenticate(AuthenticationRequest request) {
 		authenticationManager.authenticate(new UsernamePasswordAuthenticationToken(request.email(), request.password()));
-		var user = appUserRepository.findByEmail(request.email()).orElseThrow();
-		var jwtToken = jwtService.generateToken(user);
-		return new AuthenticationResponse(jwtToken);
+//		UserDetails user = appUserRepository.findByEmail(request.email()).orElseThrow();
+		AppUser user = appUserRepository.findByEmail(request.email()).orElseThrow();
+		String jwtToken = jwtService.generateToken(user);
+		return new AuthenticationResponse(jwtToken, user.getId());
 	}
 
-	@Override
-	public AppUserDTO findUserDTOById(Long id) {
-		return appUserRepository.finAppUserDTOsByUserId(id);
-	}
+//	@Override
+//	public AppUserDTO findUserDTOById(Long id) {
+//		return appUserRepository.finAppUserDTOsByUserId(id);
+//	}
 	
 	@Override
 	public void changePassword(ChangePasswordRequest request, Long userId) {

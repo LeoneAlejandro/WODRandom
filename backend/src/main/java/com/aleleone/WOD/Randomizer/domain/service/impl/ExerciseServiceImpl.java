@@ -44,34 +44,20 @@ public class ExerciseServiceImpl implements ExerciseService {
     
     @Override
     public List<Exercise> find(Long userId) {
-//        AppUser user = returnUser(userId);
         return exerciseRepository.findByUserId(userId);
-        
-        
-//		Segudno sin extraer        
-//        Optional<AppUser> userOptional = appUserRepository.findById(userId);
-//        if (userOptional.isPresent()) {
-//            AppUser user = userOptional.get();
-//            return exerciseRepository.findByUser(user);
-//        } else {
-//        	throw new EntityNotFoundException(format("User with id %d doesn't exists", userId));
-//        }
-    	
-//		original mal        
-//    	AppUser user = appUserRepository.findById(userId);
-//        return exerciseRepository.findByUser(user);
     }
     
 
     @Override
     public Exercise find(Long userId, Long exerciseId) {
-    	AppUser user = returnUser(userId);
+//    	AppUser user = returnUser(userId);
+//    	AppUser referenceById = appUserRepository.getReferenceById(userId);
     	
         List<Exercise> exercises = exerciseRepository.findByUserId(userId);
         return exercises.stream()
                 .filter(e -> e.getId().equals(exerciseId))
                 .findFirst().orElseThrow(
-                        () -> new EntityNotFoundException(format("Ejercicio con id: %d para el usuario %s no existe", exerciseId, user))
+                        () -> new EntityNotFoundException(format("Ejercicio con id: %d para el usuario %s no existe", exerciseId, userId))
                 );
     }
     
@@ -89,7 +75,7 @@ public class ExerciseServiceImpl implements ExerciseService {
 
     @Override
     public void delete(Long userId, Long exerciseId) {
-        exerciseRepository.deleteById(exerciseId);
+    	exerciseRepository.deleteById(exerciseId);
     }
     
 
@@ -104,7 +90,7 @@ public class ExerciseServiceImpl implements ExerciseService {
             exerciseRepository.save(exercise);
             return exercise;
         }
-        throw new EntityNotFoundException(format("Ejercicio con id: %d para el usuario %s no existe", exerciseId, user));
+        throw new EntityNotFoundException(format("Ejercicio con id: %d para el usuario %s no existe", exerciseId, userId));
     }
     
 

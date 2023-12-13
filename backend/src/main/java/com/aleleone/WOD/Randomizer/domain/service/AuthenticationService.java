@@ -10,7 +10,7 @@ public interface AuthenticationService {
 
 	public AuthenticationResponse authenticate(AuthenticationRequest request);
 	
-	public AppUserDTO findUserDTOById(Long id);
+//	public AppUserDTO findUserDTOById(Long id);
 	
     public void changePassword(ChangePasswordRequest changePasswordRequest, Long userId);
 }

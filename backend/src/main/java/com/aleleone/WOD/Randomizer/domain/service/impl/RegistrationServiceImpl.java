@@ -40,10 +40,13 @@ public class RegistrationServiceImpl implements RegistrationService {
 	
 	@Override
 	public String register(RegistrationRequest request) {
+		
 		boolean isValidEmail = emailValidator.test(request.getEmail());
+		
 		if (!isValidEmail) {
 			throw new IllegalStateException("Email not valid");
 		}
+		
 		String token = appUserService.singUpUser(new AppUser(request.getFirstName(),
 											  				 request.getLastName(),
 															 request.getEmail(), 
@@ -59,7 +62,8 @@ public class RegistrationServiceImpl implements RegistrationService {
 
 	@Transactional
 	public String confirmToken(String token) {
-		ConfirmationToken confirmationToken = confirmationTokenService.getToken(token).orElseThrow(()->new IllegalStateException("Token not found"));
+		ConfirmationToken confirmationToken = confirmationTokenService.getToken(token)
+				.orElseThrow(()->new IllegalStateException("Token not found"));
 		
 		if(confirmationToken.getConfirmedAt() != null) {
 			throw new IllegalStateException("Email already confirmed");

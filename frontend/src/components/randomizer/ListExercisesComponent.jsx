@@ -7,7 +7,8 @@ import '../css/ListExercisesComponent.css'
 export default function ListExercisesComponent() {
 
     const authContext = useAuth()
-    const username = authContext.username
+    // const username = authContext.username
+    const userId = authContext.userId
 
     const navigate = useNavigate()
 
@@ -19,7 +20,9 @@ export default function ListExercisesComponent() {
     )
 
     function refreshExercises() {
-        retriveAllExercisesForUsernameApi(username)
+        // console.log(authContext)
+        // console.log(userId)
+        retriveAllExercisesForUsernameApi(userId)
             .then(response => {
                 setExercise(response.data)
             })
@@ -27,7 +30,7 @@ export default function ListExercisesComponent() {
     }
 
     function deleteExercise(id){
-        deleteExerciseApi(username, id)
+        deleteExerciseApi(userId, id)
             .then(() => {
                     refreshExercises()
             })

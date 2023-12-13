@@ -10,7 +10,7 @@ export default function ExerciseComponent() {
 
     const { id } = useParams()
     const authContext = useAuth()
-    const username = authContext.username
+    const userId = authContext.userId
     const navigate = useNavigate()
 
     const [exerciseName, setExerciseName] = useState('')
@@ -18,7 +18,7 @@ export default function ExerciseComponent() {
 
     function retriveExercises() {
         if(id !== "-1") {
-            retriveExerciseApi(username, id)
+            retriveExerciseApi(userId, id)
                 .then(response => {
                     setExerciseName(response.data.exerciseName)
                     setExerciseType(response.data.exerciseType)
@@ -35,19 +35,19 @@ export default function ExerciseComponent() {
        
         const exercise = { 
             id: id, 
-            username: username, 
+            // userId: userId,
             exerciseName: values.exerciseName, 
             exerciseType: values.exerciseType, 
             }
 
         if(id === "-1") {
-            createExerciseApi(username, exercise)
+            createExerciseApi(userId, exercise)
                 .then(response => {
                   navigate('/exercises')
                 })
                 .catch(error => console.log(error))
         } else {
-            updateExerciseApi(username, id, exercise)
+            updateExerciseApi(userId, id, exercise)
                 .then(response => {
                     navigate('/exercises')
                 })
@@ -57,6 +57,7 @@ export default function ExerciseComponent() {
     
     function validate(values) {
         let errors = {}
+        // console.log(authContext)
         if(values.exerciseName.length < 2) {
             errors.exerciseName = 'El ejercicio debe tener más de 2 caracteres'}
         if(values.exerciseType.length < 2) {

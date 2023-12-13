@@ -24,7 +24,7 @@ export default function LoginComponent() {
 
     async function handleSubmit(){
         if(await authContext.login(email, password)) {
-            console.log("vamos a welcome")
+            // console.log("vamos a welcome")
             navigate(`/welcome`)
         } else {
             setShowErrorMessage(true)

@@ -3,7 +3,7 @@ import {retriveAllExercisesForUsernameApi} from './api/ExerciseApiService';
 import '../css/ExerciseSelectorPopup.css'
 
 
-function ExerciseSelectorPopup( { username, onSelectExercise }) {
+function ExerciseSelectorPopup( { userId, onSelectExercise }) {
 
   const modalRef = useRef();
   const [exercises, setExercises] = useState([]);
@@ -13,11 +13,11 @@ function ExerciseSelectorPopup( { username, onSelectExercise }) {
 
   useEffect(() => {
     async function fetchExercises() {
-      const response = await retriveAllExercisesForUsernameApi(username);
+      const response = await retriveAllExercisesForUsernameApi(userId);
       setExercises(response.data);
     }
     fetchExercises();
-  }, [username]);
+  }, [userId]);
 
 
   function handleSelectExercise(exerciseId, exerciseName) {

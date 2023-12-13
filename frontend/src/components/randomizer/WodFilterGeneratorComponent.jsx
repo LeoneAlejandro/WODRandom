@@ -11,7 +11,8 @@ import refresh from '../../assets/images/refresh.png'
 export default function WodFilterGeneratorComponent() {
 
     const authContext = useAuth()
-    const username = authContext.username
+    // const username = authContext.username
+    const userId = authContext.userId
     const navigate = useNavigate()
 
     const [listOfExercises, setListOfExercises] = useState('')
@@ -27,7 +28,7 @@ export default function WodFilterGeneratorComponent() {
             exAmountOly: values.exAmountOly
             }
 
-        generateWod(username, wod)
+        generateWod(userId, wod)
             .then(response => {
                 setListOfExercises(response.data)
             })
@@ -52,7 +53,7 @@ export default function WodFilterGeneratorComponent() {
             exercisesId: listExerciesId
         }
 
-        saveWod(username, creationExcerciseWodRequest)
+        saveWod(userId, creationExcerciseWodRequest)
             .then((response) => {
                 navigate(`/wods`)
             })
@@ -65,8 +66,9 @@ export default function WodFilterGeneratorComponent() {
 
     function onReRoll(index) {
         const exercise = listOfExercises[index]
+        // console.log(exercise)
 
-        retriveRandomExerciseByType(username, exercise)
+        retriveRandomExerciseByType(userId, exercise.id)
             .then(res => {
                 const updatedExercises = [...listOfExercises];
                 updatedExercises[index] = res.data;

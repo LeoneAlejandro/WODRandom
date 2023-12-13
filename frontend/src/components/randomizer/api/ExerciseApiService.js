@@ -2,22 +2,22 @@ import { apiClient } from './ApiClient'
 
 
 export const retriveAllExercisesForUsernameApi
-        = (username) => apiClient.get(`/users/${username}/exercises`)
+        = (userId) => apiClient.get(`/users/${userId}/exercises`)
 
 export const deleteExerciseApi
-        = (username, id) => apiClient.delete(`/users/${username}/exercises/${id}`)
+        = (userId, id) => apiClient.delete(`/users/${userId}/exercises/${id}`)
 
 
 export const retriveExerciseApi
-        = (username, id) => apiClient.get(`/users/${username}/exercises/${id}`)
+        = (userId, id) => apiClient.get(`/users/${userId}/exercises/${id}`)
 
 export const updateExerciseApi
-        = (username, id, exercise) => apiClient.put(`/users/${username}/exercises/${id}`, exercise)
+        = (userId, id, exercise) => apiClient.put(`/users/${userId}/exercises/${id}`, exercise)
 
 export const createExerciseApi
-        = (username, exercise) => apiClient.post(`/users/${username}/exercises`, exercise)
+        = (userId, exercise) => apiClient.post(`/users/${userId}/exercises`, exercise)
 
 export const retriveRandomExerciseByType
-        = (username, exercise) => apiClient.post(`/users/${username}/exercises/type`, exercise)
+        = (userId, exerciseId) => apiClient.post(`/users/${userId}/exercises/type/${exerciseId}`)
 
 

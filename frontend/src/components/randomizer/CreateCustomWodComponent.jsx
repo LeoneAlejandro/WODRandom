@@ -15,6 +15,7 @@ function CreateCustomWodComponent() {
 
   const authContext = useAuth()
   const username = authContext.username
+  const userId = authContext.userId
 
   useEffect(() => {
      retriveWod()
@@ -23,7 +24,7 @@ function CreateCustomWodComponent() {
   async function retriveWod() {
     if (id !== "-1") {
       try {
-        const response = await retriveSavedWod(username, id);
+        const response = await retriveSavedWod(userId, id);
         setSelectedExerciseIds(response.data.exercises);
         setWodName(response.data.wodName)
       } catch (error) {
@@ -56,10 +57,10 @@ function CreateCustomWodComponent() {
     }
 
     if(id !== "-1") {
-      updateWodById(username, id, creationExcerciseWodRequest)
+      updateWodById(userId, id, creationExcerciseWodRequest)
         .then(() => navigate(`/wods`))
     } else {
-      saveWod(username, creationExcerciseWodRequest)
+      saveWod(userId, creationExcerciseWodRequest)
         .then(() => {
           navigate(`/wods`)
         })
@@ -78,7 +79,7 @@ function CreateCustomWodComponent() {
   return (
     <div className='customWod'>
       <h2 className='CustomWodh2'>Crea tu custom WOD</h2>
-      <ExerciseSelectorPopup username={username} onSelectExercise={handleSelectExercise} />
+      <ExerciseSelectorPopup userId={userId} onSelectExercise={handleSelectExercise} />
       <div className='create-custom-wod-table'>
         { selectedExerciseIds.length > 0 &&
           <table className="tableCustomWod">

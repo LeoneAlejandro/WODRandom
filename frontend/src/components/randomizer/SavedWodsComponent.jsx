@@ -8,7 +8,8 @@ import { useNavigate } from "react-router-dom"
 export default function SavedWodsComponent() {
 
     const authContext = useAuth()
-    const username = authContext.username
+    // const username = authContext.username
+    const userId = authContext.userId
     const navigate = useNavigate()
  
 
@@ -22,7 +23,7 @@ export default function SavedWodsComponent() {
     )
 
     function refreshSavedWods() {
-        retrevieSavedWodsForUsername(username)
+        retrevieSavedWodsForUsername(userId)
             .then(response => {
                 setSavedWod(response.data)
             })
@@ -32,7 +33,7 @@ export default function SavedWodsComponent() {
     }
 
     function getSelectedWod(id) {
-        retriveSavedWod(username, id)
+        retriveSavedWod(userId, id)
             .then(response => {
                 setSelectedWod(response.data)
             })
@@ -40,7 +41,7 @@ export default function SavedWodsComponent() {
     }
 
     function deleteWod() {
-        deleteWodById(username, selectedWod.id) 
+        deleteWodById(userId, selectedWod.id) 
             .then(() => {
                 refreshSavedWods()
                 setSelectedWod(null)
